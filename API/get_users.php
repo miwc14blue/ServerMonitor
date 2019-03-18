@@ -6,7 +6,7 @@ $databasePDOInstance = new DatabasePDO();
 
 $conn = $databasePDOInstance->get();
 
-$query = "SELECT * FROM webshop.orders;";
+$query = "SELECT * FROM servermonitor.user;";
     
     try{
         $statement = $conn->prepare($query);

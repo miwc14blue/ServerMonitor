@@ -9,15 +9,14 @@
     <body>
         <table border="1">
             <tr>
-                <th>Naam</th>
-                <th>Adres</th>
-                <th>Maat</th>
-                <th>Kleur</th>
-                <th>Glitter</th>
+                <th>Gebruikersnaam</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Rol</th>
             </tr>
         <?php
             $ch= curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/API/get_orders.php');
+            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/API/get_users.php');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
             $output = curl_exec($ch);
@@ -29,19 +28,16 @@
                         ?>
             <tr>
                 <td>
-                    <?php echo $row->name?>
+                    <?php echo $row->firstname? /*TODO: edit to proper name*/>
                 </td>
                 <td>
-                    <?php echo $row->address?>
+                    <?php echo $row->lastname? /*TODO: edit to proper name*/>
                 </td>
                 <td>
-                    <?php echo $row->size?>
+                    <?php echo $row->username? /*TODO: edit to proper name*/>
                 </td>
                 <td>
-                    <?php echo $row->color?>
-                </td>
-                <td>
-                    <?php echo $row->glitter? "Ja" : "Nee";?>
+                    <?php echo $row->role? /*TODO: edit to proper name*/>
                 </td>
             </tr>
             <?php

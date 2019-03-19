@@ -12,7 +12,7 @@
     <body>
         <table>
             <tr>
-                <th class="headerUserTable" colspan="6">Gebruikersoverzicht 
+                <th class="headerUserTable" colspan="6">Gebruikersoverzicht
                 </th>
             </tr>
             <tr>
@@ -25,14 +25,14 @@
             </tr>
             <?php
             $ch= curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/API/getUserList.php');
+            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/ServerMonitor/API/getUserList.php');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            
+
             $output = curl_exec($ch);
             $data = json_decode($output);
-            
+
             curl_close($ch);
-           
+
             foreach($data as $row){
                         ?>
             <tr>

@@ -6,7 +6,7 @@ $databasePDOInstance = new DatabasePDO();
 
 $conn = $databasePDOInstance->get();
 
-$query = "SELECT userName, firstName, lastName, role FROM servermonitor.user  WHERE (`deleted` = '0');";
+$query = "SELECT userName, firstName, lastName, role FROM servermonitor.user  WHERE (`deleted` = '0') ORDER BY userName;";
     
     try{
         $statement = $conn->prepare($query);

@@ -1,5 +1,4 @@
 <?php
-//Mijn eerste php file
 class DatabasePDO {
     
     private $username = 'root';

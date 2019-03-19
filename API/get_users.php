@@ -6,9 +6,10 @@ $databasePDOInstance = new DatabasePDO();
 
 $conn = $databasePDOInstance->get();
 
-$query = "SELECT * FROM servermonitor.user;";
+$query = "SELECT firstName, lastName, userName, role FROM servermonitor.user;";
     
     try{
+        $statement = $conn->prepare($query);
         $statement = $conn->prepare($query);
         $statement->execute();
     

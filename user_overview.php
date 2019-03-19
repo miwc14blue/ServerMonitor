@@ -1,11 +1,12 @@
 <DOCTYPE html>
-<html>
+    <html>
+
     <head>
         <title>
-        Super formulier
+            User overview
         </title>
     </head>
-    
+
     <body>
         <table border="1">
             <tr>
@@ -14,7 +15,7 @@
                 <th>Achternaam</th>
                 <th>Rol</th>
             </tr>
-        <?php
+            <?php
             $ch= curl_init();
             curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/API/get_users.php');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -28,21 +29,21 @@
                         ?>
             <tr>
                 <td>
-                    <?php echo $row->firstname? /*TODO: edit to proper name*/>
+                    <?php echo $row->firstName?>
                 </td>
                 <td>
-                    <?php echo $row->lastname? /*TODO: edit to proper name*/>
+                    <?php echo $row->lastName?>
                 </td>
                 <td>
-                    <?php echo $row->username? /*TODO: edit to proper name*/>
+                    <?php echo $row->userName?>
                 </td>
                 <td>
-                    <?php echo $row->role? /*TODO: edit to proper name*/>
+                    <?php echo $row->role?>
                 </td>
             </tr>
             <?php
     } ?>
         </table>
-        <a href="index.html">Ga terug naar de bestelpagina</a>
     </body>
-</html>
+
+    </html>

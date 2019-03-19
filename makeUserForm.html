@@ -1,0 +1,46 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>Nieuwe gebruiker</title>
+    </head>
+
+    <body>
+        <h1>Nieuwe gebruiker aanmaken</h1>
+
+        <form method="POST" action="API/createUser.php">
+            <p>
+                <label>
+                    Gebruikersnaam
+                    <input name='userName' type="text" />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Voornaam
+                    <input name='firstName' type="text" />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Achternaam
+                    <input name='lastName' type="text" />
+                </label>
+            </p>
+            <p>
+                <label>
+                    Wachtwoord
+                    <input name='password' type="text" />
+                </label>
+            </p>
+            <p>
+                <input type="submit" value="Maak gebruiker aan" />
+                <button type="reset" value="Reset">Reset</button>
+            </p>
+        </form>
+
+    </body>
+
+    </html>
+</DOCTYPE>

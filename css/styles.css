@@ -1,3 +1,45 @@
+body{
+    font-family: sans-serif;
+    background: #f0f5f9;
+    margin: 0;
+}
+
+tr:nth-child(even) {
+    background: #fafafa
+}
+
+tr:nth-child(odd) {
+    background: #ffffff
+}
+
+
+td{
+    margin: 0;
+    padding: 1.2em;  
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    
+}
+
+tr {
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    text-align: left;
+    padding: 1.2em;
+}
+
+.headerUserTable {
+    font-weight: normal;
+}
+
+
 /*CSS File For Log-In webpage*/
 #body-color{
     background-color:#f0f5f9;
@@ -40,12 +82,6 @@
 
 }
 
-body { 
-    background-color: #f0f5f9;
-    margin: 0;
-}
-
-
 /*CSS for Gebruikers Overzicht*/
 
     img, a {
@@ -61,12 +97,10 @@ body {
 
     a:hover {
         color: orangered;
-/*        text-decoration: underline;*/
     }
 
     .uitloggen {
         float: right;
-/*        padding: 50px;*/
     }
 
     .menu {
@@ -76,12 +110,8 @@ body {
         flex-direction: row;
     }
 
-/*
-    nav {
-         display: flex;
-        flex-direction: row;
-    }
-*/
+
+
 
 
 

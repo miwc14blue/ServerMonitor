@@ -5,8 +5,12 @@
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+        $myusername = mysqli_real_escape_string($db,$_POST['username']);
+        $mypassword = mysqli_real_escape_string($db,$_POST['password']);
+       
+       if($myusername == empty || $mypassword == empty) {
+          $error = "Please fill in both fields.";
+      } 
       
       $sql = "SELECT * FROM user WHERE userName = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($db,$sql);

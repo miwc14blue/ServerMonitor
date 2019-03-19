@@ -12,7 +12,7 @@
     <body>
         <table>
             <tr>
-                <th class="headerUserTable" colspan="6">Gebruikersoverzicht
+                <th class="headerUserTable" colspan="6">Gebruikersoverzicht 
                 </th>
             </tr>
             <tr>

@@ -1,0 +1,39 @@
+body{
+    font-family: sans-serif;
+    background: #efefef;
+}
+
+tr:nth-child(even) {
+    background: #fafafa
+}
+
+tr:nth-child(odd) {
+    background: #ffffff
+}
+
+
+td{
+    margin: 0;
+    padding: 1.2em;  
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    
+}
+
+tr {
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    text-align: left;
+    padding: 1.2em;
+}
+
+.headerUserTable {
+    font-weight: normal;
+}

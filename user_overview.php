@@ -6,13 +6,13 @@
             User overview
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/stylesheet.css">
+        <link rel="stylesheet" href="styling/style-login.css">
     </head>
 
     <body>
-        <table border="1">
-            <tr class="headerUserTable">
-                <th>Gebruikersoverzicht
+        <table>
+            <tr>
+                <th class="headerUserTable" colspan="6">Gebruikersoverzicht 
                 </th>
             </tr>
             <tr>
@@ -20,6 +20,8 @@
                 <th>VOORNAAM</th>
                 <th>ACHTERNAAM</th>
                 <th>ROL</th>
+                <th></th>
+                <th></th>
             </tr>
             <?php
             $ch= curl_init();

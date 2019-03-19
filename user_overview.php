@@ -5,15 +5,21 @@
         <title>
             User overview
         </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/stylesheet.css">
     </head>
 
     <body>
         <table border="1">
+            <tr class="headerUserTable">
+                <th>Gebruikersoverzicht
+                </th>
+            </tr>
             <tr>
-                <th>Gebruikersnaam</th>
-                <th>Voornaam</th>
-                <th>Achternaam</th>
-                <th>Rol</th>
+                <th>GEBRUIKERSNAAM</th>
+                <th>VOORNAAM</th>
+                <th>ACHTERNAAM</th>
+                <th>ROL</th>
             </tr>
             <?php
             $ch= curl_init();
@@ -29,16 +35,22 @@
                         ?>
             <tr>
                 <td>
+                    <?php echo $row->userName?>
+                </td>
+                <td>
                     <?php echo $row->firstName?>
                 </td>
                 <td>
                     <?php echo $row->lastName?>
                 </td>
                 <td>
-                    <?php echo $row->userName?>
+                    <?php echo $row->role?>
                 </td>
                 <td>
-                    <?php echo $row->role?>
+                    <i class="fa fa-pencil"></i>
+                </td>
+                <td>
+                    <i class="fa fa-trash"></i>
                 </td>
             </tr>
             <?php

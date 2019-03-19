@@ -1,0 +1,87 @@
+/*CSS File For Log-In webpage*/
+#body-color{
+    background-color:#f0f5f9;
+}
+#Sign-In{
+    margin-top:25%;
+    margin-bottom:25%;
+    margin-right:25%;
+    margin-left:25%;
+    border:1px solid #eef2f7;
+    font-family:sans-serif;
+    padding:9px 35px; 
+    background:#ffffff;
+    width:400px;
+}
+
+#button{
+    border-radius:10px;
+    width:100px;
+    height:40px;
+    background:#acbac7;
+    font-family:sans-serif;
+    font-size:20px;
+    display: inline-block;
+    margin-right: 0%;
+}
+
+#boxheader {
+    display: inline-block;
+    font-family:sans-serif;
+    text-decoration-color:#e90b0b;
+    size: 2em;
+}
+
+/*CSS for Landing page*/
+
+.logo {
+    width: 300px;
+    height: 160px;
+
+}
+
+body { 
+    background-color: #f0f5f9;
+    margin: 0;
+}
+
+
+/*CSS for Gebruikers Overzicht*/
+
+    img, a {
+        display: inline-block;
+    }
+
+    a {
+        font-size: 1.5rem;
+        text-decoration: none;
+        padding: 50px;
+        font-family: sans-serif;
+    }
+
+    a:hover {
+        color: orangered;
+/*        text-decoration: underline;*/
+    }
+
+    .uitloggen {
+        float: right;
+/*        padding: 50px;*/
+    }
+
+    .menu {
+        float: right;
+        margin-left: 50px;
+        display: flex;
+        flex-direction: row;
+    }
+
+/*
+    nav {
+         display: flex;
+        flex-direction: row;
+    }
+*/
+
+
+

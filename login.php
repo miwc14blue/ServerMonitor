@@ -5,6 +5,7 @@
   $databasePDOInstance = new DatabasePDO();
   $conn = $databasePDOInstance->get();
 
+  //Get password and username from user input
   $password = $_POST['password'];
   $username = $_POST['username'];
 

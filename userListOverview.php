@@ -25,7 +25,7 @@
             </tr>
             <?php
             $ch= curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/API/get_users.php');
+            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/API/getUserList.php');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             
             $output = curl_exec($ch);

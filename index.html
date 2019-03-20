@@ -4,14 +4,15 @@
     <meta charset='UTF-8'/>
     <title>Server Monitor</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/styles-login.css">
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
 </head>
-<body id="body-color">
+<body>
     <div id="login">
         <h1 id="boxheader">Server Monitor</h1>
         <form method="POST" action="connectivity.php">
-            Gebruikersnaam <br><input type="text" name="user" size="40"><br>
-            Wachtwoord <br><input type="password" name="pass" size="40"><br>
+            Gebruikersnaam  <br><input class="field" type="text" name="user"><br>
+            Wachtwoord <br><input class="field" type="password" name="pass"><br>
             <input id="button" type="submit" name="submit" value="Inloggen">
         </form>
     </div>

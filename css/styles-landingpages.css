@@ -1,0 +1,14 @@
+/*CSS for landingpages*/
+
+#container {
+    border: 2px;
+    border-style:groove;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 350px;
+    width: 90%;
+    margin: auto;
+    background-color: white;
+}
+
+

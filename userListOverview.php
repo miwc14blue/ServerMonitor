@@ -1,18 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Gebruikers Overzicht</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body>
+
 <DOCTYPE html>
     <html>
 
     <head>
         <title>
-            User overview
+            Gebruikersoverzicht
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
+
     <body>
+
+        <nav id="navHeader">
+            <img class="logo" src="img/logo.png">
+            <a href="html/systeeemOverzichtAdm.html">Systeem overzicht</a>
+            <a class="active"href="">Gebruikers</a>
+            <a class="uitloggen" href="">Uitloggen</a>
+        </nav>
+
         <table>
             <tr>
-                <th class="headerUserTable" colspan="6">Gebruikersoverzicht 
+                <th class="headerUserTable" colspan="6">Gebruikersoverzicht
                 </th>
             </tr>
             <tr>

@@ -74,6 +74,7 @@ a:hover:not(.active) {
 
 .uitloggen {
 /*    margin-left: 35%;*/
+  align-self: flex-end;
 }
 
 #navHeader {
@@ -94,6 +95,3 @@ a:hover:not(.active) {
     margin: auto;
     background-color: white;
 }
-
-
-

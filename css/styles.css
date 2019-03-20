@@ -4,18 +4,11 @@ body{
     margin: 0;
 }
 
-tr:nth-child(even) {
-    background: #fafafa
-}
-
-tr:nth-child(odd) {
-    background: #ffffff
-}
-
-
-td{
-    margin: 0;
-    padding: 1.2em;  
+h3 {
+    border-bottom: 2px groove;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    text-indent: 20px;
 }
 
 table {
@@ -23,7 +16,6 @@ table {
     width: 80%;
     margin-left: 10%;
     margin-top: 2%;
-    
 }
 
 tr {
@@ -35,15 +27,25 @@ th {
     padding: 1.2em;
 }
 
+tr:nth-child(even) {
+    background: #fafafa
+}
+
+tr:nth-child(odd) {
+    background: #ffffff
+}
+
+td{
+    margin: 0;
+    padding: 1.2em;  
+}
+
 .headerUserTable {
     font-weight: normal;
 }
 
 
 /*CSS File For login webpage*/
-#body-color{
-    background-color:#f0f5f9;
-}
 
 #login{
     margin-top:25%;
@@ -81,11 +83,6 @@ th {
     width: 150px;
     height: 100px;
     margin-left: 50px;
-}
-
-body { 
-    background-color: #f0f5f9;
-    margin: 0;
 }
 
 a {
@@ -135,13 +132,7 @@ form {
 
 #cancelbutton {
     margin-left: 10%;
-#h3 {
-    border-bottom: 2px groove;
-    padding-bottom: 20px;
-    font-family: sans-serif;
-    text-indent: 20px;
 }
-
 
 label{
     display: inline-block;

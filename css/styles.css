@@ -4,6 +4,10 @@ body{
     margin: 0;
 }
 
+p {
+    display: block;
+}
+
 h3 {
     border-bottom: 2px groove;
     padding-bottom: 20px;
@@ -124,28 +128,5 @@ a:hover:not(.active) {
     background-color: white;
 }
 
-/*CSS for (make user) form*/
-form {
-    width: 50%;
-    margin-left: 10%;
-}
-
-#cancelbutton {
-    margin-left: 10%;
-}
-
-label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    width: 250px;
-    text-align: right;
-}
-
-.inputField {
-  display: inline-block;
-  float: left;
-  margin: 2%;
-}
 
 

@@ -30,15 +30,15 @@ class User {
         return $this->lastName;
     }
     
-    public function getrole() {
+    public function getRole() {
         return $this->role;
     }
     
-    public function gethash() {
+    public function getHash() {
         return $this->hash;
     }
 
-    public function getdeleted() {
+    public function getDeleted() {
         return $this->deleted;
     }
 }

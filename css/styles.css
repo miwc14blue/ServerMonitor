@@ -75,42 +75,57 @@ th {
     size: 2em;
 }
 
-/*CSS for Landing page*/
+/*CSS for nav*/
 
 .logo {
-    width: 300px;
-    height: 160px;
-
+    width: 150px;
+    height: 100px;
+    margin-left: 50px;
 }
 
-/*CSS for Gebruikers Overzicht*/
+body { 
+    background-color: #f0f5f9;
+    margin: 0;
+}
 
-    img, a {
-        display: inline-block;
-    }
+a {
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 40px;
+    font-family: sans-serif;
+    color: blue;
+}
 
-    a {
-        font-size: 1.5rem;
-        text-decoration: none;
-        padding: 50px;
-        font-family: sans-serif;
-    }
+a:hover:not(.active) {
+    color: orangered;
+}
 
-    a:hover {
-        color: orangered;
-    }
+.active {
+    color: red;
+}
 
-    .uitloggen {
-        float: right;
-    }
+.uitloggen {
+/*    margin-left: 35%;*/
+}
 
-    .menu {
-        float: right;
-        margin-left: 50px;
-        display: flex;
-        flex-direction: row;
-    }
+#navHeader {
+    margin-left: 10px;
+    display: flex;
+}
 
+
+/*CSS for container in the middle*/
+
+#container {
+    border: 2px;
+    border-style:groove;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 350px;
+    width: 90%;
+    margin: auto;
+    background-color: white;
+}
 
 /*CSS for (make user) form*/
 form {
@@ -120,6 +135,11 @@ form {
 
 #cancelbutton {
     margin-left: 10%;
+#h3 {
+    border-bottom: 2px groove;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    text-indent: 20px;
 }
 
 

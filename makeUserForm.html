@@ -35,15 +35,15 @@
                     <input name='password2' type="text" />
                 </p>
             </div>
-            <div>
-            <p>
-                <input name='role' type="radio" value="admin" class="radioButton" /> Administrator
-                <input name='role' type="radio" value="user" class="radioButton" /> Gebruiker
-            </p>
-            <p>
-                <input type="submit" value="Maak gebruiker aan" />
-                <button type="reset" value="Reset">Reset</button>
-            </p>
+            <div class="buttonsFromForm">
+
+                <div class="radioButton"><input name='role' type="radio" value="admin"/> Administrator</div>
+                <div class="radioButton"><input name='role' type="radio" value="user"/> Gebruiker</div>
+
+                <div>
+                    <input type="submit" value="Maak gebruiker aan" id="submitButton"/>
+                    <button type="reset" value="Reset" id="resetButton">Reset</button>
+                </div>
             </div>
         </form>
         <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Nieuwe gebruiker</title>
-         <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
 
     <body>
@@ -12,48 +12,35 @@
 
         <form method="POST" action="API/createUser.php">
             <p>
-                <label>
-                    Gebruikersnaam
-                    <input name='userName' type="text" />
-                </label>
+                <label>Gebruikersnaam</label>
+                <input name='userName' type="text" class="inputField"/>
             </p>
             <p>
-                <label>
-                    Voornaam
-                    <input name='firstName' type="text" />
-                </label>
+                <label>Voornaam</label>
+                <input name='firstName' type="text" class="inputField"/>
             </p>
             <p>
-                <label>
-                    Achternaam
-                    <input name='lastName' type="text" />
-                </label>
+                <label>Achternaam</label>
+                <input name='lastName' type="text" class="inputField"/>
             </p>
             <p>
-                <label>
-                    Wachtwoord
-                    <input name='password1' type="text" />
-                </label>
+                <label>Wachtwoord</label>
+                <input name='password1' type="text" class="inputField"/>
             </p>
             <p>
-            <label>
-                Herhaal wachtwoord
-                <input name='password2' type="text" />
-            </label>
+                <label>Herhaal wachtwoord</label>
+                <input name='password2' type="text" class="inputField"/>
             </p>
-             <label>
-                <input name='role'type="radio" value = "admin"/> Administrator
-            </label>
-            <label>
-                <input name='role'type="radio" value = "user"/> Gebruiker
-            </label>
+            <p>
+                <input name='role' type="radio" value="admin" /> Administrator
+                <input name='role' type="radio" value="user" /> Gebruiker
+            </p>
             <p>
                 <input type="submit" value="Maak gebruiker aan" />
                 <button type="reset" value="Reset">Reset</button>
-                
             </p>
         </form>
-        <button onclick="location.href=`userListOverview.php`">Annuleren</button>
+        <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
 
     </body>
 

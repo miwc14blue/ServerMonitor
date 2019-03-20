@@ -38,9 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              $_SESSION['username'] = $row['userName'];
 
              if ($row['role']=='admin') {
-               header("location: html/systeemOverzichtAdm.html");
+               header("location: html/systeemOverzichtAdm.php");
+               $_SESSION['role']='admin';
              } else {
-               header("location: html/systeemOverzichtUser.html");
+               header("location: html/systeemOverzichtUser.php");
+               $_SESSION['role']='user';
              }
          } else if($row['deleted']==1) {
            $combiErr = "Uw account heeft geen toegang meer.";

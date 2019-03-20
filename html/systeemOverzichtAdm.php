@@ -1,3 +1,14 @@
+<?php
+session_start();
+if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
+   header("Location:../login.php");
+}
+
+// if($_SESSION['role']=='user'){
+//   header("Location:../login.php");
+// }
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +23,8 @@
         <img class="logo" src="../img/logo.png">
 
 
+        <a class= "active" href="" >Monitor</a>
+        <a  href="" >Gebruikers</a>
         <a class= "uitloggen" href="../logout.php" >Uitloggen</a>
     </nav>
 

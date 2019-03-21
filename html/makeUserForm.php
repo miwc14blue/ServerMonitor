@@ -17,8 +17,40 @@
             <a class="uitloggen" href="../logout.php">Uitloggen</a>
         </nav>
 
+        <div class='form-container'>
+          <h1>Nieuwe gebruiker aanmaken</h1>
+          <form method="POST" action="../API/createUser.php">
+              <div>
+                  <p>
+                      <label>Gebruikersnaam</label>
+                      <input name='userName' type="text" />
+                  </p>
+                  <p>
+                      <label>Emailadres</label>
+                      <input name='email' type="text" />
+                  </p>
+                  <p>
+                      <label>Voornaam</label>
+                      <input name='firstName' type="text" />
+                  </p>
+                  <p>
+                      <label>Achternaam</label>
+                      <input name='lastName' type="text" />
+                  </p>
+                  <br>
+                  <p>
+                      <label>Wachtwoord</label>
+                      <input name='password1' type="text" />
+                  </p>
+                  <p>
+                      <label>Herhaal wachtwoord</label>
+                      <input name='password2' type="text" />
+                  </p>
+              </div>
+              <div class="buttonsFromForm">
 
-        <h1>Nieuwe gebruiker aanmaken</h1>
+                  <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator</div>
+                  <div class="radioButton"><input name='role' type="radio" value="user" checked="checked" /> Gebruiker</div>
 
         <form method="POST" action="../API/createUser.php">
             <div>
@@ -50,8 +82,6 @@
             </div>
             <div class="buttonsFromForm">
 
-                <!-- <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator</div>
-                <div class="radioButton"><input name='role' type="radio" value="user" checked="checked" /> Gebruiker</div> -->
                 <div class="dropdown">
                     <button class="dropbtn">Kies een rol</button>    
                     <div class="dropdown-content">

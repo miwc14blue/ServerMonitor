@@ -1,20 +1,11 @@
 body{
     font-family: sans-serif;
     background: #f0f5f9;
-    margin: 0;
 }
 
 p {
     display: block;
 }
-
-h3 {
-    border-bottom: 2px groove;
-    padding-bottom: 20px;
-    font-family: sans-serif;
-    text-indent: 20px;
-}
-
 
 /*CSS for nav*/
 

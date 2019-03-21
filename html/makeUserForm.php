@@ -11,7 +11,7 @@
     <body>
         <h1>Nieuwe gebruiker aanmaken</h1>
 
-        <form method="POST" action="API/createUser.php">
+        <form method="POST" action="../API/createUser.php">
             <div>
                 <p>
                     <label>Gebruikersnaam</label>

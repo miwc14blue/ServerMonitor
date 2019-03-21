@@ -2,12 +2,19 @@
 class DatabasePDO {
     
     private $username = 'root';
+<<<<<<< HEAD
     private $password = ''; 
     // private $password = 'root'; 
     private $schema = 'servermonitor';
     private $driver = 'mysql';
     private $host = '127.0.0.1';
     // private $host = '192.168.64.2';
+=======
+    private $password = '';
+    private $schema = 'servermonitor';
+    private $driver = 'mysql';
+    private $host = '127.0.0.1';
+>>>>>>> 3c5558ccad500b25638e988dc61a516f26c3975c
     
     public function get() {
         $dsn = "{$this->driver}:dbname={$this->schema};port=3307;host={$this->host}";

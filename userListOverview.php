@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html>
+<?php
+session_start();
+if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
+   header("Location:login.php");
+}
+?>
 
 <head>
     <meta charset="utf-8">

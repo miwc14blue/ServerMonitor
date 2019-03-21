@@ -5,7 +5,7 @@ class DatabasePDO {
     private $schema = 'servermonitor';
     private $driver = 'mysql';
     private $username = 'root';
-    private $password = 'root'; 
+    private $password = ''; 
     
     private $host = '127.0.0.1'; 
     private $port = '3307';

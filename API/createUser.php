@@ -1,17 +1,18 @@
 <?php
 include_once("../lib/DatabasePDO.php");
 include_once("../lib/User.php");
+include_once("../lib/UserValidator.php");
 
 $databasePDOInstance = new DatabasePDO();
+$userValidator = new Uservalidator();
 $conn = $databasePDOInstance->get();
 
-$userName = $_POST['userName'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$password1 = $_POST['password1'];
-$password2 = $_POST['password2'];
-$role = $_POST['role'];
-$hash = password_hash($password1, PASSWORD_DEFAULT);
+$userName = $userValidator->validateUsername($_POST['userName']);
+$firstName = $userValidator->validateFirstName($_POST['firstName']);
+$lastName = $userValidator->validateLastName($_POST['lastName']);
+$password = $userValidator->validatePassword($_POST['password1'], $_POST['password2']);
+$role = $userValidator->validateRole($_POST['role']);
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
 //TODO: this line of code should create a new user
 // private $user = new User($userName, $firstName, $lastName, $hash, $role);

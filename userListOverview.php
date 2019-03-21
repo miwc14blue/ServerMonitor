@@ -25,7 +25,7 @@
 
         <nav id="navHeader">
             <img class="logo" src="img/logo.png">
-            <a href="html/systeeemOverzichtAdm.html">Systeem overzicht</a>
+            <a href="html/systeemOverzichtAdm.php">Systeem overzicht</a>
             <a class="active"href="">Gebruikers</a>
             <a class="uitloggen" href="">Uitloggen</a>
         </nav>

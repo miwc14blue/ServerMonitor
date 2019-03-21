@@ -9,15 +9,15 @@
     </head>
 
     <body>
-        
+
         <nav id="navHeader">
             <img class="logo" src="../img/logo.png">
-            <a href="html/systeemOverzichtAdm.php">Systeem Overzicht</a>
-            <a class="active" href="userListOverview.php">Gebruikers</a>
-            <a class="uitloggen" href="logout.php">Uitloggen</a>
+            <a href="systeemOverzichtAdm.php">Systeem Overzicht</a>
+            <a class="active" href="../userListOverview.php">Gebruikers</a>
+            <a class="uitloggen" href="../logout.php">Uitloggen</a>
         </nav>
-        
-    
+
+
         <h1>Nieuwe gebruiker aanmaken</h1>
 
         <form method="POST" action="../API/createUser.php">
@@ -51,7 +51,7 @@
             <div class="buttonsFromForm">
 
                 <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator</div>
-                <div class="radioButton"><input name='role' type="radio" value="user" /> Gebruiker</div>
+                <div class="radioButton"><input name='role' type="radio" value="user" checked="checked" /> Gebruiker</div>
 
                 <div>
                     <input type="submit" value="Maak gebruiker aan" id="submitButton" />

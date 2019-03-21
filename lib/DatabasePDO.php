@@ -7,11 +7,11 @@ class DatabasePDO {
     private $username = 'root';
     private $password = ''; 
     
-    // private $host = '127.0.0.1'; 
-    // private $port = '3307';
+    private $host = '127.0.0.1'; 
+    private $port = '3307';
     //voor Arend:
-    private $host = '192.168.64.2';
-    private $port = '3306';
+    // private $host = '192.168.64.2';
+    // private $port = '3306';
   
     
     

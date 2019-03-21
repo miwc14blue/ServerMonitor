@@ -7,7 +7,7 @@
     border:1px solid #eef2f7;
     font-family:sans-serif;
     font-size:0.7rem;
-    padding: 0px 35px 0px;
+    padding: 0px 65px 0px;
     padding-bottom: 80px;
     background:#ffffff;
     position: absolute;
@@ -28,7 +28,8 @@
 
 #button {
     float: left;
-    width: 70px;
+    width: 70px;  
+    margin-top: 20px;
 }
 
 

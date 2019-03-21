@@ -17,8 +17,6 @@ class DatabasePDO {
     
     
     public function get() {
-        // $dsn = "{$this->driver}:dbname={$this->schema};port=3307;host={$this->host}";
-        //voor Arend:
         $dsn = "{$this->driver}:dbname={$this->schema};port={$this->port};host={$this->host}";
 
         try {

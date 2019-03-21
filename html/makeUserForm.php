@@ -1,4 +1,3 @@
-<script src="../js/js-makeUserForm.js"></script>
 <DOCTYPE html>
     <html>
 
@@ -50,14 +49,7 @@
                 </p>
             </div>
             <div class="buttonsFromForm">
-
-            <!-- <div class="dropdown">
-                <button onclick="showContent()" class="dropbtn">Dropdown</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <a href="#">User</a>
-                    <a href="#">Admin</a>
-                </div>
-            </div> -->
+                
             <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator </div>
             <div class="radioButton"><input name='role' type="radio" value="user" /> User </div>
                 <div>

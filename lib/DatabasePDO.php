@@ -7,18 +7,16 @@ class DatabasePDO {
     private $username = 'root';
     private $password = ''; 
     
-    private $host = '127.0.0.1'; 
-    private $port = '3307';
+    // private $host = '127.0.0.1'; 
+    // private $port = '3307';
     //voor Arend:
-    // private $host = '192.168.64.2';
-    // private $port = '3306';
+    private $host = '192.168.64.2';
+    private $port = '3306';
   
     
     
     
     public function get() {
-        // $dsn = "{$this->driver}:dbname={$this->schema};port=3307;host={$this->host}";
-        //voor Arend:
         $dsn = "{$this->driver}:dbname={$this->schema};port={$this->port};host={$this->host}";
 
         try {

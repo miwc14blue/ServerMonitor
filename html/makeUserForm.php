@@ -50,7 +50,7 @@
                 </div>
             </div>
         </form>
-        <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
+        <button id="cancelbutton" onclick="location.href=`../userListOverview.php`"> Annuleren</button>
 
     </body>
 

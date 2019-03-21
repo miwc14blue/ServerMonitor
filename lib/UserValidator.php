@@ -2,8 +2,6 @@
 class UserValidator {
         
     public function validateUsername($userName) {  
-        //if (preg_match('/[^a-zA-Z]/', $userName)){
-        //echo 'only letters are allowed';
         }
         return $userName;
     }

@@ -20,7 +20,7 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
         <img class="logo" src="../img/logo.png">
 
 
-        <a class= "active" href="systeemOverzichtAdm.php" >Systeem Overzicht</a>
+        <a class= "active" href="systeemOverzichtAdm.php" >Monitor</a>
         <a href="../userListOverview.php" >Gebruikers</a>
         <a class= "uitloggen" href="../logout.php" >Uitloggen</a>
     </nav>

@@ -12,9 +12,9 @@
         
         <nav id="navHeader">
             <img class="logo" src="../img/logo.png">
-            <a href="html/systeemOverzichtAdm.php">Systeem Overzicht</a>
-            <a class="active" href="userListOverview.php">Gebruikers</a>
-            <a class="uitloggen" href="logout.php">Uitloggen</a>
+            <a href="../html/systeemOverzichtAdm.php">Systeem Overzicht</a>
+            <a class="active" href="../userListOverview.php">Gebruikers</a>
+            <a class="uitloggen" href="../logout.php">Uitloggen</a>
         </nav>
         
     

@@ -31,8 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ///First Name (Required, minimum of 2 characters) , first if foerrequired second if for at least 2 caharacers
   if (empty($_POST["firstName"])) {
     $firstNameErr = "firstName is required";
-  } elseif(checkLength($firstName,2)){}
-    $firstNameErr = "firstName should be at least 2 characters";
+  } elseif(checkLength($firstName,2)){
+     $firstNameErr = "firstName should be at least 2 characters";
+  }
+   
   else {
     $firstName = test_input($_POST["firstName"]);
      
@@ -41,8 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //Surname (Required, minimum of 2 characters) ,first if for required second if for at least 2 caharacers
   if (empty($_POST["lastName"])) {
     $lastNameErr = "lastName is required";
-  }elseif(checkLength($lastName,2)){}
-    $lastNameErr = "firstName should be at least 2 characters"; 
+  }elseif(checkLength($lastName,2)){
+     $lastNameErr = "firstName should be at least 2 characters"; 
+  }
+   
   else {
     $lastName = test_input($_POST["lastName"]);
     

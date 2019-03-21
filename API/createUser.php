@@ -1,4 +1,4 @@
-<?php
+<?php?/*
 include_once("../lib/DatabasePDO.php");
 include_once("../lib/User.php");
 
@@ -143,10 +143,10 @@ $query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `
 
 
 //TODO: This query should extract the parameters from the user and send it to the database. Does not function properly yet
-/*
-$query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
-            VALUES ($user->getUserName();, $user->getFirstName();, $user->getLastName();, $user->getRole();, $user->getHash();, $user->getDeleted(););";
-*/
+
+//$query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
+  //          VALUES ($user->getUserName();, $user->getFirstName();, $user->getLastName();, $user->getRole();, $user->getHash();, $user->getDeleted(););";
+
 
 try {
     $statement = $conn->prepare($query);
@@ -155,4 +155,5 @@ try {
     echo "Error: {$e->getMessage()}";
     
 }
+*/
 ?>

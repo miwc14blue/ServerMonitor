@@ -60,16 +60,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <link rel='stylesheet' href='css/styles.css'/>
       <link rel='stylesheet' href='css/styles-login.css'/>
    </head>
-   <body id="body-color">
+   <body>
       <div id="login">
         <h1 id="boxheader">Server Monitor</h1>
         <form action="" method="POST">
           <span class="error" id="combiErr"><?php echo $combiErr;?></span>
           <span class="error"><?php echo $nameErr;?></span>
-          <label>Gebruikersnaam: <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($myusername);?>"/><br /><br /></label>
+          <label>Gebruikersnaam: <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($myusername);?>"/></label>
           <span class="error"><?php echo $passErr;?></span>
-          <label>Wachtwoord: <input type="password" name="password" class="field" value="<?php echo htmlspecialchars($mypassword);?>"/><br/><br /></label>
-          <input id="button" type="submit" value="Inloggen"/><br />
+          <label>Wachtwoord: <input type="password" name="password" class="field" value="<?php echo htmlspecialchars($mypassword);?>"/></label>
+          <input id="button" type="submit" value="Inloggen"/>
         </form>
       </div>
    </body>

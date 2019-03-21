@@ -40,6 +40,7 @@ a:hover:not(.active) {
     display: flex;
 }
 
+/* Check met Niek of onderstaande weg kan */
 table {
     border-collapse: collapse;
     width: 80%;

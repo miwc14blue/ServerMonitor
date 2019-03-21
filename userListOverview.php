@@ -1,6 +1,7 @@
 <?php
-if(!isset($_SESSION['username'])){
-  header("Location:login.php");
+session_start();
+if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
+   header("Location:login.php");
 }
 ?>
 
@@ -23,6 +24,7 @@ if(!isset($_SESSION['username'])){
             Gebruikersoverzicht
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/userlist-styles.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
@@ -84,6 +86,9 @@ if(!isset($_SESSION['username'])){
             <?php
     } ?>
         </table>
+          <a href="html/makeUserForm.php" class="add-container">
+            <i class="fa fa-plus fa-2x" ></i>
+          </a>
     </body>
 
     </html>

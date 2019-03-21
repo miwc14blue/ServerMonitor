@@ -50,8 +50,15 @@
             </div>
             <div class="buttonsFromForm">
 
-                <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator</div>
-                <div class="radioButton"><input name='role' type="radio" value="user" checked="checked" /> Gebruiker</div>
+                <!-- <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator</div>
+                <div class="radioButton"><input name='role' type="radio" value="user" checked="checked" /> Gebruiker</div> -->
+                <div class="dropdown">
+                    <button class="dropbtn">Kies een rol</button>    
+                    <div class="dropdown-content">
+                        <a href="#">User</a>
+                        <a href="#">Administrator</a>
+                    </div>
+                </div>      
 
                 <div>
                     <input type="submit" value="Maak gebruiker aan" id="submitButton" />

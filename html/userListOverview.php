@@ -20,10 +20,10 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
     <body>
 
         <nav id="navHeader">
-            <img class="logo" src="img/logo.png">
-            <a href="html/systeemOverzichtAdm.php">Systeem Overzicht</a>
+            <img class="logo" src="../img/logo.png">
+            <a href="systeemOverzichtAdm.php">Systeem Overzicht</a>
             <a class="active" href="userListOverview.php">Gebruikers</a>
-            <a class="uitloggen" href="logout.php">Uitloggen</a>
+            <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
         </nav>
 
         <table>

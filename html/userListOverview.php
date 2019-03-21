@@ -1,18 +1,29 @@
 <?php
 session_start();
-if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
-   header("Location:login.php");
+if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
+   header("Location:../login.php");
 }
 ?>
 
-   <DOCTYPE html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Gebruikers Overzicht</title>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body>
+
+<!DOCTYPE html>
     <html>
 
     <head>
-        <title>Gebruikersoverzicht</title>
-        <meta charset="utf-8">
+        <title>
+            Gebruikersoverzicht
+        </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/userlist-styles.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
@@ -21,7 +32,7 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
 
         <nav id="navHeader">
             <img class="logo" src="../img/logo.png">
-            <a href="systeemOverzichtAdm.php">Systeem Overzicht</a>
+            <a href="systeemOverzichtAdm.php">Systeem overzicht</a>
             <a class="active" href="userListOverview.php">Gebruikers</a>
             <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
         </nav>
@@ -74,9 +85,6 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
             <?php
     } ?>
         </table>
-          <a href="makeUserForm.php" class="add-container">
-            <i class="fa fa-plus fa-2x" ></i>
-          </a>
     </body>
 
     </html>

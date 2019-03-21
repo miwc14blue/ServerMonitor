@@ -1,16 +1,23 @@
-div {
-    margin-left: 50px;
+.form-container{
+  background-color: white;
+  padding: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 label{
     float: left;
     clear: left;
-    width: 250px;
+    width: 48%;
     text-align: right;
-    margin: 1%;
+    margin-right: 10px;
 }
 
 input {
+    width: 48%;
     margin left: 1%;
     margin-top: 1%;
 }

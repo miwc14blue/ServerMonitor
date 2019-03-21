@@ -1,30 +1,36 @@
 <?php
 include_once("../lib/DatabasePDO.php");
 include_once("../lib/User.php");
+include_once("../lib/UserValidator.php");
 
 $databasePDOInstance = new DatabasePDO();
+$userValidator = new Uservalidator();
+
 $conn = $databasePDOInstance->get();
 
-$userName =$firstName=$lastName= $email = $password1 = $password2 = $role = $hash="";
+
+/* $userName =$firstName=$lastName= $email = $password1 = $password2 = $role = $hash="";
 $userNameError =$firstNameError=$lastNameError= $emailError = $password1Error = $password2 = $role = $hash="";
 $boolean =false;
+*/
 
+$userName = $userValidator->validateUsername($_POST['userName']);
+$firstName = $userValidator->validateFirstName($_POST['firstName']);
+$lastName = $userValidator->validateLastName($_POST['lastName']);
+$password = $userValidator->validatePassword($_POST['password1'], $_POST['password2']);
+$role = $userValidator->validateRole($_POST['role']);
+$hash = password_hash($password, PASSWORD_DEFAULT);
 
-$userName = $_POST['userName'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$password1 = $_POST['password1'];
-$password2 = $_POST['password2'];
-$role = $_POST['role'];
-$hash = password_hash($password1, PASSWORD_DEFAULT);
-
+/*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    itWorks();
+    
 //Username (Required, Unique, minimum 5 characters)
 if(empty($_POST['userName'])){
     $userNameError="Username required...";
     $boolean=false;
 }else{
-    $userName = validate_input($_POST["userName"]);
+    $userName = validateInput($userName);
     $boolean=true;
 
 }
@@ -38,7 +44,7 @@ $boolean=false;
     $boolean=false;
     
 }else{
-$email = validate_input($_POST["email"]);
+$email = validateInput($_POST["email"]);
 $boolean=true;
 }
 
@@ -55,7 +61,7 @@ if(empty($_POST["password1"])){
 
  
 }else{
-    $password1 = validate_input($_POST["password1"]);
+    $password1 = validateInput($_POST["password1"]);
 }
 
 //pasowrd2-->confirm password
@@ -69,7 +75,7 @@ if(empty($_POST["password2"])){
 
  
 }else{
-   $password2 = validate_input($_POST["password2"]);
+   $password2 = validateInput($_POST["password2"]);
 }
 
 //First Name (Required, minimum of 2 characters)
@@ -112,16 +118,22 @@ function firstAndLastNameLength($name){
         return "$name should  be at least   2 Characters" ;
     }
     return ;
-
+}
 }
 
-  function validate_input($data) {
+
+function itWorks() {
+    echo "It works!";
+}
+
+function validateInput($data) {
+      echo "function called";
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
 }
-}
+*/
 
 //TODO: this line of code should create a new user
 // private $user = new User($userName, $firstName, $lastName, $hash, $role);

@@ -11,4 +11,11 @@
     background-color: white;
 }
 
+h3 {
+    border-bottom: 2px groove;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    text-indent: 20px;
+}
+
 

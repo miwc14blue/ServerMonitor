@@ -1,3 +1,10 @@
+<?php
+session_start();
+if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
+   header("Location:login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -17,6 +24,7 @@
             Gebruikersoverzicht
         </title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/userlist-styles.css">
         <link rel="stylesheet" href="css/styles.css">
     </head>
 
@@ -25,7 +33,7 @@
 
         <nav id="navHeader">
             <img class="logo" src="img/logo.png">
-            <a href="html/systeemOverzichtAdm.php">Systeem overzicht</a>
+            <a href="html/systeemOverzichtAdm.php">Systeem Overzicht</a>
             <a class="active" href="userListOverview.php">Gebruikers</a>
             <a class="uitloggen" href="logout.php">Uitloggen</a>
         </nav>
@@ -78,6 +86,9 @@
             <?php
     } ?>
         </table>
+          <a href="html/makeUserForm.php" class="add-container">
+            <i class="fa fa-plus fa-2x" ></i>
+          </a>
     </body>
 
     </html>

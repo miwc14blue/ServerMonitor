@@ -3,10 +3,6 @@ session_start();
 if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
    header("Location:../login.php");
 }
-
-// if($_SESSION['role']=='user'){
-//   header("Location:../login.php");
-// }
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +20,7 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
         <img class="logo" src="../img/logo.png">
 
 
-        <a class= "active" href="systeemOverzichtAdm.php" >Systeem overzicht</a>
+        <a class= "active" href="systeemOverzichtAdm.php" >Monitor</a>
         <a href="../userListOverview.php" >Gebruikers</a>
         <a class= "uitloggen" href="../logout.php" >Uitloggen</a>
     </nav>

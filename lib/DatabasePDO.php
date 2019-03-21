@@ -5,7 +5,7 @@ class DatabasePDO {
     private $password = '';
     private $schema = 'servermonitor';
     private $driver = 'mysql';
-    private $host = '127.0.0.1';
+    private $host = '192.168.64.2';
     
     public function get() {
         $dsn = "{$this->driver}:dbname={$this->schema};port=3307;host={$this->host}";

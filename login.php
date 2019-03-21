@@ -46,9 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              }
          } else if($row['deleted']==1) {
            $combiErr = "U heeft geen account meer.";
-         }
+         // ingegeven wachtwoord matcht niet met db
+         } else 
+             $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
+     // ingegeven username matcht niet met db 
      } else {
-         $combiErr = "Inloggegevens kloppen niet, probeer het opnieuw...";
+         $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
      }
  }
 }

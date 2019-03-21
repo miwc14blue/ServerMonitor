@@ -91,31 +91,31 @@ function test_input($data) {
             <p>
                 <label>
                     Gebruikersnaam
-                    <input name='userName' type="text" />
+                    <input name='userName' type="text"  value="<?php echo $userName;?>" />
                 </label>
             </p>
             <p>
                 <label>
                     Voornaam
-                    <input name='firstName' type="text" />
+                    <input name='firstName' type="text" value="<?php echo $firstName;?>"/>
                 </label>
             </p>
             <p>
                 <label>
                     Achternaam
-                    <input name='lastName' type="text" />
+                    <input name='lastName' type="text" value="<?php echo $lastName;?>" />
                 </label>
             </p>
             <p>
                 <label>
                     Wachtwoord
-                    <input name='password1' type="text" />
+                    <input name='password1' type="text" value="<?php echo $password1;?>"/>
                 </label>
             </p>
             <p>
                 <label>
                     Herhaal wachtwoord
-                    <input name='password2' type="text" />
+                    <input name='password2' type="text" value="<?php echo $password2;?>"/>
                 </label>
             </p>
             <label>

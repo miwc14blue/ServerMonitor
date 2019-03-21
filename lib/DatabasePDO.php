@@ -2,7 +2,7 @@
 class DatabasePDO {
     
     private $username = 'root';
-    private $password = '';
+    private $password = 'root';
     private $schema = 'servermonitor';
     private $driver = 'mysql';
     private $host = '192.168.64.2';

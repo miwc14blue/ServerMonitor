@@ -41,7 +41,7 @@ try {
     $statement->execute($user);
 
    echo 'De nieuwe gebruiker is aangemaakt';
-   header('Refresh: 1; URL = ../userListOverview.php');
+   header('Refresh: 1; URL = ../html/userListOverview.php');
 } catch (PDOException $e){
     echo "Error: {$e->getMessage()}";
     

@@ -5,24 +5,12 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Gebruikers Overzicht</title>
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
-</head>
-
-<body>
-
-<DOCTYPE html>
+   <DOCTYPE html>
     <html>
 
     <head>
-        <title>
-            Gebruikersoverzicht
-        </title>
+        <title>Gebruikersoverzicht</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/userlist-styles.css">
         <link rel="stylesheet" href="css/styles.css">
@@ -86,7 +74,7 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
             <?php
     } ?>
         </table>
-          <a href="html/makeUserForm.php" class="add-container">
+          <a href="makeUserForm.php" class="add-container">
             <i class="fa fa-plus fa-2x" ></i>
           </a>
     </body>

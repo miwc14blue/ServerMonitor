@@ -64,9 +64,9 @@ if(empty($_POST["password1"])){
 if(empty($_POST["password2"])){
     $password1Error="Confirm password  is required...!";
    $boolean=false;
-}elseif ($_POST["password1"]!=$password1) {
+}elseif ($_POST["password1"]!=$password2) {
     $password2Error="password Not Match...!";
-    $boolean=false;
+    
 
  
 }else{

@@ -21,8 +21,8 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
 
 
         <a class= "active" href="systeemOverzichtAdm.php" >Monitor</a>
-        <a href="../userListOverview.php" >Gebruikers</a>
-        <a class= "uitloggen" href="../logout.php" >Uitloggen</a>
+        <a href="userListOverview.php" >Gebruikers</a>
+        <a class= "uitloggen" href="../API/logout.php" >Uitloggen</a>
     </nav>
 
         <div id="container">

@@ -20,7 +20,7 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='user')){
         <img class="logo" src="../img/logo.png">
 
 
-        <a class= "uitloggen" href="../logout.php" >Uitloggen</a>
+        <a class= "uitloggen" href="../API/logout.php" >Uitloggen</a>
     </nav>
 
         <div id="container">

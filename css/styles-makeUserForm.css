@@ -6,6 +6,17 @@
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+  width: 600px;
+}
+
+h1 {
+  color: blue;
+  padding: 20px;
+}
+
+form{
+  padding: 20px;
+  width: 80%;
 }
 
 label{
@@ -34,6 +45,7 @@ input {
 #cancelbutton {
     margin-left: 200px;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 #resetButton {

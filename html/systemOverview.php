@@ -28,6 +28,8 @@
             <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
         </nav>
 
+        <h1>Systeem Overzicht</h1>
+
         <?php
         $ch= curl_init();
         curl_setopt($ch, CURLOPT_URL, 'http://makeitwork.local.mybit.nl/vms/klanty/testing');
@@ -38,7 +40,7 @@
 
         curl_close($ch);
 
-        var_dump($data);
+        var_dump(json_decode($output, true));
 
         foreach($data as $row){
           ?>
@@ -46,6 +48,29 @@
             <div class="img-container">
               <img class="vm" src="../img/vm_icon.png">
             </div>
+            <table border="1">
+              <tr>
+                <th colspan="3">
+                  <?php echo $row->name?>
+                </th>
+              </tr>
+              <tr>
+                <td>
+                  <?php echo $row->latency?>
+                </td>
+                <td>
+                  <?php echo $row->memory?>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <?php echo $row->disk_size?>
+                </td>
+                <td>
+                  <?php echo $row->vCPU?>
+                </td>
+              </tr>
+            </table>
           </div>
         <?php
         }

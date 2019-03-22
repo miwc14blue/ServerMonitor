@@ -15,7 +15,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/userlist-styles.css">
-        
+
     </head>
 
 
@@ -31,6 +31,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <table>
             <tr>
                 <th class="headerUserTable" colspan="6">Gebruikersoverzicht
+                  <a href="../html/makeUserForm.php" class="add-container">
+                    <i class="fa fa-plus"> Voeg gebruiker toe</i>
+                  </a>
                 </th>
             </tr>
             <tr>

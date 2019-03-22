@@ -2,173 +2,172 @@
     <html>
 
     <head>
+       <link rel="stylesheet" type="text/css" href="../css/styles.css">
+       <link rel="stylesheet" type="text/css" href="../css/styles-makeUserForm.css">
         <meta charset="utf-8">
+        
         <title>Nieuwe gebruiker</title>
-        <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <link rel="stylesheet" type="text/css" href="../css/styles-makeUserForm.css">
     </head>
 
     <body>
-        <?php
-
-include_once("../lib/DatabasePDO.php");
-include_once("../lib/User.php");
-
-$databasePDOInstance = new DatabasePDO();
-$conn = $databasePDOInstance->get();
+<?php
+        include_once("../lib/UserValidator.php");
         
+        // define variables and set to empty values
+        $userNameErr = $firstNameErr=$lastNameErr=$emailErr = $password1Err=$password2Err=$roleErr  = "";
+        $userName = $firstName=$lastName=$email = $password1=$password2=$role  = "";
+        
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $userValidator = new UserValidator(); 
+            
+            //Checks username from input field for validity
+            $userNameAndErrCode = $userValidator->validateUserName($_POST["userName"]);
+            $userName = $userNameAndErrCode[0];
+            $userNameErr = $userNameAndErrCode[1];
+            
 
-// define variables and set to empty values
-$userNameErr = $firstNameErr=$lastNameErr=$emailErr = $password1Err=$password2Err=$roleErr  = "";
-$userName = $firstName=$lastName=$email = $password1=$password2=$role  = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    //Username (Required, Unique, minimum 5 characters)
-  if (empty($_POST["userName"])) {
-    $nameErr = "userName is required";
-  } else {
-    $userName = test_input($_POST["userName"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed"; 
-    }
-  }
-
+  ///First Name (Required, minimum of 2 characters) , first if foerrequired second if for at least 2 caharacers
   if (empty($_POST["firstName"])) {
-    $firstNameErr = "firstName is required";
-  } else {
+    $firstNameErr = "Voornaam is vereist.";
+  } elseif(!checkLength($firstName,2)){
+     $firstNameErr = "Voornaam moet uit ten minste 2 karakters bestaan.";
+  }
+  else {
     $firstName = test_input($_POST["firstName"]);
      
   }
 
-
+//Surname (Required, minimum of 2 characters) ,first if for required second if for at least 2 caharacers
   if (empty($_POST["lastName"])) {
-    $lastNameErr = "lastName is required";
-  } else {
+    $lastNameErr = "Achternaam is vereist";
+  }elseif(!checkLength($lastName,2)){
+     $lastNameErr = "Achternaam moet uit ten minste 2 karakters bestaan."; 
+  }
+   
+  else {
     $lastName = test_input($_POST["lastName"]);
     
     
   }
 
-  
+  //Email Address (Required, meets validation guidelines for email Link)
   if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-  } else {
+    $emailErr = "Email adres is vereist";
+  }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+     // check if e-mail address is well-formed
+      $emailErr = "Ongeldig emailadres."; 
+    } 
+  else {
     $email = test_input($_POST["email"]);
-    // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $emailErr = "Invalid email format"; 
-    }
-  }
+   
     
-  if(empty($_POST["password1"])){
-    $password1Error="Password is required...!";
+  }
+    //Password (Required, at least 8 characters of which 1 uppercase letter, 1 lowercase letter and 1 number)
+ if(empty($_POST["password1"])){
+    $password1Err="Wachtwoord is vereist.";
+    }
+    elseif(!checkPassword($password1)){
 
-}else{
+  //checkPassword returns true if patern is fine if not it will return false and 
+  //!false will be true so will create error massage
+
+  $password1Error="Het wachtwoord moet bestaan uit (minimaal) 8 tekens, waarvan (minimaal) 1 hoofdletter, 1 kleine letter en 1 nummer.";
+
+}
+  
+  else{
 $password1=test_input($_POST["password1"]);
     
 }
 
 if(empty($_POST["password2"])){
-    $password2Err="Confirm password  is required...!";
+    $password2Err="Wachtwoord is vereist";
   
-} elseif ($password1!=$password2){
-    $password2Err="Passwords do not match.";        
-    }else{
-    $password2 = test_input($_POST["password2"]);
+}elseif($password1!=$password2){
+  $password2Err="Wachtwoorden zijn niet gelijk";
+
+}else{
+   $password2 = test_input($_POST["password2"]);
 }
 
   if (empty($_POST["role"])) {
-    $roleErr = "role is required";
+    $roleErr = "Rol is vereist.";
   } else {
     $role = test_input($_POST["role"]);
   }
 }
 
-$user = [
-    'userName' => $userName,
-    'firstName' => $firstName,
-    'lastName' => $lastName,
-    'hash' => $hash,
-    'role' => $role,
-    'deleted' => '0'
-]; 
-
-$query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
-            VALUES (:userName, :firstName, :lastName, :role, :hash, :deleted);";
+///this function length of the input  for firstname,lastname or whereever required
+ function checkLength($str, $len){
+    return strlen($str) >= $len;
+  }
+// check pasword with regex  due to requirements
+   function checkPassword($pass){
+      return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $pass);
+  }
 
 
-//TODO: This query should extract the parameters from the user and send it to the database. Does not function properly yet
-/*
-$query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
-            VALUES ($user->getUserName();, $user->getFirstName();, $user->getLastName();, $user->getRole();, $user->getHash();, $user->getDeleted(););";
-*/
-
-try {
-    $statement = $conn->prepare($query);
-    $statement->execute($user);
-} catch (PDOException $e){
-    echo "Error: {$e->getMessage()}";
-    
-}
-        
-        
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
 }
-    
 ?>
 
+
+
         <h1>Nieuwe gebruiker aanmaken</h1>
-
-        <form method="POST" action="../API/makeUserForm.php">
-            <div>
-                <p>
-                    <label>Gebruikersnaam</label>
-                    <input name='userName' type="text" value="<?php echo $userName;?>" />
-                    <span><?php echo $userNameErr;?></span>
-                </p>
-                <p>
-                    <label>Emailadres</label>
-                    <input name='email' type="text" value="<?php echo $email;?>" />
-                    <span><?php echo $emailErr;?></span>
-                </p>
-                <p>
-                    <label>Voornaam</label>
-                    <input name='firstName' type="text" value="<?php echo $firstName;?>" />
-                    <span><?php echo $firstNameErr;?></span>
-                </p>
-                <p>
-                    <label>Achternaam</label>
+<p><span class="error">* required field</span></p>
+        <form method="POST" action="makeUserForm.php">
+            <p>
+                <label>
+                    Gebruikersnaam
+                    <input name='userName' type="text"  value="<?php echo $userName;?>" />
+                    <span  class="error">* <?php echo $userNameErr;?></span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Voornaam
+                    <input name='firstName' type="text" value="<?php echo $firstName;?>"/>
+                    <span class="error">* <?php echo $firstNameErr;?></span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Achternaam
                     <input name='lastName' type="text" value="<?php echo $lastName;?>" />
-                    <span><?php echo $lastNameErr;?></span>
-                </p>
-                <br>
-                <p>
-                    <label>Wachtwoord</label>
-                    <input name='password1' type="text" value="<?php echo $password1;?>" />
-                    <span><?php echo $password1Err;?></span>
-                </p>
-                <p>
-                    <label>Herhaal wachtwoord</label>
-                    <input name='password2' type="text" value="<?php echo $password2;?>" />
-                    <span><?php echo $password2Err;?></span>
-                </p>
-            </div>
-            <div class="buttonsFromForm">
+                    <span class="error">* <?php echo $lastNameErr;?></span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Wachtwoord
+                    <input name='password1' type="text" value="<?php echo $password1;?>"/>
+                    <span class="error">* <?php echo $password1Err;?></span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    Herhaal wachtwoord
+                    <input name='password2' type="text" value="<?php echo $password2;?>"/>
+                    <span class="error">* <?php echo $password2Err;?></span>
+                </label>
+            </p>
+            <label>
+                <input name='role' type="radio" value="admin" /> Administrator
+                <span class="error">* <?php echo $roleErr;?></span>
+            </label>
+            <label>
+                <input name='role' type="radio" value="user" /> Gebruiker
+                <span class="error">* <?php echo $roleErr;?></span>
+            </label>
+            <p>
+                <input type="submit" value="Maak gebruiker aan" />
+                <button type="reset" value="Reset">Reset</button>
 
-                <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator</div>
-                <div class="radioButton"><input name='role' type="radio" value="user" /> Gebruiker</div>
-
-                <div>
-                    <input type="submit" value="Maak gebruiker aan" id="submitButton" />
-                    <button type="reset" value="Reset" id="resetButton">Reset</button>
-                </div>
-            </div>
+            </p>
         </form>
         <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
 

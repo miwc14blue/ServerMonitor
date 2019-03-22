@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $row['userName'];
 
         if ($row['role'] == 'admin') {
-          header("location: html/systeemOverzichtAdm.php");
+          header("location: html/systemOverview.php");
           $_SESSION['role'] = 'admin';
         } else {
           header("location: html/systeemOverzichtUser.php");
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ingegeven wachtwoord matcht niet met db
       } else
         $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
-      // ingegeven username matcht niet met db 
+      // ingegeven username matcht niet met db
     } else {
       $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
     }
@@ -79,4 +79,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 
-</html> 
+</html>

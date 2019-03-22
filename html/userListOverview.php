@@ -32,9 +32,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <table>
             <tr>
                 <th class="headerUserTable" colspan="6">Gebruikersoverzicht
-                  <a href="../html/makeUserForm.php" class="add-container">
-                    <i class="fa fa-plus"> Voeg gebruiker toe</i>
-                  </a>
+                  <button class="btn" onclick="window.location.href='../html/makeUserForm.php';"><i class="fa fa-plus"></i> Voeg gebruiker toe</button>
                 </th>
             </tr>
             <tr>

@@ -13,28 +13,27 @@
 <?php
 // define variables and set to empty values
 $userNameErr = $firstNameErr=$lastNameErr=$emailErr = $password1Err=$password2Err=$roleErr  = "";
-$userName = $firstName=$lastName=$emailErr = $password1=$password2=$role  = "";
+$userName = $firstName=$lastName=$email = $password1=$password2=$role  = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Username (Required, Unique, minimum 5 characters)
   if (empty($_POST["userName"])) {
-    $nameErr = "userName is required";
+    $userNameErr = "userName is required";
   } else {
     $userName = test_input($_POST["userName"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-      $nameErr = "Only letters and white space allowed"; 
+    if (!preg_match("/^[a-zA-Z ]*$/",$userName)) {
+      $userNameErr = "Only letters and white space allowed"; 
     }
   }
 
   ///First Name (Required, minimum of 2 characters) , first if foerrequired second if for at least 2 caharacers
   if (empty($_POST["firstName"])) {
     $firstNameErr = "firstName is required";
-  } elseif(checkLength($firstName,2)){
+  } elseif(!checkLength($firstName,2)){
      $firstNameErr = "firstName should be at least 2 characters";
   }
-   
   else {
     $firstName = test_input($_POST["firstName"]);
      
@@ -43,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 //Surname (Required, minimum of 2 characters) ,first if for required second if for at least 2 caharacers
   if (empty($_POST["lastName"])) {
     $lastNameErr = "lastName is required";
-  }elseif(checkLength($lastName,2)){
+  }elseif(!checkLength($lastName,2)){
      $lastNameErr = "firstName should be at least 2 characters"; 
   }
    
@@ -66,10 +65,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
   }
     //Password (Required, at least 8 characters of which 1 uppercase letter, 1 lowercase letter and 1 number)
-  if(empty($_POST["password1"])){
-    $password1Error="Password is required...!";
-
-}elseif(!checkPassword()){
+ if(empty($_POST["password1"])){
+    $password1Err="Password  is required...!";
+    }
+    elseif(!checkPassword($password1)){
   //checkPassword returns true if patern is fine if not it will return false and 
   //!false will be true so will create error massage
 
@@ -105,8 +104,8 @@ if(empty($_POST["password2"])){
     return strlen($str) >= $len;
   }
 // check pasword with regex  due to requirements
-   function checkPassword(){
-      return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password1);
+   function checkPassword($pass){
+      return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $pass);
   }
 
 
@@ -122,7 +121,7 @@ function test_input($data) {
 
         <h1>Nieuwe gebruiker aanmaken</h1>
 <p><span class="error">* required field</span></p>
-        <form method="POST" action="API/createUser.php">
+        <form method="POST" action="makeUserForm.php">
             <p>
                 <label>
                     Gebruikersnaam
@@ -164,7 +163,7 @@ function test_input($data) {
             </label>
             <label>
                 <input name='role' type="radio" value="user" /> Gebruiker
-                <span class="error">* <?php echo $nameErr;?></span>
+                <span class="error">* <?php echo $roleErr;?></span>
             </label>
             <p>
                 <input type="submit" value="Maak gebruiker aan" />

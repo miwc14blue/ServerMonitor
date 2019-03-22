@@ -1,5 +1,9 @@
 .add-container{
-  margin-right: 10%;
   float: right;
-  padding: 20px;
+  padding: 0;
+  text-align: right;
+}
+
+.headerUserTable{
+  font-size: 20px;
 }

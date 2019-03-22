@@ -1,0 +1,14 @@
+.VM-container{
+  margin: 20px;
+}
+
+.img-container{
+  width: 40%;
+  margin: 20px;
+  float: left;
+}
+
+.table{
+  width: 40%;
+  float: right;
+}

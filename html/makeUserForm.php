@@ -57,7 +57,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 </p>
             </div>
             <div class="buttonsFromForm">
-                
+
             <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator </div>
             <div class="radioButton"><input name='role' type="radio" value="user" /> User </div>
                 <div>
@@ -66,9 +66,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 </div>
             </div>
         </form>
-        <button id="cancelbutton" onclick="location.href=`../userListOverview.php`"> Annuleren</button>
+        <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
 
     </body>
 
     </html>
-

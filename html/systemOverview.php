@@ -31,9 +31,16 @@
         <h1>Systeem Overzicht</h1>
 
         <?php
+        $username='makeitwork';
+        $password='itWorkMake2018';
+        $URL='https://makeitwork.local.mybit.nl:8443/vms/klanty/testing';
+
         $ch= curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'http://makeitwork.local.mybit.nl/vms/klanty/testing');
+        curl_setopt($ch, CURLOPT_URL, $URL);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        
+        curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
+        curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
 
         $output = curl_exec($ch);
         $data = json_decode($output);
@@ -56,18 +63,18 @@
               </tr>
               <tr>
                 <td>
-                  <?php echo $row->latency?>
+                  <bold>Latency: </bold><?php echo $row->latency?>
                 </td>
                 <td>
-                  <?php echo $row->memory?>
+                  <bold>Memory: </bold><?php echo $row->memory?>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <?php echo $row->disk_size?>
+                  <bold>Storage: </bold><?php echo $row->disk_size?>
                 </td>
                 <td>
-                  <?php echo $row->vCPU?>
+                  <bold>vCPU: </bold><?php echo $row->vCPU?>
                 </td>
               </tr>
             </table>

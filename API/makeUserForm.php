@@ -19,88 +19,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Username (Required, Unique, minimum 5 characters)
   if (empty($_POST["userName"])) {
-<<<<<<< HEAD
-    $userNameErr = "userName is required";
-=======
-    $userNmeErr = "userName is required";
->>>>>>> 395edbb6861a17393bb45222f905b394a58e0468
-  } else {
+  $userNameErr = "userName is required";
+
+  }else {
     $userName = test_input($_POST["userName"]);
+    
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z ]*$/",$userName)) {
       $userNameErr = "Only letters and white space allowed"; 
     }
   }
 
+  
+if(!checkLength($userName,5)){
+    $userNameErr="userName should be 5 characters";
+
+  }
+  
   ///First Name (Required, minimum of 2 characters) , first if foerrequired second if for at least 2 caharacers
   if (empty($_POST["firstName"])) {
     $firstNameErr = "firstName is required";
-  } elseif(!checkLength($firstName,2)){
-     $firstNameErr = "firstName should be at least 2 characters";
-  }
+  } 
   else {
     $firstName = test_input($_POST["firstName"]);
-     
+     if(!checkLength($firstName,2)){
+     $firstNameErr = "firstName should be at least 2 characters";
   }
 
+}
+
 //Surname (Required, minimum of 2 characters) ,first if for required second if for at least 2 caharacers
-  if (empty($_POST["lastName"])) {
+
+if (empty($_POST["lastName"])) {
     $lastNameErr = "lastName is required";
-  }elseif(!checkLength($lastName,2)){
-     $lastNameErr = "firstName should be at least 2 characters"; 
-  }
-   
-  else {
+  }else {
     $lastName = test_input($_POST["lastName"]);
-    
+ 
+    if(!checkLength($lastName,2)){
+     $lastNameErr = "lastName should be at least 2 characters"; 
+ }
     
   }
 
   //Email Address (Required, meets validation guidelines for email Link)
   if (empty($_POST["email"])) {
     $emailErr = "Email is required";
-  }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  }else {
+    $email = test_input($_POST["email"]);
+      if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
      // check if e-mail address is well-formed
       $emailErr = "Invalid email format"; 
     } 
-  else {
-    $email = test_input($_POST["email"]);
-   
     
   }
+  
+  
     //Password (Required, at least 8 characters of which 1 uppercase letter, 1 lowercase letter and 1 number)
-<<<<<<< HEAD
+
  if(empty($_POST["password1"])){
     $password1Err="Password  is required...!";
-    }
-    elseif(!checkPassword($password1)){
-=======
-  if(empty($_POST["password1"])){
-    $password1Error="Password is required...!";
-
-}elseif(!checkPassword($password1)){
->>>>>>> 395edbb6861a17393bb45222f905b394a58e0468
+    }else{
+      $password1=test_input($_POST["password1"]);
+      if(!checkPassword($password1)){
+          $password1Error="The password name must contain at least 8 characters
+   of which 1 uppercase letter, 1 lowercase letter and 1 number'";
   //checkPassword returns true if patern is fine if not it will return false and 
   //!false will be true so will create error massage
-
-  $password1Error="The password name must contain at least 8 characters
-   of which 1 uppercase letter, 1 lowercase letter and 1 number'";
-
 }
-  
-  else{
-$password1=test_input($_POST["password1"]);
-    
-}
-
+       }
+       
 if(empty($_POST["password2"])){
     $password2Err="Confirm password  is required...!";
   
-}elseif($password1!=$password2){
-  $password2Err="paswords Not Match";
-
 }else{
    $password2 = test_input($_POST["password2"]);
+  if($password1!=$password2){
+  $password2Err="paswords Not Match";
+
+}
 }
 
   if (empty($_POST["role"])) {
@@ -114,9 +110,11 @@ if(empty($_POST["password2"])){
  function checkLength($str, $len){
     return strlen($str) >= $len;
   }
-// check pasword with regex  due to requirements
+// checks pasword with regex  due to requirements
    function checkPassword($pass){
-      return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $pass);
+      return preg_match( "(?=.*?[0-9])", $pass);
+     
+      
   }
 
 
@@ -154,6 +152,13 @@ function test_input($data) {
                     <span class="error">* <?php echo $lastNameErr;?></span>
                 </label>
             </p>
+             <p>
+                <label>
+                    EmailAdress
+                    <input name='email' type="text"  value="<?php echo $email;?>" />
+                    <span  class="error">* <?php echo $emailErr;?></span>
+                </label>
+            </p>
             <p>
                 <label>
                     Wachtwoord
@@ -161,6 +166,7 @@ function test_input($data) {
                     <span class="error">* <?php echo $password1Err;?></span>
                 </label>
             </p>
+           
             <p>
                 <label>
                     Herhaal wachtwoord

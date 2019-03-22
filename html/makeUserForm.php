@@ -1,4 +1,12 @@
-<DOCTYPE html>
+<?php
+session_start();
+$session = new Session($_SESSION['username']);
+if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
+   header("Location:../login.php");
+}
+?>
+
+<!DOCTYPE html>
     <html>
 
     <head>
@@ -63,4 +71,4 @@
     </body>
 
     </html>
-</DOCTYPE>
+

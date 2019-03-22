@@ -36,13 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if (password_verify($mypassword, $row['password']) && $row['deleted'] == 0) {
         //Password matches, so create the session
         $_SESSION['username'] = $row['userName'];
+        $_SESSION['role'] = $row['role'];
 
-        if ($row['role'] == 'admin') {
+        if ($_SESSION['role'] == 'admin') {
           header("location: html/systeemOverzichtAdm.php");
-          $_SESSION['role'] = 'admin';
         } else {
           header("location: html/systeemOverzichtUser.php");
-          $_SESSION['role'] = 'user';
         }
       } else if ($row['deleted'] == 1) {
         $combiErr = "U heeft geen account meer.";

@@ -39,6 +39,16 @@
         curl_close($ch);
 
         var_dump($data);
+
+        foreach($data as $row){
+          ?>
+          <div class="VM-container">
+            <div class="img-container">
+              <img class="vm" src="../img/vm_icon.png">
+            </div>
+          </div>
+        <?php
+        }
         ?>
     </body>
 </html>

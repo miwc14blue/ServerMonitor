@@ -1,7 +1,7 @@
 <?php
 session_start();
-$session = new Session($_SESSION['username']);
-if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
+
+if(!isset($_SESSION['username']) || !($_SESSION['role']=='user')){
    header("Location:../login.php");
 }
 ?>

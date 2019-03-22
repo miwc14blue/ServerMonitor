@@ -2,7 +2,7 @@ div {
     margin-left: 50px;
 }
 
-label{
+label {
     float: left;
     clear: left;
     width: 250px;
@@ -31,4 +31,8 @@ input {
 
 #resetButton {
     margin-left: 50px;
+}
+
+span {
+    color: #FF0000;
 }

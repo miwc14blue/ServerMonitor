@@ -1,159 +1,128 @@
-<?php?/*
-include_once("../lib/DatabasePDO.php");
-include_once("../lib/User.php");
+ <?php
+    
+        include_once("../lib/DatabasePDO.php");
+        include_once("../lib/User.php");
 
-$databasePDOInstance = new DatabasePDO();
-$conn = $databasePDOInstance->get();
-
-$userName =$firstName=$lastName= $email = $password1 = $password2 = $role = "";
-$userNameError =$firstNameError=$lastNameError= $emailError = $password1Error = $password2 = $role = "";
-$boolean =false;
-
-
-$userName = $_POST['userName'];
-$email = $_POST['email'];
-$firstName = $_POST['firstName'];
-$lastName = $_POST['lastName'];
-$password1 = $_POST['password1'];
-$password2 = $_POST['password2'];
-$role = $_POST['role'];
-$hash = password_hash($password1, PASSWORD_DEFAULT);
+        $databasePDOInstance = new DatabasePDO();
+        $conn = $databasePDOInstance->get();    
+        
+        // define variables and set to empty values
+        $userNameErr = $firstNameErr=$lastNameErr=$emailErr = $password1Err=$password2Err=$roleErr  = "";
+        $userName = $firstName=$lastName=$email = $password1=$password2=$role  = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//Username (Required, Unique, minimum 5 characters)
-if(empty($_POST['userName'])){
-    $userNameError="Username required...";
-    $boolean=false;
-}else{
-    $userName = validate_input($_POST["userName"]);
-    $boolean=true;
 
-}
-//Email Address (Required, meets validation guidelines for email Link)
-if (empty($_POST['email'])) {
-
-$emailError="Email required...!";
-$boolean=false;
-}elseif (!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)) {
-    $emailError="Invalid Email";
-    $boolean=false;
-    
-}else{
-$email = validate_input($_POST["email"]);
-$boolean=true;
-}
-
-//Password (Required, at least 8 characters of which 
-//1 uppercase letter, 1 lowercase letter and 1 number)
-$length=strLength($_POST["password1"]);
-
-if(empty($_POST["password1"])){
-    $password1Error="Password is required...!";
-   $boolean=false;
-}elseif ($length) {
-    $password1Error=$length;
-    $boolean=true;
-
- 
-}else{
-    $password1 = validate_input($_POST["password1"]);
-}
-
-//pasowrd2-->confirm password
-
-if(empty($_POST["password2"])){
-    $password1Error="Confirm password  is required...!";
-   $boolean=false;
-}elseif ($_POST["password1"]!=$password2) {
-    $password2Error="password Not Match...!";
-    
-
- 
-}else{
-   $password2 = validate_input($_POST["password2"]);
-}
-
-//First Name (Required, minimum of 2 characters)
-//Surname (Required, minimum of 2 characters)
-$fnameLength=firstAndLastNameLength($_POST["firstName"]);
-$lnameLength=firstAndLastNameLength($_POST["lastName"]);
-
-if(empty($_POST["firstName"]) || empty($_POST["lastName"])){
-    $firstNameError="FirstName is required";
-    $lastNameError="lastname is required..!";
-    $boolean=false;
-}elseif ($fnameLength || $lnameLength) {
-    $firstNameError=$fnameLength;
-    $lastNameError=$lnameLength;
-    
-    $boolean=true;
-}
-else{
-    $firstName = validate_input($_POST["firstName"]);
-  $lastName = validate_input($_POST["lastName"]);
-}
-/////////////following 3 inputs are not covered yet ,I still working on it.
-  $userName = validate_input($_POST["userName"]);
-  $role = validate_input($_POST["role"]);
-  $hash = validate_input($_POST["hash"]);
- ///////////////////////////////////////////// 
-  //checks length of pasword
-function strLength($str){
-    $ln=strlen($str);
-    if($ln<8){
-        return "Password should at least   8 Characters" ;
+    //Username (Required, Unique, minimum 5 characters)
+  if (empty($_POST["userName"])) {
+    $userNameErr = "Gebruikersnaam is vereist.";
+  } else {
+    $userName = test_input($_POST["userName"]);
+    // check if name only contains letters and whitespace
+    if (!preg_match("/^[a-zA-Z ]*$/",$userName)) {
+      $userNameErr = "Alleen letters en spaties zijn toegestaan."; 
     }
-    return ;
+  }
 
-}
+  ///First Name (Required, minimum of 2 characters) , first if foerrequired second if for at least 2 caharacers
+  if (empty($_POST["firstName"])) {
+    $firstNameErr = "Voornaam is vereist.";
+  } elseif(!checkLength($firstName,2)){
+     $firstNameErr = "Voornaam moet uit ten minste 2 karakters bestaan.";
+  }
+  else {
+    $firstName = test_input($_POST["firstName"]);
+     
+  }
 
-function firstAndLastNameLength($name){
-    $ln=strlen($name);
-    if($ln<2){
-        return "$name should  be at least   2 Characters" ;
+//Surname (Required, minimum of 2 characters) ,first if for required second if for at least 2 caharacers
+  if (empty($_POST["lastName"])) {
+    $lastNameErr = "Achternaam is vereist";
+  }elseif(!checkLength($lastName,2)){
+     $lastNameErr = "Achternaam moet uit ten minste 2 karakters bestaan."; 
+  }
+   
+  else {
+    $lastName = test_input($_POST["lastName"]);
+    
+    
+  }
+
+  //Email Address (Required, meets validation guidelines for email Link)
+  if (empty($_POST["email"])) {
+    $emailErr = "E-mailadres is vereist";
+  }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+     // check if e-mail address is well-formed
+      $emailErr = "Ongeldig e-mail adres."; 
+    } 
+  else {
+    $email = test_input($_POST["email"]);    
+  }
+    //Password (Required, at least 8 characters of which 1 uppercase letter, 1 lowercase letter and 1 number)
+    if(empty($_POST["password1"])){
+        $password1Err="Wachtwoord is vereist.";
     }
-    return ;
+    elseif(!checkPassword($password1)){
 
+  //checkPassword returns true if patern is fine if not it will return false and 
+  //!false will be true so will create error massage
+        $password1Error="Het wachtwoord moet bestaan uit (minimaal) 8 tekens, waarvan (minimaal) 1 hoofdletter, 1 kleine letter en 1 nummer.";
+    } else{
+        $password1=test_input($_POST["password1"]);
+    }
+    if(empty($_POST["password2"])){
+        $password2Err="Wachtwoord bevestiging is vereist.";
+    }elseif($password1!=$password2){
+        $password2Err="Wachtwoorden zijn niet gelijk";
+    }else{
+   $password2 = test_input($_POST["password2"]);
+    }
+    if (empty($_POST["role"])) {
+    $roleErr = "Rol is vereist.";
+    } else {
+    $role = test_input($_POST["role"]);
+    }
 }
 
-  function validate_input($data) {
+///this function length of the input  for firstname,lastname or whereever required
+ function checkLength($str, $len){
+    return strlen($str) >= $len;
+  }
+// check pasword with regex  due to requirements
+   function checkPassword($pass){
+      return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $pass);
+  }
+
+
+function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
 }
-}
 
-
-//TODO: this line of code should create a new user
-// private $user = new User($userName, $firstName, $lastName, $hash, $role);
-
-
-$user = [
-    'userName' => $userName,
-    'firstName' => $firstName,
-    'lastName' => $lastName,
-    'hash' => $hash,
-    'role' => $role,
-    'deleted' => '0'
-]; 
+        $user = ['userName' => $userName,
+                'firstName' => $firstName,
+                'lastName' => $lastName,
+                'hash' => $hash,
+                'role' => $role,
+                'deleted' => '0'
+                ]; 
 
 $query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
             VALUES (:userName, :firstName, :lastName, :role, :hash, :deleted);";
 
 
 //TODO: This query should extract the parameters from the user and send it to the database. Does not function properly yet
-
-//$query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
-  //          VALUES ($user->getUserName();, $user->getFirstName();, $user->getLastName();, $user->getRole();, $user->getHash();, $user->getDeleted(););";
-
+/*
+$query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
+            VALUES ($user->getUserName();, $user->getFirstName();, $user->getLastName();, $user->getRole();, $user->getHash();, $user->getDeleted(););";
+*/
 
 try {
     $statement = $conn->prepare($query);
     $statement->execute($user);
 } catch (PDOException $e){
     echo "Error: {$e->getMessage()}";
-    
-}
-*/
-?>
+    }
+        
+        ?>

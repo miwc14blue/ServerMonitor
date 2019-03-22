@@ -19,7 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //Username (Required, Unique, minimum 5 characters)
   if (empty($_POST["userName"])) {
+<<<<<<< HEAD
     $userNameErr = "userName is required";
+=======
+    $userNmeErr = "userName is required";
+>>>>>>> 395edbb6861a17393bb45222f905b394a58e0468
   } else {
     $userName = test_input($_POST["userName"]);
     // check if name only contains letters and whitespace
@@ -65,10 +69,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
   }
     //Password (Required, at least 8 characters of which 1 uppercase letter, 1 lowercase letter and 1 number)
+<<<<<<< HEAD
  if(empty($_POST["password1"])){
     $password1Err="Password  is required...!";
     }
     elseif(!checkPassword($password1)){
+=======
+  if(empty($_POST["password1"])){
+    $password1Error="Password is required...!";
+
+}elseif(!checkPassword($password1)){
+>>>>>>> 395edbb6861a17393bb45222f905b394a58e0468
   //checkPassword returns true if patern is fine if not it will return false and 
   //!false will be true so will create error massage
 

@@ -16,6 +16,11 @@ class UserValidator {
         return $userNameAndError;
     } 
     
+    /*
+    
+
+    */
+    
 /*-----------------------------------first name validaton---------------------------------*/ 
     public function validateFirstName($data) {
         $error = "";
@@ -99,7 +104,7 @@ class UserValidator {
 
 /*-----------------------------helper functions-----------------------------------*/    
     //this function length of the input  for firstname,lastname or whereever required
-    function test_input($data) {
+    public function test_input($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -107,12 +112,12 @@ class UserValidator {
     }
     
     //this function length of the input  for firstname,lastname or whereever required
-    function checkLength($str, $len){
+    public function checkLength($str, $len){
         return strlen($str) >= $len;
     }
 
     // check pasword with regex  due to requirements
-    function checkPassword($password){
+    public function checkPassword($password){
         return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password);
     }
 }

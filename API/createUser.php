@@ -108,6 +108,7 @@ function test_input($data) {
                 'deleted' => '0'
                 ]; 
 
+
 $query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `role`, `password`,`deleted`) 
             VALUES (:userName, :firstName, :lastName, :role, :hash, :deleted);";
 

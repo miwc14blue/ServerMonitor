@@ -24,5 +24,15 @@ class userDAO extends DAO {
         $user = parent::SendQueryToDB($query);
         return $user;
     }
+
+    
+    public function retrieveUserList() {
+        $query = "SELECT userName, firstName, lastName, role 
+        FROM servermonitor.user  
+        WHERE (`deleted` = '0') ORDER BY userName;";
+
+        $userList = parent::SendQueryToDB($query);
+        return $userList;
+    }
 }
 ?>

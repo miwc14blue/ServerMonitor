@@ -60,20 +60,20 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
             <!-- <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator </div>
             <div class="radioButton"><input name='role' type="radio" value="user" /> User </div> -->
-            <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-                <div id="myDropdown" class="dropdown-content">
-                    <<input class="radiobtn" name='role' type="radio" value="user" />
-                    <input class="radiobtn" name='role' type="radio" value="admin" />>Admin</a>
+                <div class="dropdown">
+                    <button onclick="showContent()" class="btnSize hoverColor ">Rol</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <input class="radiobtn" name='role' type="radio" value="user" />User
+                            <input class="radiobtn" name='role' type="radio" value="admin" />Admin
+                        </div>
                 </div>
-            </div>
                 <div>
-                    <input type="submit" value="Maak gebruiker aan" id="submitButton" />
-                    <button type="reset" value="Reset" id="resetButton">Reset</button>
+                    <input type="submit" value="Maak gebruiker aan" class="btnSize hoverColor" id="submitButton" />
+                    <button type="reset" value="Reset" class="btnSize hoverColor" id="resetButton">Reset</button>
                 </div>
             </div>
         </form>
-        <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
+        <button class="btnSize hoverColor" id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
 
     </body>
 

@@ -53,7 +53,7 @@
             $roleErr = $roleAndErrMessage[1];
             
             
-             /*---------------------------if no errors, make user and send to DB......................*/
+/*---------------------------if no errors, make user and send to DB......................*/
             if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
                 and empty($emailErr) and empty($passwordErr)){
                 

@@ -17,7 +17,7 @@
         
         // define variables and set to empty values
         $userNameErr = $firstNameErr=$lastNameErr=$emailErr=$passwordErr=$roleErr  = "";
-        $userName = $firstName=$lastName=$email = $password1=$password2=$role  = "";
+        $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password= "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $userValidator = new UserValidator(); 
@@ -28,11 +28,11 @@
             $userNameErr = $userNameAndErrMessage[1];
             
             //Checks first name from input field for validity
-            $firstNameAndErrMessage = $userValidator->validateUserName($_POST["firstName"]);
+            $firstNameAndErrMessage = $userValidator->validateFirstName($_POST["firstName"]);
             $firstName = $firstNameAndErrMessage[0];
             $firstNameErr = $firstNameAndErrMessage[1];
             
-           //Checks last name from input field for validity
+            //Checks last name from input field for validity
             $lastNameAndErrMessage = $userValidator->validateLastName($_POST["lastName"]);
             $lastName = $lastNameAndErrMessage[0];
             $lastNameErr = $lastNameAndErrMessage[1];
@@ -52,16 +52,16 @@
             $role = $roleAndErrMessage[0];
             $roleErr = $roleAndErrMessage[1];
             
-           
-            /*---------------------------if no errors, make user and send to DB......................*/
-            if ($userNameErr and $firstNameErr and $lastNameErr and
-               $emailErr and $passwordErr and $roleErr == ""){
+            
+             /*---------------------------if no errors, make user and send to DB......................*/
+            if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
+                and empty($emailErr) and empty($passwordErr)){
+                
                 
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                
                 $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
                 
-                $userDAO = new UserDAO;
+                $userDAO = new UserDAO();
                 $userDAO->storeInDB($user);
             }
         }
@@ -118,7 +118,7 @@
                 <span class="error">* <?php echo $roleErr;?></span>
             </label>
             <label>
-                <input name='role' type="radio" value="user" /> Gebruiker
+                <input name='role' type="radio" value="user" checked="checked"/> Gebruiker
                 <span class="error">* <?php echo $roleErr;?></span>
             </label>
             <p>

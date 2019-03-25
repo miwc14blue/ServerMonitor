@@ -113,8 +113,6 @@ if(empty($_POST["password2"])){
 // checks pasword with regex  due to requirements
    function checkPassword($pass){
       return preg_match( "(?=.*?[0-9])", $pass);
-     
-      
   }
 
 

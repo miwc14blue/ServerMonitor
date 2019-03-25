@@ -12,25 +12,24 @@ class UserValidator {
         elseif (!preg_match("/^[a-zA-Z ]*$/",$userName)) {
             $error = "Alleen letters en spaties zijn toegestaan.";
         }
-        $userNameAndError = array($userName, $error);
-        return $userNameAndError;
-    } 
+        elseif(!$this->checkLength($userName,5)){
+            $error="Gebruikersnaam moet minstens uit 5 karakters bestaan.";
+        }
+            $userNameAndError = array($userName, $error);
+            return $userNameAndError;
+    }
     
-    /*
-    
-
-    */
     
 /*-----------------------------------first name validaton---------------------------------*/ 
     public function validateFirstName($data) {
         $error = "";
         $firstName = $data;
-        $firstNameTested = test_input($firstName);
+        $firstNameTested = $this->test_input($firstName);
         
         if (empty($firstName)){
             $error = "Voornaam is vereist.";
         }
-        elseif (!checkLength($firstName,2)) {
+        elseif (!$this->checkLength($firstName,2)) {
             $error = "Voornaam moet uit ten minste 2 karakters bestaan.";
         }
         elseif ($firstNameTested !== $firstName){
@@ -48,7 +47,7 @@ class UserValidator {
         if (empty($lastName)){
             $error = "Achternaam is vereist";
         }
-        elseif (!checkLength($lastName,2)) {
+        elseif (!$this->checkLength($lastName,2)) {
             $error = "Achternaam moet uit ten minste 2 karakters bestaan.";
         }
         $lastNameAndError = array($lastName, $error);
@@ -82,7 +81,7 @@ class UserValidator {
         elseif($password1!== $password2){
             $error="Wachtwoorden zijn niet gelijk";
         }
-        elseif(!checkPassword($password1)){ // checkPassword returns true if patern is fine if not it will return false
+        elseif(!$this->checkPassword($password1)){ // checkPassword returns true if patern is fine if not it will return false
                                             // and !false will be true so will create error massage
             $error="Het wachtwoord moet bestaan uit (minimaal) 8 tekens, waarvan (minimaal) 1 hoofdletter, 1 kleine letter en 1 nummer.";
         }
@@ -111,7 +110,7 @@ class UserValidator {
         return $data;
     }
     
-    //this function length of the input  for firstname,lastname or whereever required
+    //this function length of the input  for firstname,lastname or wherever required
     public function checkLength($str, $len){
         return strlen($str) >= $len;
     }

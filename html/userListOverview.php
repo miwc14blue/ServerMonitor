@@ -20,14 +20,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
 
     <body>
-
-        <nav id="navHeader">
-            <img class="logo" src="../img/logo.png">
-            <a href="systeemOverzichtAdm.php">Systeem overzicht</a>
-            <a class="active" href="userListOverview.php">Gebruikers</a>
-            <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
-        </nav>
-
+      <?php
+          require_once('menu.php');
+      ?>
         <table>
             <tr>
                 <th class="headerUserTable" colspan="6">Gebruikersoverzicht

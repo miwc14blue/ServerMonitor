@@ -37,7 +37,6 @@ a:hover:not(.active) {
 
 .error {
     color: red;
-    border-bottom: 2px solid red;
 }
 
 .menu-container {

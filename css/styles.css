@@ -36,16 +36,16 @@ a:hover:not(.active) {
     color: red;
 }
 
-.uitloggen {
-/*    margin-left: 35%;*/
-}
-
 #navHeader {
     margin-left: 10px;
     display: flex;
 }
 
-/* Check met Niek of onderstaande weg kan */
+#navHeader .uitloggen {
+  display: flex;
+  justify-content: flex-end;
+}
+
 table {
     border-collapse: collapse;
     width: 80%;

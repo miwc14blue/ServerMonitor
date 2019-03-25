@@ -44,6 +44,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             
             $userDAO = new UserDAO();
             $userList = json_decode($userDAO->retrieveUserList());
+          
 
             foreach($userList as $user){
                         ?>
@@ -61,14 +62,23 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <i class="fa fa-pencil"></i>
+                <button class="btn" onclick="<?php callMe() ;?>" > <i class="fa fa-pencil"></i> </button>
+                    
                 </td>
                 <td>
                     <i class="fa fa-trash"></i>
                 </td>
             </tr>
+            
             <?php
-    } ?>
+    } 
+     
+    function callMe(){
+
+        echo "I am called";
+    }
+    
+    ?>
         </table>
     </body>
 

@@ -24,6 +24,14 @@ class UserDAO extends DAO {
         $user = parent::SendQueryToDB($query);
         return $user;
     }
+    public function deleteUser($userName){
+        $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName'; ";
+        $user = parent::SendQueryToDB($query);
+        retrieveUserList();
+
+
+
+    }
 
     
     public function retrieveUserList() {

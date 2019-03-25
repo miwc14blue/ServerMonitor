@@ -3,11 +3,6 @@ body{
     background: #f0f5f9;
 }
 
-/* Verbergen van pencil en trashcan in userListOverview */
-td i {
-  visibility: hidden;
-}
-
 p {
     display: block;
 }

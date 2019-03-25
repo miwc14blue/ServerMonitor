@@ -58,8 +58,15 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             </div>
             <div class="buttonsFromForm">
 
-            <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator </div>
-            <div class="radioButton"><input name='role' type="radio" value="user" /> User </div>
+            <!-- <div class="radioButton"><input name='role' type="radio" value="admin" /> Administrator </div>
+            <div class="radioButton"><input name='role' type="radio" value="user" /> User </div> -->
+            <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <<input class="radiobtn" name='role' type="radio" value="user" />
+                    <input class="radiobtn" name='role' type="radio" value="admin" />>Admin</a>
+                </div>
+            </div>
                 <div>
                     <input type="submit" value="Maak gebruiker aan" id="submitButton" />
                     <button type="reset" value="Reset" id="resetButton">Reset</button>

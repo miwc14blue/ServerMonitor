@@ -1,6 +1,7 @@
 body{
     font-family: sans-serif;
     background: #f0f5f9;
+    margin: 0;
 }
 
 /* Verbergen van pencil en trashcan in userListOverview */
@@ -17,13 +18,12 @@ p {
 .logo {
     width: 150px;
     height: 100px;
-    margin-left: 50px;
 }
 
 a {
     font-size: 1.2rem;
     text-decoration: none;
-    padding: 40px;
+    padding: 40px 20px;
     font-family: sans-serif;
     color: blue;
 }
@@ -34,22 +34,44 @@ a:hover:not(.active) {
 
 .active {
     color: red;
+    border-bottom: 2px solid red;
 }
 
-#navHeader {
-    margin-left: 10px;
+.menu-container {
     display: flex;
+    justify-content: center;
+    padding: 0;
+    background-color: white;
+    border-bottom: 1px solid #bdc2c6;
 }
 
-#navHeader .uitloggen {
+.menu{
+    width: 1000px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.uitloggen {
   display: flex;
   justify-content: flex-end;
+  margin-left: 20px;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    padding: 0;
 }
 
 table {
     border-collapse: collapse;
-    width: 80%;
-    margin-left: 10%;
+    width: 1000px;
     margin-top: 2%;
     margin-bottom: 10%;
     font-size: 12px;

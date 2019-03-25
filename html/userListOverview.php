@@ -23,14 +23,10 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
 
     <body>
-
-        <nav id="navHeader">
-            <img class="logo" src="../img/logo.png">
-            <a href="systeemOverzichtAdm.php">Systeem overzicht</a>
-            <a class="active" href="userListOverview.php">Gebruikers</a>
-            <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
-        </nav>
-
+      <?php
+          require_once('menu.php');
+      ?>
+      <div class="page">
         <table>
             <tr>
                 <th class="headerUserTable" colspan="6">Gebruikersoverzicht
@@ -46,7 +42,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 <th></th>
             </tr>
             <?php
-            
+
             $userDAO = new UserDAO();
             $userList = json_decode($userDAO->retrieveUserList());
 
@@ -75,6 +71,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             <?php
     } ?>
         </table>
+      </div>
     </body>
 
     </html>

@@ -33,6 +33,7 @@ a:hover:not(.active) {
 
 .active  {
     color: red;
+    border-bottom: 2px solid red;
 }
 
 .error {
@@ -45,6 +46,7 @@ a:hover:not(.active) {
     padding: 0;
     background-color: white;
     border-bottom: 1px solid #bdc2c6;
+    margin-bottom: 30px;
 }
 
 .menu{
@@ -77,6 +79,7 @@ table {
     margin-top: 2%;
     margin-bottom: 10%;
     font-size: 12px;
+    border: 1px solid #bdc2c6;
 }
 
 tr {

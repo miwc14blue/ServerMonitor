@@ -32,7 +32,7 @@ a:hover:not(.active) {
     color: orangered;
 }
 
-.active,  {
+.active  {
     color: red;
 }
 

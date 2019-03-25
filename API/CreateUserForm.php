@@ -11,7 +11,7 @@
 
     <body>
         <?php
-        include_once("../lib/UserValidator.php");
+        include_once("../lib/AttributeValidator.php");
         include_once("../lib/User.php");
         include_once("../lib/UserDAO.php");
         
@@ -20,35 +20,35 @@
         $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password= "";
         
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $userValidator = new UserValidator(); 
+            $attributeValidator = new AttributeValidator(); 
             
-            //Checks user name from input field for validity
-            $userNameAndErrMessage = $userValidator->validateUserName($_POST["userName"]);
+        //Checks user name from input field for validity
+            $userNameAndErrMessage = $attributeValidator->validateUserName($_POST["userName"]);
             $userName = $userNameAndErrMessage[0];
             $userNameErr = $userNameAndErrMessage[1];
             
-            //Checks first name from input field for validity
-            $firstNameAndErrMessage = $userValidator->validateFirstName($_POST["firstName"]);
+        //Checks first name from input field for validity
+            $firstNameAndErrMessage = $attributeValidator->validateFirstName($_POST["firstName"]);
             $firstName = $firstNameAndErrMessage[0];
             $firstNameErr = $firstNameAndErrMessage[1];
             
-            //Checks last name from input field for validity
-            $lastNameAndErrMessage = $userValidator->validateLastName($_POST["lastName"]);
+        //Checks last name from input field for validity
+            $lastNameAndErrMessage = $attributeValidator->validateLastName($_POST["lastName"]);
             $lastName = $lastNameAndErrMessage[0];
             $lastNameErr = $lastNameAndErrMessage[1];
             
-            //Checks e-mail address from input field for validity
-            $emailAndErrMessage = $userValidator->validateEmail($_POST["email"]);
+        //Checks e-mail address from input field for validity
+            $emailAndErrMessage = $attributeValidator->validateEmail($_POST["email"]);
             $email = $emailAndErrMessage[0];
             $emailErr = $emailAndErrMessage[1];
             
-            //Checks passwords from input field for validity
-            $passwordAndErrMessage = $userValidator->validatePassword($_POST["password1"], $_POST["password2"]);
+        //Checks passwords from input field for validity
+            $passwordAndErrMessage = $attributeValidator->validatePassword($_POST["password1"], $_POST["password2"]);
             $password = $passwordAndErrMessage[0];
             $passwordErr = $passwordAndErrMessage[1];
             
-            //Checks role from input field for validity
-            $roleAndErrMessage = $userValidator->validateRole($_POST["role"]);
+        //Checks role from input field for validity
+            $roleAndErrMessage = $attributeValidator->validateRole($_POST["role"]);
             $role = $roleAndErrMessage[0];
             $roleErr = $roleAndErrMessage[1];
             
@@ -69,7 +69,7 @@
        
         <h1>Nieuwe gebruiker aanmaken</h1>
         <p><span class="error">* required field</span></p>
-        <form method="POST" action="makeUserFormFrank.php">
+        <form method="POST" action="CreateUserForm.php">
             <p>
                    <label>
                     Gebruikersnaam

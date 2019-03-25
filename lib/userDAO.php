@@ -17,5 +17,12 @@ class userDAO extends DAO {
 
         parent::SendQueryToDB($query);
     }
+    
+    
+    public function findUser($userName){ 
+        $query = "SELECT * from user where userName= '$userName';";
+        $user = parent::SendQueryToDB($query);
+        return $user;
+    }
 }
 ?>

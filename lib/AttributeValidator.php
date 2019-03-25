@@ -1,9 +1,13 @@
 <?php
-class UserValidator {
+include 'UserDAO.php';
+
+class AttributeValidator {
         
 /*-----------------------------------user name validaton---------------------------------*/
     public function validateUserName($userName) {  
         $error = "";
+        $userDAO = new UserDAO();
+        $existingUser = $userDAO->findUser($userName);
         
         if (empty($userName)){
             $error = "Gebruikersnaam is vereist.";
@@ -14,8 +18,11 @@ class UserValidator {
         elseif(!$this->checkLength($userName,5)){
             $error="Gebruikersnaam moet minstens uit 5 karakters bestaan.";
         }
-            $userNameAndError = array($userName, $error);
-            return $userNameAndError;
+        elseif($existingUser!=="[]"){
+            $error = "De gebruikersnaam is niet beschikbaar.";
+        } 
+        $userNameAndError = array($userName, $error);
+        return $userNameAndError;
     }
     
     

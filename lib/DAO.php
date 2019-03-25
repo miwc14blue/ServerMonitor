@@ -15,6 +15,7 @@ class DAO {
         } catch (DPOException $e){
             echo "Error: {$e->getMessage()}";
         }
-    }
+        return json_encode($statement->fetchAll(PDO::FETCH_ASSOC));
+    }    
 }
 ?>

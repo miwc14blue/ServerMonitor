@@ -1,16 +1,15 @@
 <?php
-// session_start();
-// if(!isset($_SESSION['username'])){
-//    header("Location:../login.php");
-// }
+session_start();
+if(!isset($_SESSION['username'])){
+   header("Location:../login.php");
+}
 ?>
 
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            Systeem Overzicht
-        </title>
+        <meta charset="utf-8">
+        <title>Systeem Overzicht</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/systemoverview-styles.css">
@@ -20,8 +19,9 @@
         <nav id="navHeader">
             <img class="logo" src="../img/logo.png">
             <a class="active" href="systemOverview.php">Systeem overzicht</a>
-            <!-- if role = admin also show this-->
-            <a href="userListOverview.php">Gebruikers</a>
+            <?php if($_SESSION['role']=='admin'){ ?>
+              <a href="userListOverview.php">Gebruikers</a>
+            <?php } ?>
             <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
         </nav>
 

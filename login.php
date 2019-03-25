@@ -38,10 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $row['userName'];
 
         if ($row['role'] == 'admin') {
-          header("location: html/systemOverview.php");
           $_SESSION['role'] = 'admin';
         } else {
-          header("location: html/systeemOverzichtUser.php");
           $_SESSION['role'] = 'user';
         }
       } else if ($row['deleted'] == 1) {

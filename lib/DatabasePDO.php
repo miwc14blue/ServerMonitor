@@ -1,3 +1,4 @@
+
 <?php
 class DatabasePDO
 {
@@ -44,5 +45,3 @@ class DatabasePDO
         }
     }
 }
-
-?>

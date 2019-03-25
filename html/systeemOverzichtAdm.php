@@ -16,14 +16,9 @@ if((!isset($_SESSION['username'])) || !($_SESSION['role']=='admin')){
     </head>
     <body>
 
-    <nav id="navHeader">
-        <img class="logo" src="../img/logo.png">
-
-
-        <a class= "active" href="systeemOverzichtAdm.php" >Systeem overzicht</a>
-        <a href="userListOverview.php" >Gebruikers</a>
-        <a class= "uitloggen" href="../API/logout.php" >Uitloggen</a>
-    </nav>
+      <?php
+          require_once('menu.php');
+      ?>
 
         <div id="container">
         <h3 id="h3">Systeem overzicht</h3>

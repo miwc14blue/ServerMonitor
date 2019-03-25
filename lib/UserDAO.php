@@ -1,7 +1,7 @@
 <?php
 include 'DAO.php';
 
-class userDAO extends DAO {
+class UserDAO extends DAO {
     
     public function storeInDB ($user){
         $userName = $user->getUserName();

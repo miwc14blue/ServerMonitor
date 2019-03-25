@@ -5,9 +5,11 @@ class User
     private $userName;
     private $firstName;
     private $lastName;
+    private $email;
     private $role;
     private $hash;
     private $deleted;
+<<<<<<< HEAD
 
     public function __construct($userName, $firstName, $lastName, $role, $hash, $deleted)
     {
@@ -30,6 +32,22 @@ class User
 
     public function getUserName()
     {
+=======
+    
+    //constructor
+    public function __construct($userName, $firstName, $lastName, $email, $hash, $role) {
+        $this->userName = $userName;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->email = $email;
+        $this->hash = $hash;
+        $this->role = $role;
+        $this->deleted = "0";
+    }
+    
+    
+    public function getUserName() {
+>>>>>>> master
         return $this->userName;
     }
 
@@ -42,9 +60,18 @@ class User
     {
         return $this->lastName;
     }
+<<<<<<< HEAD
 
     public function getRole()
     {
+=======
+    
+    public function getEmail() {
+        return $this->email;
+    }
+    
+    public function getRole() {
+>>>>>>> master
         return $this->role;
     }
 

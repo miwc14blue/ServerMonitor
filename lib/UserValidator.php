@@ -2,9 +2,8 @@
 class UserValidator {
         
 /*-----------------------------------user name validaton---------------------------------*/
-    public function validateUserName($data) {  
+    public function validateUserName($userName) {  
         $error = "";
-        $userName = $data;
         
         if (empty($userName)){
             $error = "Gebruikersnaam is vereist.";
@@ -21,9 +20,8 @@ class UserValidator {
     
     
 /*-----------------------------------first name validaton---------------------------------*/ 
-    public function validateFirstName($data) {
+    public function validateFirstName($firstName) {
         $error = "";
-        $firstName = $data;
         $firstNameTested = $this->test_input($firstName);
         
         if (empty($firstName)){
@@ -40,9 +38,8 @@ class UserValidator {
     }
 
 /*-----------------------------------last name validaton---------------------------------*/
-    public function validateLastName($data) {
+    public function validateLastName($lastName) {
         $error = "";
-        $lastName = $data;
         
         if (empty($lastName)){
             $error = "Achternaam is vereist";
@@ -52,12 +49,12 @@ class UserValidator {
         }
         $lastNameAndError = array($lastName, $error);
         return $lastNameAndError;
+       
     }
 
 /*-----------------------------------email address validaton---------------------------------*/      
-    public function validateEmail($data) {
+    public function validateEmail($email) {
         $error = "";
-        $email = $data;
         
         if (empty($email)){
             $error = "Email adres is vereist";
@@ -70,10 +67,8 @@ class UserValidator {
     }
     
 /*-----------------------------------password validaton---------------------------------*/ 
-    public function validatePassword($data1, $data2) {
+    public function validatePassword($password1, $password2) {
         $error = "";
-        $password1 = $data1;
-        $password2 = $data2;
         
         if (empty($password1 or $password2)){
             $error = "Wachtwoord is vereist.";
@@ -90,9 +85,8 @@ class UserValidator {
     }
     
 /*-----------------------------------role validaton---------------------------------*/ 
-    public function validateRole($data) {
+    public function validateRole($role) {
         $error = "";
-        $role = $data;
         
         if (empty($role)){
             $error = "Rol is vereist.";

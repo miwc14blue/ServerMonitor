@@ -57,7 +57,6 @@
             if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
                 and empty($emailErr) and empty($passwordErr)){
                 
-                
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
                 

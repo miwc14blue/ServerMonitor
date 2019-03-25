@@ -10,16 +10,15 @@ class User {
     private $deleted;
     
     //constructor
-    public function __construct($userName, $firstName, $lastName, $email, $role, $hash) {
+    public function __construct($userName, $firstName, $lastName, $email, $hash, $role) {
         $this->userName = $userName;
         $this->firstName = $firstName;
-        $this->lastName = $firstName;
+        $this->lastName = $lastName;
         $this->email = $email;
-        $this->role = $role;
         $this->hash = $hash;
+        $this->role = $role;
         $this->deleted = "0";
-        echo "User made";
-        }
+    }
     
     
     public function getUserName() {

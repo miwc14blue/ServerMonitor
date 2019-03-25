@@ -4,9 +4,7 @@ include_once("DatabasePDO.php");
 
 class DAO {
     
-    public function SendQueryToDB($data){
-        $query = $data;   
-        var_dump($query);
+    public function SendQueryToDB($query){
         $databasePDOInstance = new DatabasePDO();
         $conn = $databasePDOInstance->get();
         

@@ -19,13 +19,12 @@
     <body>
         <nav id="navHeader">
             <img class="logo" src="../img/logo.png">
-            <!-- if role = user -> systeemOverzichtUser
-            else -> systeemOverzichtAdm -->
             <a class="active" href="systemOverview.php">Systeem overzicht</a>
-            <!-- if role = admin -->
+            <!-- if role = admin also show this-->
             <a href="userListOverview.php">Gebruikers</a>
             <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
         </nav>
+
         <div class="VM-container">
           <h3>Systeem Overzicht</h3>
 
@@ -49,7 +48,16 @@
           ?>
             <div class="VM">
               <div class="img-container">
-                <img class="vm" src="../img/vm_icon.png">
+                <img class="vm-image" src="../img/vm_icon.png">
+                <?php if($row->latency < 1.2 ) {
+                  $connection = "good";
+                } else if ($row->latency > 1.45) {
+                  $connection = "bad";
+                } else {
+                  $connection = "ok";
+                }
+                ?>
+                <img class="connection-image" src="../img/<?php echo $connection; ?>-connection.png">
               </div>
               <table id="VM-table">
                 <tr>

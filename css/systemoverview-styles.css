@@ -32,9 +32,18 @@
   float: left;
 }
 
-.img-container img {
+.vm-image {
   width: 40px;
   height: 40px;
+  position: fixed;
+  z-index: 0;
+}
+
+.connection-image {
+  width: 10px;
+  height: 10px;
+  position: fixed;
+  z-index: 1;
 }
 
 #VM-table{

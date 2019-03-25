@@ -1,0 +1,64 @@
+.form-container{
+  background-color: white;
+  margin-top: 70px;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+    width: 1000px;
+    font-family: sans-serif;
+    font-size: 0.7em;
+    height: auto;
+}
+
+h1 {
+    color: blue;
+    size: 2em;
+    margin: 20px 120px;
+}
+
+form{
+    margin-left:120px;
+}
+
+input {
+    width: 300px;
+    display: flex;
+    margin-top: 10px;
+    height: 25px;
+}
+
+
+#containerLinks {
+    float: left;
+    width: 47%;
+}
+
+#containerRechts {
+    float: right;
+    width: 47%;
+}
+
+#buttons {
+/*    margin-bottom:0px;*/
+/*    position: fixed;*/
+    bottom: 0;
+    width: 100%;
+}
+
+#buttenGVerwijderen {
+    background-color: #bf0909;
+    color: white;
+}
+
+#buttenGOpslaan {
+    background-color: #5a92ed;
+    color: white;
+}
+
+
+
+
+
+

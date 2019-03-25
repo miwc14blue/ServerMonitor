@@ -42,6 +42,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
           $_SESSION['role'] = 'user';
         }
+
+        header("location: html/systemOverview.php");
+
       } else if ($row['deleted'] == 1) {
         $combiErr = "U heeft geen account meer.";
         // ingegeven wachtwoord matcht niet met db

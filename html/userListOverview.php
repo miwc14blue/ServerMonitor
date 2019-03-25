@@ -1,4 +1,7 @@
 <?php
+
+include_once("../lib/UserDAO.php");
+
 session_start();
 if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
    header("Location:../login.php");
@@ -20,18 +23,13 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
 
     <body>
-
-        <nav id="navHeader">
-            <img class="logo" src="../img/logo.png">
-            <a href="systeemOverzichtAdm.php">Systeem overzicht</a>
-            <a class="active" href="userListOverview.php">Gebruikers</a>
-            <a class="uitloggen" href="../API/logout.php">Uitloggen</a>
-        </nav>
-
+      <?php
+          require_once('menu.php');
+      ?>
         <table>
             <tr>
                 <th class="headerUserTable" colspan="6">Gebruikersoverzicht
-                  <button class="btn" onclick="window.location.href='../html/makeUserForm.php';"><i class="fa fa-plus"></i> Voeg gebruiker toe</button>
+                  <button class="btn" onclick="window.location.href='../API/CreateUserForm.php';"><i class="fa fa-plus"></i> Voeg gebruiker toe</button>
                 </th>
             </tr>
             <tr>
@@ -43,29 +41,24 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 <th></th>
             </tr>
             <?php
-            $ch= curl_init();
-            curl_setopt($ch, CURLOPT_URL, 'http://127.0.0.1/ServerMonitor/API/getUserList.php');
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            
+            $userDAO = new UserDAO();
+            $userList = json_decode($userDAO->retrieveUserList());
 
-            $output = curl_exec($ch);
-            $data = json_decode($output);
-
-            curl_close($ch);
-
-            foreach($data as $row){
+            foreach($userList as $user){
                         ?>
             <tr>
                 <td>
-                    <?php echo $row->userName?>
+                    <?php echo $user->userName?>
                 </td>
                 <td>
-                    <?php echo $row->firstName?>
+                    <?php echo $user->firstName?>
                 </td>
                 <td>
-                    <?php echo $row->lastName?>
+                    <?php echo $user->lastName?>
                 </td>
                 <td>
-                    <?php echo $row->role?>
+                    <?php echo $user->role?>
                 </td>
                 <td>
                     <i class="fa fa-pencil"></i>

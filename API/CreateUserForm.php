@@ -53,7 +53,7 @@
             $roleErr = $roleAndErrMessage[1];
             
             
-             /*---------------------------if no errors, make user and send to DB......................*/
+/*---------------------------if no errors, make user and send to DB......................*/
             if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
                 and empty($emailErr) and empty($passwordErr)){
                 
@@ -113,7 +113,14 @@
                 </label>
             </p>
             <label>
-                <input name='role' type="radio" value="admin" /> Administrator
+                <!-- <input name='role' type="radio" value="admin" /> Administrator -->
+                <div class="dropdown">
+                    <button onclick="showContent()" class="btnSize hoverColor ">Rol</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <input class="radiobtn" name='role' type="radio" value="user" />User
+                            <input class="radiobtn" name='role' type="radio" value="admin" />Admin
+                        </div>
+                </div>
                 <span class="error">* <?php echo $roleErr;?></span>
             </label>
             <label>
@@ -121,12 +128,12 @@
                 <span class="error">* <?php echo $roleErr;?></span>
             </label>
             <p>
-                <input type="submit" value="Maak gebruiker aan" />
-                <button type="reset" value="Reset">Reset</button>
+                <input class="btnSize hoverColor" id="submitButton" type="submit" value="Maak gebruiker aan" />
+                <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>
 
             </p>
         </form>
-        <button id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
+        <button class="btnSize hoverColor" id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
         
     </body>
 

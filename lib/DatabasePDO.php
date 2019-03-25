@@ -12,17 +12,17 @@ class DatabasePDO
     private $host = 'localhost';
     private $port = '8889';
 
+
     private $passwordMac = 'root';
     private $hostMac = 'localhost';
     private $portMac = '8889';
 
 
 
-
     public function get()
     {
 
-        if (PHP_OS_FAMILY == 'Mac') {
+        if (PHP_OS_FAMILY == 'Linux') {
 
             $dsn = "{$this->driver}:dbname={$this->schema};port={$this->portMac};host={$this->hostMac}";
 

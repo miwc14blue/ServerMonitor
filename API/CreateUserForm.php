@@ -113,8 +113,7 @@
                 </label>
             </p>
             <label>
-                <!-- <input name='role' type="radio" value="admin" /> Administrator
-                <span class="error">* <?php echo $roleErr;?></span> -->
+                <!-- <input name='role' type="radio" value="admin" /> Administrator -->
                 <div class="dropdown">
                     <button onclick="showContent()" class="btnSize hoverColor ">Rol</button>
                         <div id="myDropdown" class="dropdown-content">
@@ -122,6 +121,7 @@
                             <input class="radiobtn" name='role' type="radio" value="admin" />Admin
                         </div>
                 </div>
+                <span class="error">* <?php echo $roleErr;?></span>
             </label>
             <label>
                 <input name='role' type="radio" value="user" checked="checked"/> Gebruiker

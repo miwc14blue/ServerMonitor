@@ -19,10 +19,27 @@ class userDAO extends DAO {
     }
     
     
-    public function findUser($userName){ 
+    public function findUser($userName){
         $query = "SELECT * from user where userName= '$userName';";
         $user = parent::SendQueryToDB($query);
         return $user;
+    }
+
+    public function createUserFromDB($userName) {
+        $query = "SELECT * from user where userName= '$userName';";
+        $userJSON = parent::SendQueryToDB($query);
+        $data = json_decode($userJSON, true);
+        $user = new User($data['userName'], $data['firstName'], $data['lastName'], $data['email'], $data['password'], $data['role']);
+        $user->setDeleted($data['deleted']);
+        var_dump($data);
+        die;
+        return $user;
+    }
+
+    public function loginInfo($userName){
+        $query = "SELECT password, role, deleted from user where userName= '$userName';";
+        $hashAndDelete = parent::SendQueryToDB($query);
+        return $hashAndDelete;
     }
 }
 ?>

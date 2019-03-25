@@ -2,7 +2,9 @@
 include_once("lib/DatabasePDO.php");
 include_once("lib/Query.php");
 include_once("lib/User.php");
+include_once("lib/UserDAO.php");
 session_start();
+header('login.1.php');
 
 $_SESSION['nameErr'] = $_SESSION['passErr'] = $_SESSION['combiErr'] = '';
 $username = $password = '';
@@ -13,25 +15,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $testInput = testInput();
 
   if ($testInput) {
-    $query = new Query();
-    $user = $query->queryUserByUserName($_POST["username"]);
-    $password = $user->getHash();
+    $userDAO = new UserDAO();
+    $data = $userDAO->findUser($_POST["username"]);
+    $user = json_decode($data);
   }
 
-  if ($testInput && password_verify($_POST["password"], $password) && $user->deleted() == 0) {
-    //Password matches, so create the session
-    $_SESSION['username'] = $user->getUserName();
-    $_SESSION['role'] = $user->getRole();
-    toWelcomePage();
-  } else if ($testInput && $user->deleted() == 1) {
+  if ($testInput && $user != "[]") {
+    $loggedIn = tryLogin($user);
+  }
+
+
+  if ($testInput && !$loggedIn && $user[0]->deleted == 1) {
     $_SESSION['combiErr'] = "U heeft geen account meer.";
-    // ingegeven wachtwoord matcht niet met db
-  } else
-  $_SESSION['combiErr'] = "test Onbekende combinatie van gebruikersnaam en wachtwoord";
+  } else if ($testInput && !$loggedIn) {
+    $_SESSION['combiErr'] = "Onbekende combinatie van gebruikersnaam en wachtwoord";
+  }
   // ingegeven username matcht niet met db 
 } else if (isset($_SESSION['username'])) {
   toWelcomePage();
 } else header('login.1.php');
+
 
 
 function resetSession()
@@ -53,6 +56,16 @@ function testInput()
   return $filledIn;
 }
 
+function tryLogin($user)
+{
+  if (password_verify($_POST["password"], $user[0]->password) && $user[0]->deleted == 0) {
+    $_SESSION['username'] = $user[0]->userName;
+    $_SESSION['role'] = $user[0]->role;
+    toWelcomePage();
+    return true;
+  } else return false;
+}
+
 function toWelcomePage()
 {
   if ($_SESSION['role'] == 'admin') {
@@ -61,6 +74,7 @@ function toWelcomePage()
     header("location: html/systeemOverzichtUser.php");
   }
 }
+
 
 
 ?>

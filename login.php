@@ -1,59 +1,80 @@
 <?php
 include_once("lib/DatabasePDO.php");
+include_once("lib/Query.php");
+include_once("lib/User.php");
+include_once("lib/UserDAO.php");
 session_start();
+header('login.1.php');
 
-$databasePDOInstance = new DatabasePDO();
-$conn = $databasePDOInstance->get();
-
-$nameErr = $passErr = $combiErr = '';
-$myusername = $mypassword = '';
+$_SESSION['nameErr'] = $_SESSION['passErr'] = $_SESSION['combiErr'] = '';
+$username = $password = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (isset($_SESSION["username"])) unset($_SESSION["username"]);
-  if (empty($_POST["username"])) {
-    $nameErr = "Vul uw gebruikersnaam in...";
-  } else {
-    $myusername = $_POST["username"];
+  $username = $_POST['username'];
+  resetSession();
+  $testInput = testInput();
+
+  if ($testInput) {
+    $userDAO = new UserDAO();
+    $data = $userDAO->findUser($_POST["username"]);
+    $user = json_decode($data);
   }
 
+  if ($testInput && $user != "[]") {
+    $loggedIn = tryLogin($user);
+  }
+
+
+  if ($testInput && !$loggedIn && $user[0]->deleted == 1) {
+    $_SESSION['combiErr'] = "U heeft geen account meer.";
+  } else if ($testInput && !$loggedIn) {
+    $_SESSION['combiErr'] = "Onbekende combinatie van gebruikersnaam en wachtwoord";
+  }
+  // ingegeven username matcht niet met db 
+} else if (isset($_SESSION['username'])) {
+  toWelcomePage();
+} else header('login.1.php');
+
+
+function resetSession()
+{
+  if (isset($_SESSION["username"])) unset($_SESSION["username"]);
+}
+
+function testInput()
+{
+  $filledIn = true;
+  if (empty($_POST["username"])) {
+    $_SESSION['nameErr'] = "Vul uw gebruikersnaam in...";
+    $filledIn = false;
+  }
   if (empty($_POST["password"])) {
-    $passErr = "Vul uw wachtwoord in...";
-  } else {
-    $mypassword = $_POST["password"];
+    $_SESSION['passErr'] = "Vul uw wachtwoord in...";
+    $filledIn = false;
+  }
+  return $filledIn;
+}
 
-    $query = "SELECT * FROM user WHERE userName='$myusername'";
+function tryLogin($user)
+{
+  if (password_verify($_POST["password"], $user[0]->password) && $user[0]->deleted == 0) {
+    $_SESSION['username'] = $user[0]->userName;
+    $_SESSION['role'] = $user[0]->role;
+    toWelcomePage();
+    return true;
+  } else return false;
+}
 
-    try {
-      $statement = $conn->prepare($query);
-      $statement->execute();
-    } catch (DPOException $e) {
-      echo "Error: {$e->getMessage()}";
-    }
-
-    if ($statement->rowCount() === 1) {
-      $row = $statement->fetch(PDO::FETCH_ASSOC);
-      // if statement with hash function: (password_verify($password, $row['password'])) No hash: ($password == $row['password'])
-      if (password_verify($mypassword, $row['password']) && $row['deleted'] == 0) {
-        //Password matches, so create the session
-        $_SESSION['username'] = $row['userName'];
-        $_SESSION['role'] = $row['role'];
-
-        if ($_SESSION['role'] == 'admin') {
-          header("location: html/systeemOverzichtAdm.php");
-        } else {
-          header("location: html/systeemOverzichtUser.php");
-        }
-      } else if ($row['deleted'] == 1) {
-        $combiErr = "U heeft geen account meer.";
-        // ingegeven wachtwoord matcht niet met db
-      } else
-        $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
-      // ingegeven username matcht niet met db 
-    } else {
-      $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
-    }
+function toWelcomePage()
+{
+  if ($_SESSION['role'] == 'admin') {
+    header("location: html/systeemOverzichtAdm.php");
+  } else if ($_SESSION['role'] == 'user') {
+    header("location: html/systeemOverzichtUser.php");
   }
 }
+
+
 
 ?>
 <html>
@@ -68,11 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="login">
         <h1 id="boxheader">Server Monitor</h1>
         <form action="" method="POST">
-            <span class="error" id="combiErr"><?php echo $combiErr; ?></span>
-            <span class="error"><?php echo $nameErr; ?></span>
-            <label>Gebruikersnaam: <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($myusername); ?>" /></label>
-            <span class="error"><?php echo $passErr; ?></span>
-            <label>Wachtwoord: <input type="password" name="password" class="field" value="<?php echo htmlspecialchars($mypassword); ?>" /></label>
+            <span class="error" id="combiErr"><?php echo $_SESSION['combiErr']; ?></span>
+            <span class="error"><?php echo $_SESSION['nameErr']; ?></span>
+            <label>Gebruikersnaam: <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($username); ?>" /></label>
+            <span class="error"><?php echo $_SESSION['passErr']; ?></span>
+            <label>Wachtwoord: <input type="password" name="password" class="field" value="" /></label>
             <input id="button" type="submit" value="Inloggen" />
         </form>
     </div>

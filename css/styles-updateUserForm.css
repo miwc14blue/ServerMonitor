@@ -1,9 +1,9 @@
 .form-container{
   background-color: white;
-  margin-top: 70px;
+  margin-top: 50px;
   position: absolute;
   left: 50%;
-  top: 40%;
+  top: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
     width: 1000px;
@@ -13,10 +13,14 @@
     padding-bottom: 80px;
 }
 
+#fiels {
+    margin-bottom: 50px
+}
+
 h1 {
     color: blue;
     size: 2em;
-    margin: 20px 120px;
+    margin: 30px 120px;
 }
 
 form{
@@ -34,16 +38,19 @@ input {
 #containerLinks {
     float: left;
     width: 47%;
+    margin-bottom: 35px;
 }
 
 #containerRechts {
     float: right;
     width: 47%;
+    margin-bottom: 35px;
 }
 
+/*
 #buttons {
-/*    margin-bottom:0px;*/
-/*    position: fixed;*/
+    margin-bottom:0px;
+    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -57,7 +64,41 @@ input {
     background-color: #5a92ed;
     color: white;
 }
+*/
 
+#zend {
+   text-align: right;
+    margin-right: 41px;
+}
+
+#knopAnnuleren {
+    border: 1px solid #73a2ef;
+    border-radius: 2px;
+    padding: 10px;
+    color: #73a2ef;
+    background-color:white;
+    font-size: 0.8rem;
+    margin: 3px;
+    
+}
+
+#knopVerwijderen {
+    border-radius: 2px;
+    padding: 10px;
+    color: white;
+    background-color: #dd2525;
+    font-size: 0.8rem;
+    margin: 3px;
+}
+
+#knopOpslaan {
+    border-radius: 2px;
+    padding: 10px;
+    color: white;
+    background-color: lightblue;
+    font-size: 0.8rem;
+    margin: 3px;
+}
 
 
 

@@ -62,12 +62,12 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 
                 <div id="containerRechts">
                     <p id="rechts" >
-                        <label>Achternaam
+                        <label>Herhaal wachtwoord
                             <input class="rechts" name='lastName' type="text" class="input1"/>
                         </label>    
                     </p>
                     <p id="rechts" class="next">
-                        <label>Herhaal wachtwoord
+                        <label>Achternaam
                             <input name='password2' type="text" class="input"/>
                         </label>    
                     </p>
@@ -81,13 +81,19 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                
             </div>
             
+<!--
             <div id="buttons">
                 <button id="cancelbutton" class="buttons" onclick="location.href=`userListOverview.php`"> Annuleren</button>
                 <input type="submit" value="Gebruiker verwijderen" class="buttons" id="buttenGVerwijderen" />    
 
                 <input type="submit" value="Gebruiker opslaan" class="buttons" id="buttenGOpslaan" />
             </div>
-            
+-->
+            <div id="zend">
+            <a id="knopAnnuleren" href="">Annuleren</a>
+            <a id="knopVerwijderen" href="">Gebruiker verwijderen</a>
+            <a id="knopOpslaan" href="">Gebruiker opslaan</a>
+            </div>
 
         </form>    
         </div>    

@@ -73,9 +73,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form action="" method="POST">
             <span class="error" id="combiErr"><?php echo $combiErr; ?></span>
             <span class="error"><?php echo $nameErr; ?></span>
-            <label>Gebruikersnaam: <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($myusername); ?>" /></label>
+            <label>Gebruikersnaam <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($myusername); ?>" /></label>
             <span class="error"><?php echo $passErr; ?></span>
-            <label>Wachtwoord: <input type="password" name="password" class="field" value="<?php echo htmlspecialchars($mypassword); ?>" /></label>
+            <label>Wachtwoord <input type="password" name="password" class="field" value="<?php echo htmlspecialchars($mypassword); ?>" /></label>
             <input id="button" type="submit" value="Inloggen" />
         </form>
     </div>

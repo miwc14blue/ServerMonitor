@@ -1,7 +1,28 @@
+.header-container h3 {
+  display: inline-block;
+  width: 700px;
+}
+
 .btn{
   float: right;
   padding: 10px;
-  text-align: right;
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid;
+  color: white;
+  background-color: #bdc2c6;
+}
+
+.btn:hover{
+  background-color: #00FF00;
+}
+
+.btn i{
+  color: white;
+}
+
+.fa-pencil:hover {
+  color: blue;
 }
 
 .headerUserTable{
@@ -10,4 +31,19 @@
 
 i #text{
   font-family: sans-serif;
+}
+
+.header-container{
+  width: 1000px;
+  background-color: white;
+  border: 1px solid #bdc2c6;
+  border-bottom: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  width: 1002px;
+  flex-direction: column;
+  display: flex;
 }

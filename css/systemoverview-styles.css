@@ -1,15 +1,13 @@
-.VM-container{
-  margin: 0 auto 5%;
-  width: 80%;
+.VM-container {
+  width: 1000px;
   height: 810px;
   background-color: white;
-  border-style: solid;
-  border-color: #bdc2c6;
-  border-width: 1px;
+  border: 1px solid #bdc2c6;
+  margin-bottom: 50px;
 }
 
 .VM-container h3{
-  padding: 30px;
+  display: block;
   margin: 0 0 10px 0;
   border-bottom: 1px solid #bdc2c6;
 }

@@ -1,6 +1,5 @@
 <?php
 include 'DAO.php';
-include("../API/CreateUserForm.php");
 
 class UserDAO extends DAO {  
     
@@ -40,7 +39,7 @@ class UserDAO extends DAO {
          $query = "SELECT userName, firstName, lastName, role 
         FROM servermonitor.user WHERE userName= '$userName';";
         $user = parent::SendQueryToDB($query);
-        $editUserForm = new UserForm($user);
+       //TODO send to somwhere for coming into the form.
     }
 }
 ?>

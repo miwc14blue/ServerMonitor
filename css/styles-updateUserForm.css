@@ -24,11 +24,11 @@ h1 {
 }
 
 form{
-    margin-left:120px;
+    margin-left:75px;
 }
 
 input {
-    width: 300px;
+    width: 366px;
     display: flex;
     margin-top: 10px;
     height: 25px;
@@ -49,7 +49,7 @@ input {
 
 #zend {
    text-align: right;
-    margin-right: 41px;
+    margin-right: 62px;
 }
 
 #knopAnnuleren {

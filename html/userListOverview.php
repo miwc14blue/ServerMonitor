@@ -49,9 +49,10 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
           
             foreach($userList as $user){
                         ?>
-            <tr>
-                <td>
+            <tr <?php if($_SESSION['username'] == $user->userName) { echo 'style="color:blue"';}?>>
+                <td >
                     <?php echo $user->userName?>
+                    <?php if($_SESSION['username'] == $user->userName) { echo '<span style="font-size:.8em">(currently logged in)</span>';}?>
                 </td>
                 <td>
                     <?php echo $user->firstName?>
@@ -67,8 +68,12 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 <!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
                     
                 </td>
-                <td>
-                   <button class="btn" onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i>
+                <td >
+<!--                    No trash icon for currently logged in Admin -->
+                   <button class="btn" 
+                           <?php if($_SESSION['username'] == $user->userName) { echo 'style="visibility:hidden"';} ?> 
+                           onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >
+                    <i class="fa fa-trash" ></i>
                 </td>
             </tr>
             

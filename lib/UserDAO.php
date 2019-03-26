@@ -1,18 +1,10 @@
 <?php
 include 'DAO.php';
-//include 'userListOverview.php';
+//session_start();
 
-//include_once("../html/userListOverview.php");
-
-
-<<<<<<< HEAD
-class UserDAO extends DAO {  
-    
-=======
 class UserDAO extends DAO {
 
-        
->>>>>>> 845d7f267a4ed54e510aa8253edc127de24f30b5
+    
     public function storeInDB ($user){
         $userName = $user->getUserName();
         $firstName = $user->getFirstName();
@@ -42,20 +34,12 @@ class UserDAO extends DAO {
 
     
     public function deleteUser($userName){
-
-    
+        session_start();
+        if($_SESSION['username'] != $userName) {
         $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName';";
         $user = parent::SendQueryToDB($deletionQuery);
-
-
-         header("Location:../html/userListOverview.php");
-      
-     //return header('../html/userListOverview.php');
-        
-        //retrieveUserList();
-
-
-
+        }
+        header("Location:../html/userListOverview.php");
     }
 
     

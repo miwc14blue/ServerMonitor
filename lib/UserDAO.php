@@ -1,5 +1,8 @@
 <?php
 include 'DAO.php';
+//include 'userListOverview.php';
+
+//include_once("../html/userListOverview.php");
 
 
 class UserDAO extends DAO {
@@ -35,11 +38,14 @@ class UserDAO extends DAO {
     
     public function deleteUser($userName){
 
-        echo "I am callied from bla bla bla";
+    
         $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName';";
         $user = parent::SendQueryToDB($deletionQuery);
 
-     
+
+         header("Location:../html/userListOverview.php");
+      
+     //return header('../html/userListOverview.php');
         
         //retrieveUserList();
 

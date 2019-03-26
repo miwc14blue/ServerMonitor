@@ -2,6 +2,7 @@
 include_once("lib/DatabasePDO.php");
 include_once("lib/User.php");
 include_once("lib/UserDAO.php");
+ini_set('session.cache_limiter', 'private');
 session_start();
 
 $_SESSION['nameErr'] = $_SESSION['passErr'] = $_SESSION['combiErr'] = '';

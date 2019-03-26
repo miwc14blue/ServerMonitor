@@ -50,33 +50,31 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
               $userDAO = new UserDAO();
               $userList = json_decode($userDAO->retrieveUserList());
 
-              foreach($userList as $user){
-                          ?>
-              <tr>
-                  <td>
-                      <?php echo $user->userName?>
-                  </td>
-                  <td>
-                      <?php echo $user->firstName?>
-                  </td>
-                  <td>
-                      <?php echo $user->lastName?>
-                  </td>
-                  <td>
-                      <?php echo $user->role?>
-                  </td>
-                  <td>
-                      <i class="fa fa-pencil"></i>
-                  </td>
-                  <td>
-                      <i class="fa fa-trash"></i>
-                  </td>
-              </tr>
-              <?php
-              } ?>
-          </table>
-        </div>
-      </div>
+            foreach($userList as $user){
+                        ?>
+            <tr>
+                <td>
+                    <?php echo $user->userName?>
+                </td>
+                <td>
+                    <?php echo $user->firstName?>
+                </td>
+                <td>
+                    <?php echo $user->lastName?>
+                </td>
+                <td>
+                    <?php echo $user->role?>
+                </td>
+                <td>
+                    <a href="updateUserForm.php" id="potlood"><i class="fa fa-pencil" ></i></a>
+                </td>
+                <td>
+                    <a href="" id="prullenbak"><i class="fa fa-trash"></i></a>
+                </td>
+            </tr>
+            <?php
+    } ?>
+        </table>
     </body>
 
     </html>

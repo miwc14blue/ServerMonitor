@@ -13,7 +13,7 @@
     padding-bottom: 80px;
 }
 
-#fiels {
+#fields {
     margin-bottom: 50px
 }
 
@@ -56,18 +56,18 @@ input {
     border: 1px solid #73a2ef;
     border-radius: 2px;
     padding: 10px;
-    color: #73a2ef;
-    background-color:white;
+    color: black;
+    background-color:#e0effc;
     font-size: 0.8rem;
     margin: 3px;
-    
 }
+
 
 #knopVerwijderen {
     border-radius: 2px;
     padding: 10px;
-    color: white;
-    background-color: #dd2525;
+    color: black;
+    background-color: #f75151;
     font-size: 0.8rem;
     margin: 3px;
 }
@@ -75,13 +75,22 @@ input {
 #knopOpslaan {
     border-radius: 2px;
     padding: 10px;
-    color: white;
-    background-color: lightblue;
+    color: black;
+    background-color: #d2ebf2;
     font-size: 0.8rem;
     margin: 3px;
 }
 
 
+a#knopAnnuleren:hover, a#knopOpslaan:hover {
+    color: white;
+    background-color: #6ba3ff;
+}
+
+a#knopVerwijderen:hover {
+    color: white;
+    background-color: #f90000;
+}
 
 
 

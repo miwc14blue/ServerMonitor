@@ -50,7 +50,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     </p>
                     <p>
                         <label>Rol
-                            <input list="rol" name="Rol" class="input"/>
+                            <input class="hoverColor" list="rol" name="Rol" class="input"/>
                             <datalist id="rol">
                                 <option value="User">
                                 <option value="Administrator">
@@ -82,9 +82,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             </div>
 
             <div id="zend">
-            <a id="knopAnnuleren" href="">Annuleren</a>
-            <a id="knopVerwijderen" href="">Gebruiker verwijderen</a>
-            <a id="knopOpslaan" href="">Gebruiker opslaan</a>
+            <a class="hoverColor" id="knopAnnuleren" href="userListOverview.php">Annuleren</a>
+            <a class="hoverColor" id="knopVerwijderen" href="">Gebruiker verwijderen</a>
+            <a class="hoverColor" id="knopOpslaan" href="">Gebruiker opslaan</a>
             </div>
 
         </form>    

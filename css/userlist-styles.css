@@ -47,3 +47,14 @@ i #text{
   flex-direction: column;
   display: flex;
 }
+
+/* a#potlood,a#prullenbak {
+    font-size: 1.0rem;
+    text-decoration: none;
+    padding: 0;
+    color: black;
+}
+
+a#potlood:hover,a#prullenbak:hover {
+    color: orangered;
+} */

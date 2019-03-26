@@ -1,6 +1,5 @@
 <?php
 include_once("lib/DatabasePDO.php");
-include_once("lib/Query.php");
 include_once("lib/User.php");
 include_once("lib/UserDAO.php");
 session_start();
@@ -24,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if ($testInput && !empty($user)) {
     if ($user[0]->deleted == 1) {
+      $_SESSION['combiErr'] = "U heeft geen account meer.";
       $deleted = true;
     } else $loggedIn = tryLogin($user);
   }

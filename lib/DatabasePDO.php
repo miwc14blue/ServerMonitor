@@ -31,7 +31,8 @@ class DatabasePDO
             } catch (PDOException $e) {
                 echo "connection failed: {$e->getMessage()}";
             }
-        } else {
+        } else 
+        {
 
             $dsn = "{$this->driver}:dbname={$this->schema};port={$this->port};host={$this->host}";
 

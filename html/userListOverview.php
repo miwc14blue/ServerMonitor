@@ -66,14 +66,13 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <button id="btn"> <i class="fa fa-pencil"></i> </button><button> <i class="fa fa-pencil"> </i> </button>
+                    <button id="btn"> <i class="fa fa-pencil"></i> </button>
 <!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
                 <td>
                    <!-- <button class="btn" onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i> -->
-                    <!-- <button class="btn" id="popup" onclick="popup()"><i class="fa fa-trash"></i></button> -->
                     
                     <!-- Trigger/Open The Modal -->
-                    <button id="btn myBtn">
+                    <button id="btn myBtn" onclick="show('<?php echo $user->userName?>')">
                         <i class="fa fa-trash"></i>
                     </button>
 
@@ -82,10 +81,10 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
                         <!-- Modal content -->
                         <div class="modal-content">
-                            <span class="close">&times;</span>
+                            <span class="close" onclick="hide()">&times;</span>
                             <p>
                                 <h5>Gebruiker verwijderen</h5>
-                                <span id="popuptext">Weet u zeker dat u <?php echo $user->userName?> wilt verwijderen?</span>
+                                <p id="popuptext"></p>
                             </p>
                             <p>
                                 <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>

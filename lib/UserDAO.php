@@ -4,15 +4,8 @@ include 'DAO.php';
 
 //include_once("../html/userListOverview.php");
 
-
-<<<<<<< HEAD
 class UserDAO extends DAO {  
-    
-=======
-class UserDAO extends DAO {
 
-        
->>>>>>> 845d7f267a4ed54e510aa8253edc127de24f30b5
     public function storeInDB ($user){
         $userName = $user->getUserName();
         $firstName = $user->getFirstName();

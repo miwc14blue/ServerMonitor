@@ -13,7 +13,7 @@
     padding-bottom: 80px;
 }
 
-#fiels {
+#fields {
     margin-bottom: 50px
 }
 
@@ -47,6 +47,11 @@ input {
     margin-bottom: 35px;
 }
 
+/* Button on hover & focus */
+.hoverColor:hover, .hoverColor:focus {
+    background-color: #2980B9;
+}
+
 #zend {
    text-align: right;
     margin-right: 41px;
@@ -60,7 +65,10 @@ input {
     background-color:white;
     font-size: 0.8rem;
     margin: 3px;
-    
+}
+
+#knopAnnuleren:hover, #knopAnnuleren:focus {
+    background-color: blueviolet;
 }
 
 #knopVerwijderen {

@@ -44,6 +44,10 @@ class DatabasePDO
             }
         }
     }
+
+    public function getDatabaseType() {
+        return $this->driver;
+    }
 }
 
  

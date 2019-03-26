@@ -64,7 +64,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <a href="updateUserForm.php" id="potlood"><i class="fa fa-pencil" ></i></a>
                 </td>
                 <td>
-                    <a href="updateUserForm.php" id="prullenbak"><i class="fa fa-trash"></i></a>
+                    <a href="" id="prullenbak"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
             <?php

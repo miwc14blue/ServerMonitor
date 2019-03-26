@@ -31,17 +31,13 @@ a {
     color: blue;
 }
 
-a:hover:not(.active) {
+.menu a:hover:not(.active) {
     color: orangered;
 }
 
 .active  {
     color: red;
     border-bottom: 2px solid red;
-}
-
-i:hover {
-    color: red;
 }
 
 .error {
@@ -85,7 +81,7 @@ table {
     border-collapse: collapse;
     width: 1002px;
     margin-bottom: 50px;
-    font-size: 12px;
+    font-size: 14px;
     border: 1px solid #bdc2c6;
 }
 

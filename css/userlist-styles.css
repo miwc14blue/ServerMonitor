@@ -21,8 +21,21 @@
   color: white;
 }
 
-.fa-pencil:hover {
+table a {
+  color: black;
+  padding: 10px;
+}
+
+table a:hover {
   color: blue;
+}
+
+.trash:hover {
+  color: red;
+}
+
+table td + td + td + td + td {
+  text-align: right;
 }
 
 .headerUserTable{
@@ -30,7 +43,7 @@
 }
 
 i #text{
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .header-container{
@@ -47,14 +60,3 @@ i #text{
   flex-direction: column;
   display: flex;
 }
-
-/* a#potlood,a#prullenbak {
-    font-size: 1.0rem;
-    text-decoration: none;
-    padding: 0;
-    color: black;
-}
-
-a#potlood:hover,a#prullenbak:hover {
-    color: orangered;
-} */

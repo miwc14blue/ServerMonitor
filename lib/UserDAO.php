@@ -1,8 +1,10 @@
 <?php
 include 'DAO.php';
 
+
 class UserDAO extends DAO {
-    
+
+        
     public function storeInDB ($user){
         $userName = $user->getUserName();
         $firstName = $user->getFirstName();
@@ -16,6 +18,10 @@ class UserDAO extends DAO {
             VALUES ('$userName', '$firstName', '$lastName', '$email', '$hash', '$role', '$deleted');";
 
         parent::SendQueryToDB($query);
+
+     
+    
+   
     }
     
     
@@ -24,10 +30,18 @@ class UserDAO extends DAO {
         $user = parent::SendQueryToDB($query);
         return $user;
     }
+
+
+    
     public function deleteUser($userName){
-        $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName'; ";
-        $user = parent::SendQueryToDB($query);
-        retrieveUserList();
+
+        echo "I am callied from bla bla bla";
+        $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName';";
+        $user = parent::SendQueryToDB($deletionQuery);
+
+     
+        
+        //retrieveUserList();
 
 
 

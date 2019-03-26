@@ -38,17 +38,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username'] = $row['userName'];
         $_SESSION['role'] = $row['role'];
 
-        if ($_SESSION['role'] == 'admin') {
-          header("location: html/systeemOverzichtAdm.php");
+        if ($row['role'] == 'admin') {
+          $_SESSION['role'] = 'admin';
         } else {
-          header("location: html/systeemOverzichtUser.php");
+          $_SESSION['role'] = 'user';
         }
+
+        header("location: html/systemOverview.php");
+
       } else if ($row['deleted'] == 1) {
         $combiErr = "U heeft geen account meer.";
         // ingegeven wachtwoord matcht niet met db
       } else
         $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
-      // ingegeven username matcht niet met db 
+      // ingegeven username matcht niet met db
     } else {
       $combiErr = "Onbekende combinatie van gebruikersnaam en wachtwoord";
     }
@@ -78,4 +81,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 </body>
 
-</html> 
+</html>

@@ -61,10 +61,10 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <i class="fa fa-pencil"></i>
+                    <a href="updateUserForm.php" id="potlood"><i class="fa fa-pencil" ></i></a>
                 </td>
                 <td>
-                    <i class="fa fa-trash"></i>
+                    <a href="updateUserForm.php" id="prullenbak"><i class="fa fa-trash"></i></a>
                 </td>
             </tr>
             <?php
@@ -73,3 +73,5 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
     </body>
 
     </html>
+
+

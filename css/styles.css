@@ -36,6 +36,10 @@ a:hover:not(.active) {
     border-bottom: 2px solid red;
 }
 
+i:hover {
+    color: red;
+}
+
 .error {
     color: red;
 }

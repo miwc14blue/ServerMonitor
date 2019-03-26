@@ -82,7 +82,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             </div>
 
             <div id="zend">
-            <a id="knopAnnuleren" href="">Annuleren</a>
+            <a id="knopAnnuleren" href="userListOverview.php">Annuleren</a>
             <a id="knopVerwijderen" href="">Gebruiker verwijderen</a>
             <a id="knopOpslaan" href="">Gebruiker opslaan</a>
             </div>

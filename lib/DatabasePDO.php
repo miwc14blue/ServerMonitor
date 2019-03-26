@@ -6,14 +6,14 @@ class DatabasePDO
     private $schema = 'servermonitor';
     private $driver = 'mysql';
     private $username = 'root';
-    private $password = '';
+    private $password = 'root';
 
     private $host = '127.0.0.1';
-    private $port = '3307';
+    private $port = '8889';
 
     private $passwordMac = '';
-    private $hostMac = '192.168.64.2';
-    private $portMac = '3306';
+    private $hostMac = 'localhost';
+    private $portMac = '8889';
 
 
 

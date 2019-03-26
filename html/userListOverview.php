@@ -15,9 +15,11 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <title>
             Gebruikersoverzicht
         </title>
+        <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/userlist-styles.css">
+        
 
     </head>
 
@@ -44,6 +46,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             
             $userDAO = new UserDAO();
             $userList = json_decode($userDAO->retrieveUserList());
+          //<?php $userDAO->deleteUser($user->userName);
+
 
             foreach($userList as $user){
                         ?>
@@ -61,14 +65,20 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <i class="fa fa-pencil"></i>
+              <button> <i class="fa fa-pencil"></i> </button>
+                    
                 </td>
                 <td>
-                    <i class="fa fa-trash"></i>
+                   <button class="btn" onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i>
                 </td>
             </tr>
+            
             <?php
-    } ?>
+    } 
+     
+    
+    
+    ?>
         </table>
     </body>
 

@@ -13,22 +13,17 @@ $deleted = $loggedIn = $sessionStarted = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $_SESSION['postUsername'] = $_POST['username'];
   resetSession();
-  $testInput = testInput();
+  $isFilledIn = isFilledIn();
 
-  if ($testInput) {
-    $userDAO = new UserDAO();
-    $data = $userDAO->findUser($_POST["username"]);
-    $user = json_decode($data);
+  if ($isFilledIn) {
+    retrieveUser();
+  }
+  if ($isFilledIn && !empty($user)) {
+    checkForDeletion($user);
+     else $loggedIn = tryLogin($user);
   }
 
-  if ($testInput && !empty($user)) {
-    if ($user[0]->deleted == 1) {
-      $_SESSION['combiErr'] = "U heeft geen account meer.";
-      $deleted = true;
-    } else $loggedIn = tryLogin($user);
-  }
-
-  if ($testInput && !$loggedIn && $deleted == false) {
+  if ($isFilledIn && !$loggedIn && $deleted == false) {
     $_SESSION['combiErr'] = "Onbekende combinatie van gebruikersnaam en wachtwoord";
     $_POST = array();
   }
@@ -45,9 +40,20 @@ function resetSession()
 {
   if (isset($_SESSION["username"])) unset($_SESSION["username"]);
 }
+function retrieveUser(){
+  $userDAO = new UserDAO();
+  $data = $userDAO->findUser($_POST["username"]);
+  $user = json_decode($data);
+}
+function checkForDeletion(){
+if ($user[0]->deleted == 1) {
+      $_SESSION['combiErr'] = "U heeft geen account meer.";
+      $deleted = true;
+    }
+}
 
-function testInput()
-{
+
+function isFilledIn($user) {
   $filledIn = true;
   if (empty($_POST["username"])) {
     $_SESSION['nameErr'] = "Vul uw gebruikersnaam in...";

@@ -46,9 +46,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             
             $userDAO = new UserDAO();
             $userList = json_decode($userDAO->retrieveUserList());
-          //<?php $userDAO->deleteUser($user->userName);
-
-
+          
             foreach($userList as $user){
                         ?>
             <tr>
@@ -65,7 +63,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-              <button> <i class="fa fa-pencil"></i> </button>
+              <button> <i class="fa fa-pencil"> </i> </button>
+<!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
                     
                 </td>
                 <td>
@@ -75,9 +74,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             
             <?php
     } 
-     
-    
-    
+            
     ?>
         </table>
     </body>

@@ -1,9 +1,5 @@
 <?php
 include 'DAO.php';
-//include 'userListOverview.php';
-
-//include_once("../html/userListOverview.php");
-
 
 class UserDAO extends DAO {
 

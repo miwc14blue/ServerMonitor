@@ -68,7 +68,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     
                 </td>
                 <td>
-                   <button class="btn" onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i>
+                   <button class="btn" onclick="window.location.href='../lib/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i>
                 </td>
             </tr>
             

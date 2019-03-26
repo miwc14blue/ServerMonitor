@@ -66,13 +66,14 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <button id="myBtn"> <i class="fa fa-pencil"></i> </button>
-                </td>
+                    <button id="btn"> <i class="fa fa-pencil"></i> </button><button> <i class="fa fa-pencil"> </i> </button>
+<!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
                 <td>
                    <!-- <button class="btn" onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i> -->
                     <!-- <button class="btn" id="popup" onclick="popup()"><i class="fa fa-trash"></i></button> -->
+                    
                     <!-- Trigger/Open The Modal -->
-                    <button id="myBtn">
+                    <button id="btn myBtn">
                         <i class="fa fa-trash"></i>
                     </button>
 
@@ -97,9 +98,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             </tr>
             
             <?php
-    } 
-    
-    ?>
+    }     ?>
         </table>
     </body>
 

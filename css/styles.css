@@ -1,6 +1,11 @@
+html {
+  height: 100%;
+}
+
 body{
     font-family: sans-serif;
     background: #f0f5f9;
+    height: 100%;
 }
 
 p {
@@ -28,6 +33,10 @@ a:hover:not(.active) {
 }
 
 .active  {
+    color: red;
+}
+
+i:hover {
     color: red;
 }
 

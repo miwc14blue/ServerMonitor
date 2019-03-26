@@ -15,9 +15,11 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <title>
             Gebruikersoverzicht
         </title>
+        <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/userlist-styles.css">
+        
 
     </head>
 
@@ -62,11 +64,11 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                <button class="btn" onclick="<?php callMe() ;?>" > <i class="fa fa-pencil"></i> </button>
+                    <a class="iconPencil" href=""></a> <i class="fa fa-pencil"></i>
                     
                 </td>
                 <td>
-                    <i class="fa fa-trash"></i>
+                    <i class="fa fa-trash"><a href=""></a></i>
                 </td>
             </tr>
             

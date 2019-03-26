@@ -11,3 +11,24 @@
 i #text{
   font-family: sans-serif;
 }
+
+.iconPencil {
+  padding: 30px;
+}
+
+/* .fa {
+  width:30px;
+  height:10px;
+} */
+
+a.iconPencil:hover{
+  color: red;
+}
+
+a {
+  font-size: 1em;
+  text-decoration: none;
+  padding: 0;
+  color: black;
+
+}

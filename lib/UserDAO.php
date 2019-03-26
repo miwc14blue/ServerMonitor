@@ -1,7 +1,8 @@
 <?php
 include 'DAO.php';
+include("../API/CreateUserForm.php");
 
-class UserDAO extends DAO {
+class UserDAO extends DAO {  
     
     public function storeInDB ($user){
         $userName = $user->getUserName();
@@ -20,7 +21,7 @@ class UserDAO extends DAO {
     
     
     public function findUser($userName){ 
-        $query = "SELECT * from user where userName= '$userName';";
+        $query = "SELECT * from user WHERE userName= '$userName';";
         $user = parent::SendQueryToDB($query);
         return $user;
     }
@@ -33,6 +34,13 @@ class UserDAO extends DAO {
 
         $userList = parent::SendQueryToDB($query);
         return $userList;
+    }
+    
+    public function editUser($userName){
+         $query = "SELECT userName, firstName, lastName, role 
+        FROM servermonitor.user WHERE userName= '$userName';";
+        $user = parent::SendQueryToDB($query);
+        $editUserForm = new UserForm($user);
     }
 }
 ?>

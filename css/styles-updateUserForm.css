@@ -1,98 +1,73 @@
-.form-container{
-  background-color: white;
-  margin-top: 50px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+form {
+    background-color: white;
     width: 1000px;
-    font-family: sans-serif;
-    font-size: 0.7em;
+    font-size: 14px;
     height: auto;
-    padding-bottom: 80px;
+    margin-bottom: 50px;
+    border: 1px solid #bdc2c6;
 }
 
-#fields {
-    margin-bottom: 50px
+#containerRechts p:first-of-type {
+    visibility: hidden;
 }
 
-h1 {
-    color: blue;
-    size: 2em;
-    margin: 30px 120px;
+form p {
+    margin: 20px;
 }
 
-form{
-    margin-left:120px;
-}
-
-input {
-    width: 300px;
-    display: flex;
-    margin-top: 10px;
+input, select {
+    width: 390px;
     height: 25px;
+    display: flex;
+    margin: 10px 0;
 }
 
+select {
+    height: 37px;
+}
 
 #containerLinks {
     float: left;
-    width: 47%;
     margin-bottom: 35px;
 }
 
 #containerRechts {
-    float: right;
-    width: 47%;
-    margin-bottom: 35px;
+    float: left;
+    margin: 0 auto 0 30px;
 }
 
-#zend {
+.zend {
    text-align: right;
-    margin-right: 41px;
+   margin-right: 62px;
+   height: 50px;
+   width: 100%;
+   float: right;
 }
 
-#knopAnnuleren {
+.annuleren {
     border: 1px solid #73a2ef;
-    border-radius: 2px;
-    padding: 10px;
-    color: black;
-    background-color:#e0effc;
-    font-size: 0.8rem;
-    margin: 3px;
+    background-color: #e0effc;
 }
 
-
-#knopVerwijderen {
-    border-radius: 2px;
-    padding: 10px;
-    color: black;
+.verwijderen {
     background-color: #f75151;
-    font-size: 0.8rem;
-    margin: 3px;
 }
 
-#knopOpslaan {
-    border-radius: 2px;
-    padding: 10px;
-    color: black;
-    background-color: #d2ebf2;
-    font-size: 0.8rem;
-    margin: 3px;
+.opslaan {
+    background-color: #70ff56;
 }
 
-
-a#knopAnnuleren:hover, a#knopOpslaan:hover {
+.annuleren:hover {
     color: white;
     background-color: #6ba3ff;
 }
 
-a#knopVerwijderen:hover {
+.opslaan:hover {
+    color: white;
+    background-color: #00FF00;
+}
+
+.verwijderen:hover {
     color: white;
     background-color: #f90000;
 }
-
-
-
-
-

@@ -28,7 +28,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <div class="wrapper">
           <div class="header-container">
             <h3>Gebruiker Overzicht</h3>
-            <button class="btn" onclick="window.location.href='../API/CreateUserForm.php';"><i class="fa fa-plus"></i> Nieuwe gebruiker aanmaken</button>
+            <button class="btn" onclick="window.location.href='userManipulation.php';"><i class="fa fa-plus"></i> Nieuwe gebruiker aanmaken</button>
           </div>
           <table>
               <tr>
@@ -59,7 +59,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <a href="updateUserForm.php"><i class="fa fa-pencil" ></i></a>
+                    <a href="userManipulation.php"><i class="fa fa-pencil" ></i></a>
                     <a class="trash" href=""><i class="fa fa-trash"></i></a>
                 </td>
             </tr>

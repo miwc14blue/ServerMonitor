@@ -65,6 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login Page</title>
     <link rel='stylesheet' href='css/styles.css' />
     <link rel='stylesheet' href='css/styles-login.css' />
+      <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <body>
@@ -72,11 +73,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1 id="boxheader">Server Monitor</h1>
         <form action="" method="POST">
             <span class="error" id="combiErr"><?php echo $combiErr; ?></span>
-            <span class="error"><?php echo $nameErr; ?></span>
-            <label>Gebruikersnaam <input type="text" name="username" class="field" value="<?php echo htmlspecialchars($myusername); ?>" /></label>
-            <span class="error"><?php echo $passErr; ?></span>
-            <label>Wachtwoord <input type="password" name="password" class="field" value="<?php echo htmlspecialchars($mypassword); ?>" /></label>
-            <input id="button" type="submit" value="Inloggen" />
+            <label>Gebruikersnaam
+              <span class="error"><?php echo $nameErr; ?></span>
+              <input type="text" name="username" class="input-field" value="<?php echo htmlspecialchars($myusername); ?>" />
+            </label>
+            <label>Wachtwoord
+              <span class="error"><?php echo $passErr; ?></span>
+              <input type="password" name="password" class="input-field" value="<?php echo htmlspecialchars($mypassword); ?>" />
+            </label>
+            <input class="knop inloggen" type="submit" value="Inloggen" />
         </form>
     </div>
 </body>

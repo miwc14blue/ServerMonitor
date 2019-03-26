@@ -45,18 +45,3 @@ table td + td + td + td + td {
 i #text{
   font-family: 'Roboto', sans-serif;
 }
-
-.header-container{
-  width: 1000px;
-  background-color: white;
-  border: 1px solid #bdc2c6;
-  border-bottom: 0px;
-  display: flex;
-  align-items: center;
-}
-
-.wrapper {
-  width: 1002px;
-  flex-direction: column;
-  display: flex;
-}

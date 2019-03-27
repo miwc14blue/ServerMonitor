@@ -144,6 +144,13 @@ input, select {
   color: black;
   font-size: 0.8rem;
   margin: 3px;
+  background-color: #e0effc;
+  border: 1px solid #73a2ef;
+}
+
+.knop:hover {
+  color: white;
+  background-color: #73a2ef;
 }
 
 .error {

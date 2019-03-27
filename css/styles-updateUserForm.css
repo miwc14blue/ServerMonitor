@@ -47,22 +47,14 @@ select {
    float: right;
 }
 
-.annuleren {
-    border: 1px solid #73a2ef;
-    background-color: #e0effc;
-}
-
 .verwijderen {
     background-color: #f75151;
+    border: 1px solid #f90000;
 }
 
 .opslaan {
     background-color: #70ff56;
-}
-
-.annuleren:hover {
-    color: white;
-    background-color: #6ba3ff;
+    border: 1px solid #00FF00;
 }
 
 .opslaan:hover {

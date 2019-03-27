@@ -65,7 +65,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <button id="btn"> <i class="fa fa-pencil" onclick="window.location.href='../lib/GetEditUser.php?userName=<?php echo $user->userName ?>'"> </i>  </button>
+                    <button id="btn"> <i class="fa fa-pencil" onclick="window.location.href='../API/UserEdit.php?userName=<?php echo $user->userName ?>'"> </i>  </button>
 <!--                    HIER STAAT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
 
                 </td>

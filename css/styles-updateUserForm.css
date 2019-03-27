@@ -1,0 +1,68 @@
+form {
+    background-color: white;
+    width: 1000px;
+    font-size: 14px;
+    height: auto;
+    margin-bottom: 50px;
+    border: 1px solid #bdc2c6;
+}
+
+#containerRechts p:first-of-type {
+    visibility: hidden;
+}
+
+form p {
+    margin: 20px;
+}
+
+input, select {
+    width: 390px;
+    height: 25px;
+    display: flex;
+    margin: 10px 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+select {
+    height: 25px;
+}
+
+#containerLinks {
+    float: left;
+    margin-bottom: 35px;
+}
+
+#containerRechts {
+    float: left;
+    margin: 0 auto 0 30px;
+}
+
+.zend {
+   text-align: right;
+   margin-right: 62px;
+   height: 50px;
+   width: 100%;
+   float: right;
+}
+
+.btn-verwijderen {
+    background-color: #f75151;
+    border: 1px solid #f90000;
+}
+
+.btn-opslaan {
+    background-color: #a9ff89;
+    border: 1px solid #00FF00;
+}
+
+.btn-opslaan:hover {
+    color: white;
+    background-color: #00FF00;
+}
+
+.btn-verwijderen:hover {
+    color: white;
+    background-color: #f90000;
+}

@@ -12,8 +12,8 @@ class DatabasePDO
     private $port = '3307';
 
     private $passwordMac = '';
-    private $hostMac = '192.168.64.2';
-    private $portMac = '3306';
+    private $hostMac = 'localhost';
+    private $portMac = '3307';
 
 
 

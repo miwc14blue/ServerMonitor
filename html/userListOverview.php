@@ -15,9 +15,12 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <title>
             Gebruikersoverzicht
         </title>
+        <script type="text/javascript" src="../js/popup.js"></script>
+        <link rel="stylesheet" href="../css/reset.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/userlist-styles.css">
+        
 
     </head>
 
@@ -44,12 +47,13 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             
             $userDAO = new UserDAO();
             $userList = json_decode($userDAO->retrieveUserList());
-
+      
             foreach($userList as $user){
                         ?>
-            <tr>
-                <td>
+            <tr <?php if($_SESSION['username'] == $user->userName) { echo 'style="color:blue"';}?>>
+                <td >
                     <?php echo $user->userName?>
+                    <?php if($_SESSION['username'] == $user->userName) { echo '<span style="font-size:.8em">(currently logged in)</span>';}?>
                 </td>
                 <td>
                     <?php echo $user->firstName?>
@@ -61,14 +65,38 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <i class="fa fa-pencil"></i>
+                    <button id="btn"> <i class="fa fa-pencil"></i> </button>
+<!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
+
                 </td>
                 <td>
-                    <i class="fa fa-trash"></i>
+                    
+<!--                    Trigger/Open The Modal -->
+                    <button id="btn myBtn" onclick="show('<?php echo $user->userName?>')" 
+                        <?php if($_SESSION['username'] == $user->userName) { echo 'style="visibility:hidden"';} ?>>
+                        <i class="fa fa-trash"></i>
+                    </button>
+
+<!--                    The Modal -->
+                    <div id="myModal<?php echo $user->userName?>" class="modal">
+
+<!--                    Modal content -->
+                        <div class="modal-content">
+                            <span class="close" onclick="hide('<?php echo $user->userName?>')">&times;</span>
+                            <div>
+                                <h5 id="popupTitle">Gebruiker verwijderen</h5>
+                                <p id="popupText">Weet u zeker dat u <?php echo $user->userName?> wilt verwijderen?</p>
+                                <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
+                                <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </td>
             </tr>
+            
             <?php
-    } ?>
+    }     ?>
         </table>
     </body>
 

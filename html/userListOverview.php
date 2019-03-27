@@ -86,8 +86,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                             <div>
                                 <h5 id="popupTitle">Gebruiker verwijderen</h5>
                                 <p id="popupText">Weet u zeker dat u <?php echo $user->userName?> wilt verwijderen?</p>
-                                <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
-                                <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
+                                <button class="cancelbtn" onclick="hide('<?php echo $user->userName?>')">Annuleren</button>
+                                <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';">Verwijder <?php echo $user->userName?></button>
                             </div>
                         </div>
                     </div>

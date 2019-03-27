@@ -6,7 +6,6 @@
   font-size: 20px;
 }
 
-/* Popup */
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -27,7 +26,8 @@
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 24%; /* Could be more or less, depending on screen size */
+  height:200px;
 }
 
 /* The Close Button */
@@ -36,6 +36,12 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  width:30px;
+  height:30px;
+  text-align:center;
+  line-height: 0%;
+  vertical-align: center;
+  margin-top:13px;
 }
 
 .close:hover,

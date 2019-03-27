@@ -63,8 +63,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php echo $user->role?>
                 </td>
                 <td>
-                    <button id="btn"> <i class="fa fa-pencil"></i> </button>
-<!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
+                    <button id="btn"> <i class="fa fa-pencil" onclick="window.location.href='../API/UserEdit.php?userName=<?php echo $user->userName ?>'"> </i>  </button>
+<!--                    HIER STAAT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
 
                 </td>
                 <td>
@@ -81,11 +81,11 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 <!--                    Modal content -->
                         <div class="modal-content">
                             <span class="close" onclick="hide('<?php echo $user->userName?>')">&times;</span>
-                            <div>
+                            <div id="popup">
                                 <p id="popupTitle">Gebruiker verwijderen</p>
                                 <p id="popupText">Weet u zeker dat u <?php echo $user->userName?> wilt verwijderen?</p>
-                                <button id="popupFooter" class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
-                                <button id="popupFooter" class="submitbtn" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
+                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userListOverview.php'">Annuleren</button>
+                                <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
                             </div>
                         </div>
                     </div>

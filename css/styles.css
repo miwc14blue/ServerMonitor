@@ -90,6 +90,7 @@ table {
     margin-bottom: 50px;
     font-size: 14px;
     border: 1px solid #bdc2c6;
+    box-sizing: border-box;
 }
 
 tr {

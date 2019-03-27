@@ -1,7 +1,10 @@
 <?php 
 
  include_once("../lib/UserDAO.php");
-$userName=$_GET['userName'];
+
+
+   //   gets userName after clicking button  and assign it to the userNames
+    $userName=$_GET['userName'];
              //echo $userName; 
 
 

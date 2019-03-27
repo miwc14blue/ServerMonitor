@@ -31,7 +31,7 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
       <div class="page">
         <div class="wrapper">
           <div class="header-container">
-            <h3>Gebruiker <?php echo $state ?></h3>
+            <h1>Gebruiker <?php echo $state ?></h1>
           </div>
           <form method="POST" action="../API/createUser.php">
               <div id="containerLinks">

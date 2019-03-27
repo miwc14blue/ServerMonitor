@@ -1,12 +1,11 @@
-.header-container h3 {
+.header-container h1 {
   display: inline-block;
-  width: 675px;
 }
 
 .btn-aanmaken{
-  float: right;
   padding: 10px;
   display: inline-block;
+  margin-right: 20px;
 }
 
 .btn-aanmaken i:hover{
@@ -70,8 +69,7 @@ i #text{
   font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;

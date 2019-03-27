@@ -20,7 +20,6 @@ p {
 }
 
 /*CSS for nav*/
-
 .logo {
     width: 200px;
     height: 30px;
@@ -119,9 +118,10 @@ td{
     font-weight: normal;
 }
 
-h3 {
+h1 {
   padding: 30px;
   margin: 0;
+  font-size: 1.2em;
 }
 
 .header-container{
@@ -131,6 +131,7 @@ h3 {
   border-bottom: 0px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .wrapper {

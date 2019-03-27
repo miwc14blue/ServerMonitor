@@ -31,7 +31,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
     <div class="page">
         <div class="wrapper">
             <div class="header-container">
-                <h3>Gebruiker Overzicht</h3>
+                <h1>Gebruiker Overzicht</h1>
                 <a class="btn btn-aanmaken" href="userManipulation.php"><i class="fa fa-plus"></i> Nieuwe gebruiker aanmaken</a>
             </div>
             <table>
@@ -103,4 +103,4 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
             </table>
 </body>
 
-</html> 
+</html>

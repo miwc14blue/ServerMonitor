@@ -14,15 +14,15 @@
             <span class="error" id="combiErr"><?php echo $_SESSION['combiErr']; ?></span>
             <label>Gebruikersnaam:
                 <span class="error"><?php echo $_SESSION['nameErr']; ?></span>
-                <input type="text" name="username" class="field" value="<?php echo $_SESSION['postUsername']; ?>" />
+                <input type="text" name="username" class="login-field" value="<?php echo $_SESSION['postUsername']; ?>" />
             </label>
             <label>Wachtwoord:
                 <span class="error"><?php echo $_SESSION['passErr']; ?></span>
-                <input type="password" name="password" class="field" value="" />
+                <input type="password" name="password" class="login-field" value="" />
             </label>
             <input class="btn btn-inloggen" type="submit" value="Inloggen"/>
         </form>
     </div>
 </body>
 
-</html> 
+</html>

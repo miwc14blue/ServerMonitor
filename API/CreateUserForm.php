@@ -5,7 +5,6 @@
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
         <link rel="stylesheet" type="text/css" href="../css/styles-makeUserForm.css">
         <meta charset="utf-8">
-
         <title>Nieuwe gebruiker</title>
     </head>
 
@@ -18,7 +17,7 @@
         // define variables and set to empty values
         $userNameErr = $firstNameErr=$lastNameErr=$emailErr=$passwordErr=$roleErr = "";
         $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password = "";
-        $saveWithHash = true;
+        
         
         if (!empty($_GET["userName"])) { 
             $userName = $_GET["userName"];
@@ -29,6 +28,7 @@
         } 
         
         elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $saveWithHash = true;
             $attributeValidator = new AttributeValidator(); 
             
         //Checks user name from input field for validity
@@ -55,63 +55,84 @@
             $passwordAndErrMessage = $attributeValidator->validatePassword($_POST["password1"], $_POST["password2"]);
             $password = $passwordAndErrMessage[0];
             $passwordErr = $passwordAndErrMessage[1];
-/*---------------------------------------prompt popup to confirm user name overwrite----------------------------------------------------*/
-            $saveWithHash = overwiteExistingUser($userNameErr, $password);
+            
+            
             
 /*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/
             $saveWithHash = omittingPasswordForExistingUser($passwordErr, $userNameErr);
             
             if (!$saveWithHash) {
                 $passwordErr= "";
-            }               
+            }            
             
-/*---------------------------------------if no errors, make user and send to DB----------------------------------------------------------*/
+/*-------------------------------------user name overwrite checks for password and user existence-------------------------------------------*/
+            
+            $saveWithHash = overwiteExistingUser($userNameErr, $password);
+            
+/*---------------------------------------if no errors, make user and send to DB--------------------------------------------------*/
             storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, 
                                 $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash);
         } 
         
-///////////////////////////////////////////////////////////FUNCTIONS/////////////////////////////////////////////////////////////////////////     
+         
+        
+////////////////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////     
         
 /*---------------------------------------if no errors, make user and send to DB----------------------------------------------------------*/
         function storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash) {
+            $userDAO = new UserDAO();
             
+            //Creates record with password.
             if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
-            and empty($emailErr) and empty($passwordErr) and $saveWithHash){
+                    and empty($emailErr) and empty($passwordErr)){                    
+                    $hash = password_hash($password, PASSWORD_DEFAULT);
+                    $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
+                    $userDAO->storeInDB($user);
+                    header("Location: ../html/userListOverview");
+                }
+            
+            //Updates record without password.
+            elseif ($userNameErr === "De gebruikersnaam is reeds geregistreerd." and empty($firstNameErr) 
+                    and empty($lastNameErr) and empty($emailErr) and empty($password) and !$saveWithHash){
+                echo '<script>popup()</script>';
+                $user = new User($userName, $firstName, $lastName, $email, "dummyHash", $role);
+                $userDAO->updateInDBWithoutHash($user);
+                header("Location: ../html/userListOverview");
+            }
+            ////Updates record with password.
+            elseif (empty($firstNameErr) and empty($lastNameErr) and empty($emailErr) and empty($passwordErr) 
+                    and ($userNameErr === "De gebruikersnaam is reeds geregistreerd.")){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
-                $userDAO = new UserDAO();
-                $userDAO->storeInDB($user);
-            }
-            elseif (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
-                    and empty($emailErr) and empty($passwordErr) and empty($password) and !$saveWithHash){
-                $user = new User($userName, $firstName, $lastName, $email, "dummyHash", $role);
-                $userDAO = new UserDAO();
-                $userDAO->storeInDBWithoutHash($user);
-                }    
-           }
-        
-/*---------------------------------------prompt popup to confirm user name overwrite----------------------------------------------------*/
-        function overwiteExistingUser($userNameErr, $password){
-            if ($userNameErr === "De gebruikersnaam is reeds geregistreerd.") {
-                echo "Popup here <br>"; //trigger popup here.
-                echo "De gebruikersnaam bestaat al gegevens overschrijven?<br>";
-                echo "Na klikken foutmelding is lege string.";
-                $saveWithHash = false;
-            if (!empty($password)){
-                    $saveWithHash = true;
-                }
-                return $saveWithHash;
+                $userDAO->updateInDBWithHash($user);
+                header("Location: ../html/userListOverview");
             }
         }
+        
+/*--------------------------------------- user name overwrite checks for password and user existence-----------------------------------*/
+        function overwiteExistingUser($userNameErr, $password){
+            if ($userNameErr === "De gebruikersnaam is reeds geregistreerd.") {
+                $saveWithHash = false;
+            if(!empty($password)){
+                $saveWithHash = true;
+                }
+            }
+            else {$saveWithHash = true;
+                 }
+            return $saveWithHash;
+            }
         
         function omittingPasswordForExistingUser($passwordErr, $userNameErr){
          if ($passwordErr === "Wachtwoord is vereist." and $userNameErr === "De gebruikersnaam is reeds geregistreerd.") {
                 $saveWithHash = false;
-                return $saveWithHash;
                 }
+            else {
+                $saveWithHash = true;
+            }
+            return $saveWithHash;
             }
         
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+/////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////   
         ?>
        
        
@@ -182,6 +203,7 @@
             </p>
         </form>
         <button class="btnSize hoverColor" id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
+        
         
     </body>
 

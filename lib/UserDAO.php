@@ -13,12 +13,12 @@ class UserDAO extends DAO {
         $deleted = $user->getDeleted();
         
         $query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `email`, `password`, `role`, `deleted`) 
-            VALUES ('$userName', '$firstName', '$lastName', '$email', '$hash', '$role', '$deleted');";
+        VALUES ('$userName', '$firstName', '$lastName', '$email', '$hash', '$role', '$deleted');";
 
         parent::SendQueryToDB($query);
     }
     
-    public function storeInDBWithoutHash($user){
+    public function updateInDBWithoutHash($user){
         $userName = $user->getUserName();
         $firstName = $user->getFirstName();
         $lastName = $user->getLastName();
@@ -26,8 +26,36 @@ class UserDAO extends DAO {
         $role = $user->getRole();
         $deleted = $user->getDeleted();
         
-        $query = "UPDATE servermonitor.user SET (`userName`, `firstName`, `lastName`, `email`, `role`, `deleted`) 
-            VALUES ('$userName', '$firstName', '$lastName', '$email', '$role', '$deleted') WHERE userName='$userName';";
+        $query = "UPDATE servermonitor.user SET 
+        userName = '$userName',
+        firstName = '$firstName',
+        lastName = '$lastName',
+        email = '$email',
+        role = '$role',
+        deleted = '$deleted' 
+        WHERE userName='$userName';";
+
+        parent::SendQueryToDB($query);
+    }
+    
+    public function updateInDBWithHash($user){
+        $userName = $user->getUserName();
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $hash = $user->getHash();
+        $role = $user->getRole();
+        $deleted = $user->getDeleted();
+        
+        $query = "UPDATE servermonitor.user SET 
+        userName = '$userName',
+        firstName = '$firstName',
+        lastName = '$lastName',
+        email = '$email',
+        password = '$hash', 
+        role = '$role',
+        deleted = '$deleted' 
+        WHERE userName='$userName';";
 
         parent::SendQueryToDB($query);
     }

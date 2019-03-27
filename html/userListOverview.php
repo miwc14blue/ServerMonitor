@@ -70,9 +70,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 <!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
                 <td>
 
-                   <button class="btn" onclick="window.location.href='../lib/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i>
-
-                   <!-- <button class="btn" onclick="window.location.href='../API/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i> -->
+                   <!-- <button class="btn" onclick="window.location.href='../lib/deleteUser.php? userName=<?php echo $user->userName?>';" >   <i class="fa fa-trash"></i> -->
                     
                     <!-- Trigger/Open The Modal -->
                     <button id="btn myBtn" onclick="show('<?php echo $user->userName?>')">
@@ -86,13 +84,13 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                         <div class="modal-content">
                             <span class="close" onclick="hide()">&times;</span>
                             <p>
-                                <h5>Gebruiker verwijderen</h5>
+                                <h3>Gebruiker verwijderen</h5>
                                 <p id="popuptext"></p>
                             </p>
                             <p>
                                 <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
                                 <!-- onderstaande submitbtn heeft waarde nodig die wordt meegegeven -->
-                                <button class="submitbtn" onclick="../API/deleteUser.php">Gebruiker verwijderen</button>
+                                <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php'">Gebruiker verwijderen</button>
                             </p>
                         </div>
                     </div>

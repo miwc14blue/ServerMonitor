@@ -30,6 +30,7 @@ a {
     text-decoration: none;
     padding: 40px 20px;
     color: blue;
+    text-shadow: 1.5px 1.5px 2px gray;
 }
 
 .menu a:hover:not(.active) {

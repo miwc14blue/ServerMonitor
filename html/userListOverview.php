@@ -3,6 +3,7 @@
 include_once("../lib/UserDAO.php");
 
 session_start();
+
 if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
     header("Location:../login.php");
 }
@@ -16,6 +17,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
         Gebruiker Overzicht
     </title>
     <script type="text/javascript" src="../js/popup.js"></script>
+    <script type="text/javascript" src="../js/sessionDestroyer.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/userlist-styles.css">

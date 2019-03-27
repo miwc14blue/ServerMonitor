@@ -24,7 +24,7 @@
     margin-left:20px;
 }
 
-#popupFooter {
+.popupFooter {
     text-align: center;
     width:48%;
     height:50px;
@@ -33,12 +33,12 @@
     margin-top:20px;
 }
 
-.cancelbtn {
+#cancelbtn {
     background:white;
     border: 3px solid #eef2f7;
 }
 
-.cancelbtn:hover, .cancelbtn:focus {
+#cancelbtn:hover, #cancelbtn:focus {
     background:rgb(131, 131, 131);
     color:white;
     border:3px solid rgb(131, 131, 131);
@@ -51,7 +51,7 @@
     margin-left:10px;
 }
 
-.submitbtn:hover, .submitbtn:focus {
+#submitbtn:hover, #submitbtn:focus {
     background:red;
     border:3px solid red;
     font-weight: bold;

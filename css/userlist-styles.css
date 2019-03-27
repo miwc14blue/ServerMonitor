@@ -3,25 +3,21 @@
   width: 700px;
 }
 
-.btn{
+.aanmaken{
   float: right;
   padding: 10px;
   display: inline-block;
-  border-radius: 5px;
-  border: 1px solid;
-  color: white;
-  background-color: #bdc2c6;
 }
 
-.btn:hover{
+.aanmaken:hover{
   background-color: #00FF00;
 }
 
-.btn i{
+.aanmaken i:hover{
   color: white;
 }
 
-table a {
+.wrapper a {
   color: black;
   padding: 10px;
 }

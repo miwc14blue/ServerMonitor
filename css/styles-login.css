@@ -18,12 +18,6 @@
     margin: 10px 0;
 }
 
-#button {
-    float: left;
-    width: 70px;
-    margin-top: 20px;
-}
-
 #boxheader {
     display: inline-block;
     font-family:sans-serif;
@@ -38,10 +32,6 @@
     text-align: left;
     margin-bottom: 10px;
     width: 100%;
-}
-
-#login label {
-  width: 33%;
 }
 
 .inloggen{

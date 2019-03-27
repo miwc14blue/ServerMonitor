@@ -7,36 +7,34 @@ form {
     border: 1px solid #bdc2c6;
 }
 
-#containerRechts p:first-of-type {
-    visibility: hidden;
-}
-
 form p {
     margin: 20px;
 }
 
-input, select {
-    width: 390px;
-    height: 25px;
-    display: flex;
-    margin: 10px 0;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-}
-
-select {
-    height: 25px;
-}
+/* input, select {
+  width: 390px;
+  height: 30px;
+  display: flex;
+  margin: 10px 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+} */
 
 #containerLinks {
+    width: 40%;
     float: left;
     margin-bottom: 35px;
 }
 
 #containerRechts {
+    width: 40%;
     float: left;
-    margin: 0 auto 0 30px;
+    margin: 0 auto 35px 30px;
+}
+
+#containerLinks p:first-of-type {
+    width: 100%;
 }
 
 .zend {

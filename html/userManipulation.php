@@ -67,12 +67,6 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
 
               <div id="containerRechts">
                   <p>
-                      <label>hidden
-                        <input class="input-field"/>
-                      </label>
-                  </p>
-
-                  <p>
                       <label>Herhaal wachtwoord
                         <span class="error"><?php echo "error-placeholder"; ?></span>
                         <input name='lastName' type="text" class="input-field"/>

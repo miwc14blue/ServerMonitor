@@ -118,6 +118,16 @@ td{
     font-weight: normal;
 }
 
+h1 {
+    display: inline-block;
+    color: blue;
+    size: 2em;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 0;
+}
+
 h2 {
   padding: 30px;
   margin: 0;

@@ -9,7 +9,7 @@
 
 <body>
     <div id="login">
-        <h1 id="boxheader">Server Monitor</h1>
+        <h1>Server Monitor</h1>
         <form action="" method="POST">
             <span class="error" id="combiErr"><?php echo $_SESSION['combiErr']; ?></span>
             <label>Gebruikersnaam:

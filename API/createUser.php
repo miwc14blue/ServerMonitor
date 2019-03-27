@@ -8,6 +8,7 @@ $userValidator = new Uservalidator();
 
 $conn = $databasePDOInstance->get();
 
+$userName =$firstName=$lastName= $email = $password1 = $password2 = $role = $hash="";
 
 /* $userName =$firstName=$lastName= $email = $password1 = $password2 = $role = $hash="";
 $userNameError =$firstNameError=$lastNameError= $emailError = $password1Error = $password2 = $role = $hash="";

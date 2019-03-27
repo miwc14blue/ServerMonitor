@@ -21,6 +21,7 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
         <title>Gebruiker <?php echo $state ?></title>
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
         <link rel="stylesheet" type="text/css" href="../css/styles-updateUserForm.css">
+        <script type="text/javascript" src="../js/sessionDestroyer.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
     <body>

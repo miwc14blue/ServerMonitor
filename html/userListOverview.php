@@ -67,24 +67,27 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 <td>
                     <button id="btn"> <i class="fa fa-pencil"></i> </button>
 <!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
-                </td>
-                <td>  
-                <button id="btn myBtn" onclick="show('<?php echo $user->userName?>')" 
-                        <?php if($_SESSION['username'] == $user->userName) { echo 'style="visibility:hidden"';} ?> data-id="">
-                        <i class="fa fa-trash"></i>
-                </button>
 
-                    <!-- The Modal -->
+                </td>
+                <td>
+                    
+<!--                    Trigger/Open The Modal -->
+                    <button id="btn myBtn" onclick="show('<?php echo $user->userName?>')" 
+                        <?php if($_SESSION['username'] == $user->userName) { echo 'style="visibility:hidden"';} ?>>
+                        <i class="fa fa-trash"></i>
+                    </button>
+
+<!--                    The Modal -->
                     <div id="myModal<?php echo $user->userName?>" class="modal">
 
-                    <!-- Modal content -->
+<!--                    Modal content -->
                         <div class="modal-content">
                             <span class="close" onclick="hide('<?php echo $user->userName?>')">&times;</span>
                             <div>
                                 <h5 id="popupTitle">Gebruiker verwijderen</h5>
                                 <p id="popupText">Weet u zeker dat u <?php echo $user->userName?> wilt verwijderen?</p>
                                 <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
-                                <button class="submitbtn" onclick="window.location.href='../lib/deleteUser.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
+                                <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
                             </div>
                         </div>
                     </div>

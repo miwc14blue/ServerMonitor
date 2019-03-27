@@ -9,7 +9,7 @@
     document.onkeypress = function() {
         secondsCounter = 0;
     };
-    window.setInterval(CheckIdleTime, 30000); 
+    window.setInterval(CheckIdleTime, 1800000); // 1800 seconden = 30 minuten
     function CheckIdleTime() {
         secondsCounter++;
         var oPanel = document.getElementById("");

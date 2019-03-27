@@ -12,8 +12,8 @@ class DatabasePDO
     private $port = '3307';
 
     private $passwordMac = '';
-    private $hostMac = 'localhost';
-    private $portMac = '3307';
+    private $hostMac = '192.168.64.2';
+    private $portMac = '3306';
 
 
 
@@ -31,7 +31,8 @@ class DatabasePDO
             } catch (PDOException $e) {
                 echo "connection failed: {$e->getMessage()}";
             }
-        } else {
+        } else 
+        {
 
             $dsn = "{$this->driver}:dbname={$this->schema};port={$this->port};host={$this->host}";
 

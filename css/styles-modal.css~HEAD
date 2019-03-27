@@ -67,16 +67,15 @@ i #text{
   float: right;
   font-size: 28px;
   font-weight: bold;
-  width:30px; /* increase area for easy pointing */
+  width:30px;
   height:30px;
-  text-align:center; /* align symbol with elements on right-side of container */
-  line-height: 0%; /* shift center of symbol to center of pointer */
+  text-align:center;
+  line-height: 0%;
   vertical-align: center;
-  margin-top:13px; /* shift symbol down, keep area for pointer in place */
+  margin-top:13px;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;

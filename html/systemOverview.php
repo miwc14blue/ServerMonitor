@@ -13,6 +13,8 @@ if(!isset($_SESSION['username'])){
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/systemoverview-styles.css">
+        <script type="text/javascript" src="../js/sessionDestroyer.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
 
     <body>
@@ -20,8 +22,9 @@ if(!isset($_SESSION['username'])){
           require_once('menu.php');
       ?>
 
+      <div class="page">
         <div class="VM-container">
-          <h3>Systeem Overzicht</h3>
+          <h2>Systeem Overzicht</h2>
 
         <?php
         $username='makeitwork';
@@ -81,6 +84,7 @@ if(!isset($_SESSION['username'])){
           <?php
           }
           ?>
+        </div>
       </div>
     </body>
 </html>

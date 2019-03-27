@@ -28,7 +28,7 @@ p {
 }
 
 a {
-    font-size: 1rem;
+    font-size: 1em;
     text-decoration: none;
     padding: 40px 20px;
     color: blue;
@@ -88,7 +88,7 @@ table {
     border-collapse: collapse;
     width: 1002px;
     margin-bottom: 50px;
-    font-size: 14px;
+    font-size: 1em;
     border: 1px solid #bdc2c6;
     box-sizing: border-box;
 }
@@ -141,18 +141,19 @@ h3 {
 
 input, select {
     border: 1.5px solid #d7d7d7;
-    font-size: 14px;
+    font-size: 1em;
+    padding: 10px;
 }
 
 .input-field {
-    padding: 5px;
+
 }
 
 .btn {
   border-radius: 2px;
   padding: 10px;
   color: black;
-  font-size: 0.8rem;
+  font-size: 1em;
   margin: 3px;
   background-color: #e0effc;
   border: 1px solid #73a2ef;
@@ -167,7 +168,7 @@ input, select {
     width: 60%;
     height: 10px;
     color: red;
-    font-size: 12px;
+    font-size: 0.8em;
     display: block;
     text-align: right;
     float: right;

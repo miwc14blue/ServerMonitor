@@ -81,7 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <span class="error"><?php echo $passErr; ?></span>
               <input type="password" name="password" class="input-field" value="<?php echo htmlspecialchars($mypassword); ?>" />
             </label>
-            <input class="knop inloggen" type="submit" value="Inloggen" />
+            <button class="inloggen" type="submit">Inloggen</button>
         </form>
     </div>
 </body>

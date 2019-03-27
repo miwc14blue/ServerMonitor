@@ -6,6 +6,8 @@
 
 html {
   height: 100%;
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
 }
 
 body{
@@ -142,7 +144,7 @@ input, select {
     padding: 5px;
 }
 
-.knop {
+button {
   border-radius: 2px;
   padding: 10px;
   color: black;
@@ -152,7 +154,7 @@ input, select {
   border: 1px solid #73a2ef;
 }
 
-.knop:hover {
+button:hover {
   color: white;
   background-color: #73a2ef;
 }

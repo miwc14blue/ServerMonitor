@@ -9,10 +9,6 @@
   display: inline-block;
 }
 
-.aanmaken:hover{
-  background-color: #00FF00;
-}
-
 .aanmaken i:hover{
   color: white;
 }

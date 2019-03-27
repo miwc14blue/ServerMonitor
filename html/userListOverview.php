@@ -20,11 +20,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/styles.css">
         <link rel="stylesheet" href="../css/userlist-styles.css">
-        
+        <link rel="stylesheet" href="../css/styles-popup.css">
 
     </head>
-
-
     <body>
       <?php
           require_once('menu.php');
@@ -84,10 +82,10 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                         <div class="modal-content">
                             <span class="close" onclick="hide('<?php echo $user->userName?>')">&times;</span>
                             <div>
-                                <h5 id="popupTitle">Gebruiker verwijderen</h5>
+                                <p id="popupTitle">Gebruiker verwijderen</p>
                                 <p id="popupText">Weet u zeker dat u <?php echo $user->userName?> wilt verwijderen?</p>
-                                <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
-                                <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
+                                <button id="popupFooter" class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
+                                <button id="popupFooter" class="submitbtn" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
                             </div>
                         </div>
                     </div>

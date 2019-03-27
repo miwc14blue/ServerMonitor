@@ -47,22 +47,22 @@ select {
    float: right;
 }
 
-.verwijderen {
+.btn-verwijderen {
     background-color: #f75151;
     border: 1px solid #f90000;
 }
 
-.opslaan {
+.btn-opslaan {
     background-color: #a9ff89;
     border: 1px solid #00FF00;
 }
 
-.opslaan:hover {
+.btn-opslaan:hover {
     color: white;
     background-color: #00FF00;
 }
 
-.verwijderen:hover {
+.btn-verwijderen:hover {
     color: white;
     background-color: #f90000;
 }

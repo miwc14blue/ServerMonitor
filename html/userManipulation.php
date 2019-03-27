@@ -92,11 +92,11 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
               </div>
 
               <div class="zend">
-                <button href="userListOverview.php">Annuleren</button>
+                <a class="btn" href="userListOverview.php">Annuleren</a>
                 <?php if($state=='bewerken'){ ?>
-                <button class="verwijderen" href="">Gebruiker verwijderen</button>
+                <a class="btn btn-verwijderen" href="">Gebruiker verwijderen</a>
                 <?php } ?>
-                <button class="opslaan" href="">Gebruiker <?php echo $state ?></button>
+                <a class="btn btn-opslaan" href="">Gebruiker <?php echo $state ?></a>
               </div>
             </form>
           </div>

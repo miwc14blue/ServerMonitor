@@ -3,13 +3,13 @@
   width: 700px;
 }
 
-.aanmaken{
+.btn-aanmaken{
   float: right;
   padding: 10px;
   display: inline-block;
 }
 
-.aanmaken i:hover{
+.btn-aanmaken i:hover{
   color: white;
 }
 

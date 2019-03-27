@@ -32,6 +32,9 @@ a {
     text-decoration: none;
     padding: 40px 20px;
     color: blue;
+}
+
+.menu a {
     text-shadow: 1.5px 1.5px 2px gray;
 }
 
@@ -39,7 +42,7 @@ a {
     color: orangered;
 }
 
-.active  {
+.menu .active  {
     color: red;
     border-bottom: 2px solid red;
 }
@@ -144,7 +147,7 @@ input, select {
     padding: 5px;
 }
 
-button {
+.btn {
   border-radius: 2px;
   padding: 10px;
   color: black;
@@ -154,7 +157,7 @@ button {
   border: 1px solid #73a2ef;
 }
 
-button:hover {
+.btn:hover {
   color: white;
   background-color: #73a2ef;
 }

@@ -28,7 +28,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         <div class="wrapper">
           <div class="header-container">
             <h3>Gebruiker Overzicht</h3>
-            <button class="aanmaken" onclick="window.location.href='userManipulation.php';"><i class="fa fa-plus"></i> Nieuwe gebruiker aanmaken</button>
+            <a class="btn btn-aanmaken" href="userManipulation.php"><i class="fa fa-plus"></i> Nieuwe gebruiker aanmaken</a>
           </div>
           <table>
               <tr>

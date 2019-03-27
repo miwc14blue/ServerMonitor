@@ -1,7 +1,7 @@
 /*CSS File For login webpage*/
 #login{
-    width: 400px;
-    height: 300px;
+    width: 350px;
+    height: 250px;
     border: 1px solid #bdc2c6;
     font-size: 14px;
     padding: 30px;
@@ -31,6 +31,7 @@
     size: 2em;
     width: 100%;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 #combiErr {

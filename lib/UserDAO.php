@@ -2,7 +2,7 @@
 include 'DAO.php';
 
 class UserDAO extends DAO {  
-    
+
     public function storeInDB ($user){
         $userName = $user->getUserName();
         $firstName = $user->getFirstName();
@@ -24,8 +24,16 @@ class UserDAO extends DAO {
         $user = parent::SendQueryToDB($query);
         return $user;
     }
-
     
+    public function deleteUser($userName){
+        session_start();
+        if($_SESSION['username'] != $userName) {
+        $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName';";
+        $user = parent::SendQueryToDB($deletionQuery);
+        }
+        header("Location:../html/userListOverview.php");
+    }
+
     public function retrieveUserList() {
         $query = "SELECT userName, firstName, lastName, role 
         FROM servermonitor.user  

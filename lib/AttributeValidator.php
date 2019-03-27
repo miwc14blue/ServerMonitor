@@ -91,17 +91,6 @@ class AttributeValidator {
             return $passwordAndError;
     }
     
-/*-----------------------------------role validaton---------------------------------*/ 
-    public function validateRole($role) {
-        $error = "";
-        
-        if (empty($role)){
-            $error = "Rol is vereist.";
-        }
-        $roleAndError = array($role, $error);
-        return $roleAndError;
-    }
-
 /*-----------------------------helper functions-----------------------------------*/    
     //this function length of the input  for firstname,lastname or whereever required
     public function test_input($data) {

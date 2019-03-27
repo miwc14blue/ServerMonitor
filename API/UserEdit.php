@@ -1,5 +1,5 @@
 <?php
-include 'UserDAO.php';
+include_once '../lib/UserDAO.php';
 
 $userName = $_GET["userName"];
 if (!empty($userName)){

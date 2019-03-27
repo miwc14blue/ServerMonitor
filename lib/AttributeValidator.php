@@ -19,7 +19,7 @@ class AttributeValidator {
             $error="Gebruikersnaam moet minstens uit 5 karakters bestaan.";
         }
         elseif($existingUser!=="[]"){
-            $error = "De gebruikersnaam is niet beschikbaar.";
+            $error = "De gebruikersnaam is reeds geregistreerd.";
         } 
         $userNameAndError = array($userName, $error);
         return $userNameAndError;

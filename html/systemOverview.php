@@ -23,7 +23,7 @@ if(!isset($_SESSION['username'])){
 
       <div class="page">
         <div class="VM-container">
-          <h1>Systeem Overzicht</h1>
+          <h2>Systeem Overzicht</h2>
 
         <?php
         $username='makeitwork';

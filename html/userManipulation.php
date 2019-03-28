@@ -44,6 +44,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
             $saveWithHash = true;
             $attributeValidator = new AttributeValidator();
+            $state = setPageState($_POST["userName"]);
 
         //Checks user name from input field for validity
             $userNameAndErrMessage = $attributeValidator->validateUserName($_POST["userName"]);

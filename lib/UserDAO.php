@@ -88,7 +88,7 @@ class UserDAO extends DAO {
         $query = "SELECT userName, firstName, lastName, email, role 
         FROM servermonitor.user WHERE userName= '$userName';";
         $user = json_decode(parent::SendQueryToDB($query));
-        header("location:../API/CreateUserForm.php?userName=".$user[0]->userName."&firstName=".$user[0]->firstName."&lastName=".$user[0]->lastName."&email=".$user[0]->email."&role=".$user[0]->role);
+        header("location:../html/userManipulation.php?userName=".$user[0]->userName."&firstName=".$user[0]->firstName."&lastName=".$user[0]->lastName."&email=".$user[0]->email."&role=".$user[0]->role);
     }
 }
 ?>

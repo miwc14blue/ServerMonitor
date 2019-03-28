@@ -71,6 +71,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             $password = $passwordAndErrMessage[0];
             $passwordErr = $passwordAndErrMessage[1];
             
+            $role = $_POST["role"];
             
 /*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/
             $saveWithHash = omittingPasswordForExistingUser($passwordErr, $userNameErr);

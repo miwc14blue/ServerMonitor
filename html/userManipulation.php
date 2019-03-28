@@ -19,6 +19,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
     <link rel="stylesheet" type="text/css" href="../css/styles-updateUserForm.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles-popup.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles-userlist.css">
+
 </head>
 
 <body>
@@ -229,31 +231,30 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 <div class="zend">
                     <a class="btn" href="userListOverview.php">Annuleren</a>
                     <?php if($state=='bewerken'){ ?>
-                    <a class="btn btn-verwijderen" onclick="show('<?php echo $userName;?>')"> <?php echo $userName;?> verwijderen</a>
+                        <a class="btn btn-verwijderen trash" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
+                        <!--                    The Modal -->
+                        <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
+                            <!--                    Modal content -->
+                            <div class="modal-content">
+
+                                <div id="popup">
+                                    <span class="close" onclick="hide('<?php echo $userName ?>')">&times;</span>
+                                    <p id="popupTitle">Gebruiker verwijderen</p>
+                                    <p id="popupText">Weet u zeker dat u <?php echo $userName ?> wilt verwijderen?</p>
+                                </div>
+                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userManipulation.php'">Annuleren</button>
+                                <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
+                            </div>
+
+
+                        </div>
+
                     <?php } ?>
                     <input class="btn btn-opslaan" id="submitButton" type="submit" value="Gebruiker <?php echo $state ?>" />
                     <?php if($state=='aanmaken'){ ?>
                     <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>
 
-                    <!--                    The Modal -->
-                    <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
-                        
-
-                        <!--                    Modal content -->
-                        <div class="modal-content">
-
-                            <div id="popup">
-                                <span class="close" onclick="hide('<?php echo $userName ?>')">&times;</span>
-                                <p id="popupTitle">Gebruiker verwijderen</p>
-                                <p id="popupText">Weet u zeker dat u <?php echo $userName ?> wilt verwijderen?</p>
-                            </div>
-                            <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userManipulation.php'">Annuleren</button>
-                            <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
-                        </div>
-
-
-                    </div>
-
+                    
                     <?php } ?>
                 </div>
             </form>

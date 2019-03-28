@@ -27,4 +27,6 @@
 .btn-inloggen{
     float: right;
     margin-top: 20px;
+    height: auto;
+    width: auto;
 }

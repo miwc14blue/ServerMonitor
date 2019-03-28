@@ -11,6 +11,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 <html>
 
     <head>
+       <title>Gebruiker aanmaken/bewerken</title>
         <meta charset="utf-8">
         <title>Gebruiker <?php echo $state ?></title>
         <link rel="stylesheet" type="text/css" href="../css/styles.css">

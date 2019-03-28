@@ -85,13 +85,12 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 
                             <!--                    Modal content -->
                             <div class="modal-content">
-                                
                                 <div id="popup">
-                                <span class="close" onclick="hide('<?php echo $user->userName ?>')">&times;</span>
+                                    <span class="close" onclick="hide('<?php echo $user->userName ?>')">&times;</span>
                                     <p id="popupTitle">Gebruiker verwijderen</p>
                                     <p id="popupText">Weet u zeker dat u <?php echo $user->userName ?> wilt verwijderen?</p>
                                 </div>
-                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userListOverview.php'">Annuleren</button>
+                                <button id="cancelbtn" class="popupFooter" onclick="hide('<?php echo $user->userName ?>')">Annuleren</button>
                                 <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
                             </div>
                             

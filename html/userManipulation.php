@@ -87,7 +87,7 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
             </p>
           </div>
         </div>
-
+<!-- <a> elementen ipv <buttons>, om zowel submit als redirect te combineren -->
         <div class="zend">
           <a class="btn" href="userListOverview.php">Annuleren</a>
           <?php if($state=='bewerken'){ ?>

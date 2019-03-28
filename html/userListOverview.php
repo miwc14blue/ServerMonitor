@@ -68,9 +68,6 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 
                     <td>
                         <a href="../API/UserEdit.php?userName=<?php echo $user->userName ?>"><i class="fa fa-pencil"> </i></a>
-<!--                TODO: Either modify the anchor or style the button please--> 
-                        
-                        <button id="btn" onclick="window.location.href='../API/UserEdit.php?userName=<?php echo $user->userName ?>'"><i class="fa fa-pencil" > </i>  </button>
 
                         <!--                    Trigger/Open The Modal -->
                         <a class="trash" onclick="show('<?php echo $user->userName ?>')" <?php if ($_SESSION['username'] == $user->userName) {

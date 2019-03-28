@@ -3,7 +3,7 @@
 
     <head>
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <link rel="stylesheet" type="text/css" href="../css/styles-makeUserForm.css">
+        <link rel="stylesheet" type="text/css" href="../css/styles-userCreate.css">
         <meta charset="utf-8">
 
         <title>Nieuwe gebruiker</title>
@@ -69,7 +69,7 @@
 
         <h2>Nieuwe gebruiker aanmaken</h2>
         <p><span class="error">* required field</span></p>
-        <form method="POST" action="CreateUserForm.php">
+        <form method="POST" action="UserCreate.php">
             <p>
                    <label>
                     Gebruikersnaam
@@ -113,7 +113,6 @@
                 </label>
             </p>
             <label>
-                <!-- <input name='role' type="radio" value="admin" /> Administrator -->
                 <div class="dropdown">
                     <button onclick="showContent()" class="btnSize hoverColor ">Rol</button>
                         <div id="myDropdown" class="dropdown-content">
@@ -133,7 +132,7 @@
 
             </p>
         </form>
-        <button class="btnSize hoverColor" id="cancelbutton" onclick="location.href=`userListOverview.php`"> Annuleren</button>
+        <button class="btnSize hoverColor" id="cancelbutton" onclick="location.href=`UserList.php`"> Annuleren</button>
 
     </body>
 

@@ -18,7 +18,6 @@ class UserDAO extends DAO {
         parent::SendQueryToDB($query);
     }
     
-    
     public function findUser($userName){ 
         $query = "SELECT * from user WHERE userName= '$userName';";
         $user = parent::SendQueryToDB($query);
@@ -31,7 +30,7 @@ class UserDAO extends DAO {
         $deletionQuery="UPDATE user SET deleted =1 WHERE userName='$userName';";
         $user = parent::SendQueryToDB($deletionQuery);
         }
-        header("Location:../html/userListOverview.php");
+        header("Location:../html/UserList.php");
     }
 
     public function retrieveUserList() {

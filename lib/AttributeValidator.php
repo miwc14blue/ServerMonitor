@@ -38,7 +38,7 @@ class AttributeValidator {
             $error = "Voornaam moet uit ten minste 2 karakters bestaan.";
         }
         elseif ($firstNameTested !== $firstName){
-            $error = "De voornaam heeft ongelige karakters.";
+            $error = "De voornaam heeft ongeldige karakters.";
         }
         $firstNameAndError = array($firstName, $error);
         return $firstNameAndError;
@@ -64,7 +64,7 @@ class AttributeValidator {
         $error = "";
         
         if (empty($email)){
-            $error = "Email adres is vereist";
+            $error = "Emailadres is vereist";
         }
         elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $error = "Ongeldig emailadres.";

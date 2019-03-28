@@ -20,13 +20,13 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
   <meta charset="utf-8">
   <title>Gebruiker <?php echo $state ?></title>
   <link rel="stylesheet" type="text/css" href="../css/styles.css">
-  <link rel="stylesheet" type="text/css" href="../css/styles-updateUserForm.css">
+  <link rel="stylesheet" type="text/css" href="../css/styles-userUpdate.css">
   <script type="text/javascript" src="../js/sessionDestroyer.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
   <?php
-  require_once('menu.php');
+  require_once('Menu.php');
   ?>
 
   <div class="page">
@@ -34,7 +34,7 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
       <div class="header-container">
         <h2>Gebruiker <?php echo $state ?></h2>
       </div>
-      <form method="POST" action="../API/createUser.php">
+      <form method="POST" action="../API/UserCreate.php">
         <div class="column-container">
           <div class="column column-left">
             <p>
@@ -87,9 +87,9 @@ if(isset($_GET['firstName']) && !empty($_GET['firstName'])){
             </p>
           </div>
         </div>
-<!-- <a> elementen ipv <buttons>, om zowel submit als redirect te combineren -->
+<!-- <a> elementen ipv <buttons>, om zowel submit- als redirectfunctie te combineren -->
         <div class="zend">
-          <a class="btn" href="userListOverview.php">Annuleren</a>
+          <a class="btn" href="UserList.php">Annuleren</a>
           <?php if($state=='bewerken'){ ?>
             <a class="btn btn-verwijderen" href="">Gebruiker verwijderen</a>
           <?php } ?>

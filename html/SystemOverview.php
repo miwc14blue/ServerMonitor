@@ -19,7 +19,7 @@ if(!isset($_SESSION['username'])){
 
     <body>
       <?php
-          require_once('menu.php');
+          require_once('Menu.php');
       ?>
 
       <div class="page">
@@ -55,7 +55,7 @@ if(!isset($_SESSION['username'])){
                   $connection = "ok";
                 }
                 ?>
-                <img class="connection-image" src="../img/<?php echo $connection; ?>-connection.png">
+                <img class="connection-image" src="../img/connection-<?php echo $connection; ?>.png">
               </div>
               <table id="VM-table">
                 <tr>

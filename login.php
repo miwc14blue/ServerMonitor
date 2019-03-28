@@ -28,12 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['combiErr'] = "Onbekende combinatie van gebruikersnaam en wachtwoord";
   }
 } else if (isset($_SESSION['username'])) {
-  header("location: html/systemOverview.php");
+  header("location: html/SystemOverview.php");
 } else {
   header('login.php');
 }
 
-include_once("html/loginPage.php");
+include_once("html/LoginPage.php");
 
 //functions:
 function resetSession()
@@ -76,7 +76,7 @@ function tryToLogin($user)
     $_SESSION['username'] = $user[0]->userName;
     $_SESSION['role'] = $user[0]->role;
     $_POST = array();
-    header("location: html/systemOverview.php");
+    header("location: html/SystemOverview.php");
     return true;
   } else return false;
 }

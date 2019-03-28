@@ -1,7 +1,7 @@
-// When the user clicks on the button, open the modal 
+// When the user clicks on the button, open the modal
 function show(username) {
     var modal = document.getElementById('myModal'+username);
-	modal.style.display = "block";
+	  modal.style.display = "block";
 }
 
 // When the user clicks on <span>, close the modal

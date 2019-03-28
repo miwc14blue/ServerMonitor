@@ -26,7 +26,6 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         // define variables and set to empty values
         $userNameErr = $firstNameErr=$lastNameErr=$emailErr=$passwordErr=$roleErr = "";
         $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password = "";
-        $userDAO = new UserDAO();
         $state = "aanmaken";
             
 /*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/       
@@ -96,7 +95,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         
 /*---------------------------------------if no errors, make user and send to DB----------------------------------------------------------*/
         function storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash) {
-            
+            $userDAO = new UserDAO();
             //Creates record with password.
             if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
                     and empty($emailErr) and empty($passwordErr)){                    

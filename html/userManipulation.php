@@ -33,20 +33,20 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         $userNameErr = $firstNameErr=$lastNameErr=$emailErr=$passwordErr=$roleErr = "";
         $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password = "";
         $state = "aanmaken";
-            
-/*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/       
-        
-        
-        
-        if (!empty($_GET["userName"])) { 
+
+/*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/
+
+
+
+        if (!empty($_GET["userName"])) {
             $userName = $_GET["userName"];
             $firstName = $_GET["firstName"];
             $lastName = $_GET["lastName"];
             $email = $_GET["email"];
             $role = $_GET["role"];
             $state = setPageState($userName);
-        } 
-        
+        }
+
         elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
             $saveWithHash = true;
             $attributeValidator = new AttributeValidator();
@@ -77,44 +77,44 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             $passwordAndErrMessage = $attributeValidator->validatePassword($_POST["password1"], $_POST["password2"]);
             $password = $passwordAndErrMessage[0];
             $passwordErr = $passwordAndErrMessage[1];
-            
+
             $role = $_POST["role"];
-            
+
 /*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/
             $saveWithHash = omittingPasswordForExistingUser($passwordErr, $userNameErr);
-            
+
             if (!$saveWithHash) {
                 $passwordErr= "";
-            }            
-            
+            }
+
 /*-------------------------------------user name overwrite checks for password and user existence-------------------------------------------*/
-            
+
             $saveWithHash = overwiteExistingUser($userNameErr, $password);
-            
+
 /*---------------------------------------if no errors, make user and send to DB--------------------------------------------------*/
-            storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, 
+            storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr,
                                 $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash);
 
-        } 
-        
-         
-        
-////////////////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////     
-        
+        }
+
+
+
+////////////////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////
+
 /*---------------------------------------if no errors, make user and send to DB----------------------------------------------------------*/
         function storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash) {
             $userDAO = new UserDAO();
             //Creates record with password.
-            if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
-                    and empty($emailErr) and empty($passwordErr)){                    
+            if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr)
+                    and empty($emailErr) and empty($passwordErr)){
                     $hash = password_hash($password, PASSWORD_DEFAULT);
                     $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
                     $userDAO->storeInDB($user);
                     header("Location: ../html/userListOverview");
                 }
-            
+
             //Updates record without password.
-            elseif ($userNameErr === "De gebruikersnaam is reeds geregistreerd." and empty($firstNameErr) 
+            elseif ($userNameErr === "De gebruikersnaam is reeds geregistreerd." and empty($firstNameErr)
                     and empty($lastNameErr) and empty($emailErr) and empty($password) and !$saveWithHash){
                 echo '<script>popup()</script>';
                 $user = new User($userName, $firstName, $lastName, $email, "dummyHash", $role);
@@ -122,7 +122,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 header("Location: ../html/userListOverview");
             }
             ////Updates record with password.
-            elseif (empty($firstNameErr) and empty($lastNameErr) and empty($emailErr) and empty($passwordErr) 
+            elseif (empty($firstNameErr) and empty($lastNameErr) and empty($emailErr) and empty($passwordErr)
                     and ($userNameErr === "De gebruikersnaam is reeds geregistreerd.")){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
@@ -130,7 +130,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 header("Location: ../html/userListOverview");
             }
         }
-        
+
 /*--------------------------------------- user name overwrite checks for password and user existence-----------------------------------*/
         function overwiteExistingUser($userNameErr, $password){
             if ($userNameErr === "De gebruikersnaam is reeds geregistreerd.") {
@@ -166,8 +166,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             }
             return $state;
         }
-/////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////   
-    
+/////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////
+
       ?>
         <div class="page">
             <div class="wrapper">
@@ -256,6 +256,16 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
                     
                     <?php } ?>
+                <?php if($state=='aanmaken'){ ?>
+                <button class="btn btn-reset" type="reset" value="Reset">Reset</button>
+                <?php } ?>
+                <a class="btn" href="userListOverview.php">Annuleren</a>
+                <?php if($state=='bewerken'){ ?>
+<!--           TODO: delete button still has to be implemented.-->
+                <a class="btn btn-verwijderen" href="../API/UserDelete.php?userName=<?php echo $userName ?>";>Gebruiker verwijderen</a>
+                <?php } ?>
+                <input class="btn btn-opslaan" type="submit" value="Gebruiker <?php echo $state ?>" />
+            </div>
             </form>
         </div>
         </div>

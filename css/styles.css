@@ -148,6 +148,7 @@ h2 {
   width: 1002px;
   flex-direction: column;
   display: flex;
+  margin-bottom: 50px;
 }
 
 input, select {
@@ -171,6 +172,7 @@ input, select {
   margin: 3px;
   background-color: #e0effc;
   border: 1px solid #73a2ef;
+  cursor: pointer;
 }
 
 .btn:hover {
@@ -179,15 +181,14 @@ input, select {
 }
 
 .error {
-    width: 50%;
-    height: 10px;
+    width: 65%;
+    height: auto;
     color: red;
-    font-size: 0.8em;
+    font-size: 0.7em;
     display: block;
     text-align: right;
     float: right;
     font-weight: 500;
-    padding-top: 10px;
 }
 
 label {

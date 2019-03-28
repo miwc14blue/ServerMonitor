@@ -9,18 +9,21 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
 <!DOCTYPE html>
 <html>
+<head>
+    <title>Gebruiker aanmaken/bewerken</title>
+    <meta charset="utf-8">
+    <title>Gebruiker <?php echo $state ?></title>
+    <script type="text/javascript" src="../js/popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles-updateUserForm.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/styles-popup.css">
+    <link rel="stylesheet" type="text/css" href="../css/styles-userlist.css">
 
-    <head>
-       <title>Gebruiker aanmaken/bewerken</title>
-        <meta charset="utf-8">
-        <title>Gebruiker <?php echo $state ?></title>
-        <link rel="stylesheet" type="text/css" href="../css/styles.css">
-        <link rel="stylesheet" type="text/css" href="../css/styles-updateUserForm.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    </head>
+</head>
 
-    <body>
-        <?php
+<body>
+    <?php
             include_once("../lib/AttributeValidator.php");
             include_once("../lib/User.php");
             include_once("../lib/UserDAO.php");
@@ -30,20 +33,20 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         $userNameErr = $firstNameErr=$lastNameErr=$emailErr=$passwordErr=$roleErr = "";
         $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password = "";
         $state = "aanmaken";
-            
-/*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/       
-        
-        
-        
-        if (!empty($_GET["userName"])) { 
+
+/*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/
+
+
+
+        if (!empty($_GET["userName"])) {
             $userName = $_GET["userName"];
             $firstName = $_GET["firstName"];
             $lastName = $_GET["lastName"];
             $email = $_GET["email"];
             $role = $_GET["role"];
             $state = setPageState($userName);
-        } 
-        
+        }
+
         elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
             $saveWithHash = true;
             $attributeValidator = new AttributeValidator();
@@ -74,44 +77,44 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             $passwordAndErrMessage = $attributeValidator->validatePassword($_POST["password1"], $_POST["password2"]);
             $password = $passwordAndErrMessage[0];
             $passwordErr = $passwordAndErrMessage[1];
-            
+
             $role = $_POST["role"];
-            
+
 /*---------------------------------------clears password error if user exist and no password filled in----------------------------------*/
             $saveWithHash = omittingPasswordForExistingUser($passwordErr, $userNameErr);
-            
+
             if (!$saveWithHash) {
                 $passwordErr= "";
-            }            
-            
+            }
+
 /*-------------------------------------user name overwrite checks for password and user existence-------------------------------------------*/
-            
+
             $saveWithHash = overwiteExistingUser($userNameErr, $password);
-            
+
 /*---------------------------------------if no errors, make user and send to DB--------------------------------------------------*/
-            storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, 
+            storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr,
                                 $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash);
 
-        } 
-        
-         
-        
-////////////////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////     
-        
+        }
+
+
+
+////////////////////////////////////////////////////////FUNCTIONS////////////////////////////////////////////////////////////////////
+
 /*---------------------------------------if no errors, make user and send to DB----------------------------------------------------------*/
         function storeUserIfGoodToGo($userNameErr, $firstNameErr, $lastNameErr, $emailErr, $passwordErr, $password, $userName, $firstName, $lastName, $email, $role, $saveWithHash) {
             $userDAO = new UserDAO();
             //Creates record with password.
-            if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr) 
-                    and empty($emailErr) and empty($passwordErr)){                    
+            if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr)
+                    and empty($emailErr) and empty($passwordErr)){
                     $hash = password_hash($password, PASSWORD_DEFAULT);
                     $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
                     $userDAO->storeInDB($user);
                     header("Location: ../html/userListOverview");
                 }
-            
+
             //Updates record without password.
-            elseif ($userNameErr === "De gebruikersnaam is reeds geregistreerd." and empty($firstNameErr) 
+            elseif ($userNameErr === "De gebruikersnaam is reeds geregistreerd." and empty($firstNameErr)
                     and empty($lastNameErr) and empty($emailErr) and empty($password) and !$saveWithHash){
                 echo '<script>popup()</script>';
                 $user = new User($userName, $firstName, $lastName, $email, "dummyHash", $role);
@@ -119,7 +122,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 header("Location: ../html/userListOverview");
             }
             ////Updates record with password.
-            elseif (empty($firstNameErr) and empty($lastNameErr) and empty($emailErr) and empty($passwordErr) 
+            elseif (empty($firstNameErr) and empty($lastNameErr) and empty($emailErr) and empty($passwordErr)
                     and ($userNameErr === "De gebruikersnaam is reeds geregistreerd.")){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
@@ -127,7 +130,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 header("Location: ../html/userListOverview");
             }
         }
-        
+
 /*--------------------------------------- user name overwrite checks for password and user existence-----------------------------------*/
         function overwiteExistingUser($userNameErr, $password){
             if ($userNameErr === "De gebruikersnaam is reeds geregistreerd.") {
@@ -163,8 +166,8 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             }
             return $state;
         }
-/////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////   
-    
+/////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////
+
       ?>
         <div class="page">
             <div class="wrapper">
@@ -222,9 +225,11 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                             <input name='email' type="text" value="<?php echo $email;?>" class="input-field" />
                         </label>
                     </p>
+
                 </div>
             </div>
             <div class="zend">
+<<<<<<< HEAD
                 <a class="btn" href="userListOverview.php">Annuleren</a>
                 <?php if($state=='bewerken'){ ?>
                 <a class="btn btn-verwijderen" href="../API/UserDelete.php?userName=<?php echo $userName ?>";><?php echo $userName ?> verwijderen</a>
@@ -233,6 +238,30 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 <?php if($state=='aanmaken'){ ?>
                 <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>
                 <?php } ?>
+=======
+                    <?php if($state=='aanmaken'){ ?>
+                    <button class="btn btn-reset" type="reset" value="Reset">Reset</button>
+                    <?php } ?>
+                    <a class="btn" href="userListOverview.php">Annuleren</a>
+                    <?php if($state=='bewerken'){ ?>
+                        <a class="btn btn-verwijderen" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
+                        <!--                    The Modal -->
+                        <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
+                            <!--                    Modal content -->
+                            <div class="modal-content">
+
+                                <div id="popup">
+                                    <span class="close" onclick="hide('<?php echo $userName ?>')">&times;</span>
+                                    <p id="popupTitle">Gebruiker verwijderen</p>
+                                    <p id="popupText">Weet u zeker dat u <?php echo $userName ?> wilt verwijderen?</p>
+                                </div>
+                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userManipulation.php'">Annuleren</button>
+                                <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <input class="btn btn-opslaan" type="submit" value="Gebruiker <?php echo $state ?>" />
+>>>>>>> 4e720ed61b5ba988c2ce9b4ff6f08a7e0dfe5d29
             </div>
             </form>
         </div>

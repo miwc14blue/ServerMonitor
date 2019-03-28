@@ -12,13 +12,12 @@ form p {
 
 .column-container{
     min-height: 300px;
-    margin-bottom: 35px;
     overflow: auto;
     display: flex;
 }
 
 .column {
-    width: 40%;
+    width: 49%;
     float: left;
 }
 
@@ -28,10 +27,9 @@ form p {
 
 .zend {
    text-align: right;
-   margin-right: 62px;
+   padding: 30px;
    height: 50px;
-   width: 100%;
-   float: right;
+   width: auto;
 }
 
 .btn-verwijderen {
@@ -42,14 +40,27 @@ form p {
 .btn-opslaan {
     background-color: #a9ff89;
     border: 1px solid #00FF00;
+    width: auto;
+    height: auto;
+    display: inline-block;
+    font: inherit;
 }
 
 .btn-opslaan:hover {
-    color: white;
     background-color: #00FF00;
 }
 
 .btn-verwijderen:hover {
-    color: white;
     background-color: #f90000;
+}
+
+.btn-reset {
+    background-color: #d5d5d5;
+    border: 1px solid #757575;
+    font: inherit;
+    float: left;
+}
+
+.btn-reset:hover {
+    background-color: #757575;
 }

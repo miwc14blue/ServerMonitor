@@ -1,10 +1,10 @@
 <?php
 session_start();
 
+
 if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
    header("Location:../login.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -38,12 +38,12 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             $lastName = $_GET["lastName"];
             $email = $_GET["email"];
             $role = $_GET["role"];
-            setPageState($userName);
+            $state = setPageState($userName);
         } 
         
         elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
             $saveWithHash = true;
-            $attributeValidator = new AttributeValidator();            
+            $attributeValidator = new AttributeValidator();
 
         //Checks user name from input field for validity
             $userNameAndErrMessage = $attributeValidator->validateUserName($_POST["userName"]);
@@ -156,6 +156,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             else {
                 $state = "bewerken";
             }
+            return $state;
         }
 /////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////   
     
@@ -233,8 +234,10 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                 <a class="btn btn-verwijderen" href="">Gebruiker verwijderen</a>
                 <?php } ?>
                 <input class="btn btn-opslaan" id="submitButton" type="submit" value="Gebruiker <?php echo $state ?>" />
+                <?php if($state=='aanmaken'){ ?>
                 <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>
-              </div>
+                <?php } ?>
+                </div>
             </form>
           </div>
         </div>

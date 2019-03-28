@@ -11,6 +11,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 <html>
 
     <head>
+       <title>Gebruiker aanmaken/bewerken</title>
         <meta charset="utf-8">
         <title>Gebruiker <?php echo $state ?></title>
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
@@ -226,8 +227,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             <div class="zend">
                 <a class="btn" href="userListOverview.php">Annuleren</a>
                 <?php if($state=='bewerken'){ ?>
-<!--           TODO: delete button still has to be implemented.-->
-                <a class="btn btn-verwijderen" href="">Gebruiker verwijderen</a>
+                <a class="btn btn-verwijderen" href="../API/UserDelete.php?userName=<?php echo $userName ?>";>Gebruiker verwijderen</a>
                 <?php } ?>
                 <input class="btn btn-opslaan" id="submitButton" type="submit" value="Gebruiker <?php echo $state ?>" />
                 <?php if($state=='aanmaken'){ ?>

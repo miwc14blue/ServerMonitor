@@ -234,7 +234,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php } ?>
                     <a class="btn" href="userListOverview.php">Annuleren</a>
                     <?php if($state=='bewerken'){ ?>
-                        <a class="btn btn-verwijderen trash" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
+                        <a class="btn btn-verwijderen" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
                         <!--                    The Modal -->
                         <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
                             <!--                    Modal content -->

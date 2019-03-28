@@ -12,21 +12,6 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 <!DOCTYPE html>
 
 <html>
-   <head>
-       <title>
-       Gebruiker Overzicht
-        </title>
-        <script type="text/javascript" src="../js/popup.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/styles.css">
-        <link rel="stylesheet" href="../css/userlist-styles.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    </head>
-
-    <body>
-    <?php require_once('menu.php') ;?>
-=======
-
 <head>
     <title>
         Gebruiker Overzicht
@@ -40,10 +25,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 </head>
 
 <body>
-    <?php
-    require_once('menu.php');
-    ?>
->>>>>>> e25021adc58017c0b4073f965e61b8fdaa388f5b
+    <?php require_once('menu.php'); ?>
     <div class="page">
         <div class="wrapper">
             <div class="header-container">
@@ -122,5 +104,5 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 
             }     ?>
             </table>
-    </body>
+</body>
 </html>

@@ -33,7 +33,6 @@ table td + td + td + td + td {
   font-size: 20px;
 }
 
-/* Popup */
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -58,7 +57,8 @@ i #text{
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 25%; /* Could be more or less, depending on screen size */
+  height:200px;
 }
 
 /* The Close Button */
@@ -67,9 +67,15 @@ i #text{
   float: right;
   font-size: 28px;
   font-weight: bold;
+  width:30px; /* increase area for easy pointing */
+  height:30px;
+  text-align:center; /* align symbol with elements on right-side of container */
+  line-height: 0%; /* shift center of symbol to center of pointer */
+  margin-top:9px; /* shift symbol down, keep area for pointer in place */
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;

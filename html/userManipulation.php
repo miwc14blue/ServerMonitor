@@ -227,9 +227,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             <div class="zend">
                 <a class="btn" href="userListOverview.php">Annuleren</a>
                 <?php if($state=='bewerken'){ ?>
-                <a class="btn btn-verwijderen" href="../API/UserDelete.php?userName=<?php echo $userName ?>";>Gebruiker verwijderen</a>
+                <a class="btn btn-verwijderen" href="../API/UserDelete.php?userName=<?php echo $userName ?>";><?php echo $userName ?> verwijderen</a>
                 <?php } ?>
-                <input class="btn btn-opslaan" id="submitButton" type="submit" value="Gebruiker <?php echo $state ?>" />
+                <input class="btn btn-opslaan" id="submitButton" type="submit" value="<?php echo $userName ?> <?php echo $state ?>" />
                 <?php if($state=='aanmaken'){ ?>
                 <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>
                 <?php } ?>

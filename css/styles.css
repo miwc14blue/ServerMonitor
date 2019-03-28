@@ -179,7 +179,7 @@ input, select {
 }
 
 .error {
-    width: 60%;
+    width: 50%;
     height: 10px;
     color: red;
     font-size: 0.8em;
@@ -187,7 +187,7 @@ input, select {
     text-align: right;
     float: right;
     font-weight: 500;
-    margin-bottom: 1px;
+    padding-top: 10px;
 }
 
 label {

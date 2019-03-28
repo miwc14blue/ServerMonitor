@@ -3,7 +3,6 @@ form {
     width: 1000px;
     font-size: 1em;
     height: auto;
-    margin-bottom: 50px;
     border: 1px solid #bdc2c6;
 }
 
@@ -11,30 +10,20 @@ form p {
     margin: 20px;
 }
 
-/* input, select {
-  width: 390px;
-  height: 30px;
-  display: flex;
-  margin: 10px 0;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-} */
-
-#containerLinks {
-    width: 40%;
-    float: left;
+.column-container{
+    min-height: 300px;
     margin-bottom: 35px;
+    overflow: auto;
+    display: flex;
 }
 
-#containerRechts {
+.column {
     width: 40%;
     float: left;
-    margin: 0 auto 35px 30px;
 }
 
-#containerLinks p:first-of-type {
-    width: 100%;
+.column-right {
+  align-self: flex-end;
 }
 
 .zend {

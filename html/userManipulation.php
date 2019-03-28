@@ -9,6 +9,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Gebruiker aanmaken/bewerken</title>
     <meta charset="utf-8">
@@ -169,102 +170,89 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 /////////////////////////////////////////////////////////Form starts here////////////////////////////////////////////////////////////////////
 
       ?>
-        <div class="page">
-            <div class="wrapper">
-                <div class="header-container">
-                    <h2>Gebruiker <?php echo $state ?></h2>
-                </div>
-                <form method="POST" action="userManipulation.php">
-                    <div class="column-container">
-                        <div class="column column-left">
-                            <p>
-                                <label>Gebruikersnaam
-                                    <span class="error">* <?php echo $userNameErr;?></span>
-                                    <input name='userName' type="text" value="<?php echo $userName;?>" class="input-field" />
-                                </label>
-                            </p>
-                            <p>
-                                <label>Wachtwoord
-                                    <span class="error">* <?php echo $passwordErr;?> </span>
-                                    <input name='password1' type="text" value="<?php echo $password1;?>" class="input-field" />
-                                </label>
-                            </p>
-                            <p>
-                                <label>Voornaam
-                                    <span class="error">* <?php echo $firstNameErr;?></span>
-                                    <input name='firstName' type="text" value="<?php echo $firstName;?>" class="input-field" />
-                                </label>
-                            </p>
-                            <p>
-                                <label>Rol
-                                    <span class="error"></span>
-                                    <select name="role">
-                                        <option value="User" selected>User</option>
-                                        <!--           TODO: pre-seleced value user does not show on screen-->
-                                        <option value="Administrator">Administrator</option>
-                                    </select>
-                                </label>
-                            </p>
-                        </div>
-                <div class="column column-right">
-                    <p>
-                        <label>Herhaal wachtwoord
-                            <span class="error">* <?php echo $passwordErr;?></span>
-                            <input name='password2' type="text" value="<?php echo $password2;?>" class="input-field" />
-                        </label>
-                    </p>
-                    <p>
-                        <label>Achternaam
-                            <span class="error">* <?php echo $lastNameErr;?></span>
-                            <input name='lastName' type="text" value="<?php echo $lastName;?>" class="input-field" />
-                        </label>
-                    </p>
-                    <p>
-                        <label>Email-adres
-                            <span class="error">* <?php echo $emailErr;?></span>
-                            <input name='email' type="text" value="<?php echo $email;?>" class="input-field" />
-                        </label>
-                    </p>
-
-                </div>
+    <div class="page">
+        <div class="wrapper">
+            <div class="header-container">
+                <h2>Gebruiker <?php echo $state ?></h2>
             </div>
-            <div class="zend">
-<<<<<<< HEAD
-                <a class="btn" href="userListOverview.php">Annuleren</a>
-                <?php if($state=='bewerken'){ ?>
-                <a class="btn btn-verwijderen" href="../API/UserDelete.php?userName=<?php echo $userName ?>";><?php echo $userName ?> verwijderen</a>
-                <?php } ?>
-                <input class="btn btn-opslaan" id="submitButton" type="submit" value="<?php echo $userName ?> <?php echo $state ?>" />
-                <?php if($state=='aanmaken'){ ?>
-                <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>
-                <?php } ?>
-=======
-                    <?php if($state=='aanmaken'){ ?>
-                    <button class="btn btn-reset" type="reset" value="Reset">Reset</button>
-                    <?php } ?>
+            <form method="POST" action="userManipulation.php">
+                <div class="column-container">
+                    <div class="column column-left">
+                        <p>
+                            <label>Gebruikersnaam
+                                <span class="error">* <?php echo $userNameErr;?></span>
+                                <input name='userName' type="text" value="<?php echo $userName;?>" class="input-field" />
+                            </label>
+                        </p>
+                        <p>
+                            <label>Wachtwoord
+                                <span class="error">* <?php echo $passwordErr;?> </span>
+                                <input name='password1' type="text" value="<?php echo $password1;?>" class="input-field" />
+                            </label>
+                        </p>
+                        <p>
+                            <label>Voornaam
+                                <span class="error">* <?php echo $firstNameErr;?></span>
+                                <input name='firstName' type="text" value="<?php echo $firstName;?>" class="input-field" />
+                            </label>
+                        </p>
+                        <p>
+                            <label>Rol
+                                <span class="error"></span>
+                                <select name="role">
+                                    <option value="User" selected>User</option>
+                                    <!--           TODO: pre-seleced value user does not show on screen-->
+                                    <option value="Administrator">Administrator</option>
+                                </select>
+                            </label>
+                        </p>
+                    </div>
+                    <div class="column column-right">
+                        <p>
+                            <label>Herhaal wachtwoord
+                                <span class="error">* <?php echo $passwordErr;?></span>
+                                <input name='password2' type="text" value="<?php echo $password2;?>" class="input-field" />
+                            </label>
+                        </p>
+                        <p>
+                            <label>Achternaam
+                                <span class="error">* <?php echo $lastNameErr;?></span>
+                                <input name='lastName' type="text" value="<?php echo $lastName;?>" class="input-field" />
+                            </label>
+                        </p>
+                        <p>
+                            <label>Email-adres
+                                <span class="error">* <?php echo $emailErr;?></span>
+                                <input name='email' type="text" value="<?php echo $email;?>" class="input-field" />
+                            </label>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="zend">
                     <a class="btn" href="userListOverview.php">Annuleren</a>
                     <?php if($state=='bewerken'){ ?>
-                        <a class="btn btn-verwijderen" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
-                        <!--                    The Modal -->
-                        <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
-                            <!--                    Modal content -->
-                            <div class="modal-content">
+                    <a class="btn btn-verwijderen" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
+                    <!--                    The Modal -->
+                    <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
+                        <!--                    Modal content -->
+                        <div class="modal-content">
 
-                                <div id="popup">
-                                    <span class="close" onclick="hide('<?php echo $userName ?>')">&times;</span>
-                                    <p id="popupTitle">Gebruiker verwijderen</p>
-                                    <p id="popupText">Weet u zeker dat u <?php echo $userName ?> wilt verwijderen?</p>
-                                </div>
-                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userManipulation.php'">Annuleren</button>
-                                <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
+                            <div id="popup">
+                                <span class="close" onclick="hide('<?php echo $userName ?>')">&times;</span>
+                                <p id="popupTitle">Gebruiker verwijderen</p>
+                                <p id="popupText">Weet u zeker dat u <?php echo $userName ?> wilt verwijderen?</p>
                             </div>
+                            <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userManipulation.php'">Annuleren</button>
+                            <button id="submitbtn" class="popupFooter" onclick="alert('<?php echo $userName;?> is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
                         </div>
+                    </div>
                     <?php } ?>
-                    <input class="btn btn-opslaan" type="submit" value="Gebruiker <?php echo $state ?>" />
->>>>>>> 4e720ed61b5ba988c2ce9b4ff6f08a7e0dfe5d29
-            </div>
+                    <input class="btn btn-opslaan" type="submit" value="<?php echo $userName;?> <?php echo $state ?>" />
+                </div>
             </form>
         </div>
-        </div>
-    </body>
-    </html>
+    </div>
+</body>
+
+</html>

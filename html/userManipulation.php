@@ -228,10 +228,11 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
 
               <div class="zend">
                 <a class="btn" href="userListOverview.php">Annuleren</a>
+                <a class="btn btn-verwijderen"  onclick="window.location.href='../API/UserDelete.php?userName=<?php echo $user->userName ?>'">Gebruiker verwijderen</a>
                 <?php if($state=='bewerken'){ ?>
                 
 <!--           TODO: delete button still has to be implemented.-->
-                <a class="btn btn-verwijderen" href="">Gebruiker verwijderen</a>
+                
                 <?php } ?>
                 <input class="btn btn-opslaan" id="submitButton" type="submit" value="Gebruiker <?php echo $state ?>" />
                 <button class="btnSize hoverColor" id="resetButton" type="reset" value="Reset">Reset</button>

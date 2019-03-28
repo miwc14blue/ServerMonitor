@@ -13,7 +13,7 @@
         include_once("../lib/AttributeValidator.php");
         include_once("../lib/User.php");
         include_once("../lib/UserDAO.php");
-        
+
         // define variables and set to empty values
         $userNameErr = $firstNameErr=$lastNameErr=$emailErr=$passwordErr=$roleErr = "";
         $userName = $firstName=$lastName=$email = $password1=$password2=$role=$password = "";
@@ -31,26 +31,30 @@
             $saveWithHash = true;
             $attributeValidator = new AttributeValidator(); 
             
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $attributeValidator = new AttributeValidator();
+
         //Checks user name from input field for validity
             $userNameAndErrMessage = $attributeValidator->validateUserName($_POST["userName"]);
             $userName = $userNameAndErrMessage[0];
             $userNameErr = $userNameAndErrMessage[1];
-            
+
         //Checks first name from input field for validity
             $firstNameAndErrMessage = $attributeValidator->validateFirstName($_POST["firstName"]);
             $firstName = $firstNameAndErrMessage[0];
             $firstNameErr = $firstNameAndErrMessage[1];
-            
+
         //Checks last name from input field for validity
             $lastNameAndErrMessage = $attributeValidator->validateLastName($_POST["lastName"]);
             $lastName = $lastNameAndErrMessage[0];
             $lastNameErr = $lastNameAndErrMessage[1];
-            
+
         //Checks e-mail address from input field for validity
             $emailAndErrMessage = $attributeValidator->validateEmail($_POST["email"]);
             $email = $emailAndErrMessage[0];
             $emailErr = $emailAndErrMessage[1];
-            
+
         //Checks passwords from input field for validity
             $passwordAndErrMessage = $attributeValidator->validatePassword($_POST["password1"], $_POST["password2"]);
             $password = $passwordAndErrMessage[0];
@@ -137,6 +141,21 @@
        
        
         <h1>Nieuwe gebruiker aanmaken</h1>
+
+/*---------------------------if no errors, make user and send to DB......................*/
+            if (empty($userNameErr) and empty($firstNameErr) and empty($lastNameErr)
+                and empty($emailErr) and empty($passwordErr)){
+
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $user = new User($userName, $firstName, $lastName, $email, $hash, $role);
+
+                $userDAO = new UserDAO();
+                $userDAO->storeInDB($user);
+            }
+        }
+?>
+
+
         <p><span class="error">* required field</span></p>
         <form method="POST" action="CreateUserForm.php">
             <p>
@@ -208,4 +227,3 @@
     </body>
 
     </html>
-

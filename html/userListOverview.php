@@ -82,12 +82,13 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
                         </a>
 
                         <!--                    The Modal -->
-                        <div id="myModal<?php echo $user->userName ?>" class="modal">
+                        <div id="myModal<?php echo $user->userName ?>" class="modal" onclick="hide('<?php echo $user->userName ?>')">
 
                             <!--                    Modal content -->
                             <div class="modal-content">
-                                <span class="close" onclick="hide('<?php echo $user->userName ?>')">&times;</span>
+                                
                                 <div id="popup">
+                                <span class="close" onclick="hide('<?php echo $user->userName ?>')">&times;</span>
                                     <p id="popupTitle">Gebruiker verwijderen</p>
                                     <p id="popupText">Weet u zeker dat u <?php echo $user->userName ?> wilt verwijderen?</p>
                                 </div>

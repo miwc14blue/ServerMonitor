@@ -71,8 +71,7 @@ i #text{
   height:30px;
   text-align:center; /* align symbol with elements on right-side of container */
   line-height: 0%; /* shift center of symbol to center of pointer */
-  vertical-align: center;
-  margin-top:13px; /* shift symbol down, keep area for pointer in place */
+  margin-top:9px; /* shift symbol down, keep area for pointer in place */
 }
 
 .close:hover,

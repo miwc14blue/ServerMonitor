@@ -1,6 +1,6 @@
 // When the user clicks on the button, open the modal 
-var modal = document.getElementById('myModal'+username);
 function show(username) {
+    var modal = document.getElementById('myModal'+username);
 	  modal.style.display = "block";
 }
 

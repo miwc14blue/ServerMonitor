@@ -12,23 +12,21 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 <!DOCTYPE html>
 
 <html>
+<
+   <head>
+       <title>
+       Gebruiker Overzicht
+        </title>
+        <script type="text/javascript" src="../js/popup.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/styles.css">
+        <link rel="stylesheet" href="../css/userlist-styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
 
-<head>
-    <title>
-        Gebruiker Overzicht
-    </title>
-    <script type="text/javascript" src="../js/popup.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/styles-userlist.css">
-    <link rel="stylesheet" href="../css/styles-popup.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-</head>
+    <body>
+    <?php require_once('menu.php') ;?>
 
-<body>
-    <?php
-    require_once('menu.php');
-    ?>
     <div class="page">
         <div class="wrapper">
             <div class="header-container">
@@ -44,7 +42,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
                     <th></th>
                 </tr>
                 <?php
-
+                
                 $userDAO = new UserDAO();
                 $userList = json_decode($userDAO->retrieveUserList());
 
@@ -70,8 +68,11 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
                     </td>
 
                     <td>
-                        <a href="userManipulation.php"><i class="fa fa-pencil"></i></a>
-                        <!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
+                        <a href="../API/UserEdit.php?userName=<?php echo $user->userName ?>'"><i class="fa fa-pencil"> </i></a>
+<!--                TODO: Either modify the anchor or style the button please--> 
+                        
+                        <button id="btn"> <i class="fa fa-pencil" 
+                        onclick="window.location.href='../API/UserEdit.php?userName=<?php echo $user->userName ?>'"> </i>  </button>
 
                         <!--                    Trigger/Open The Modal -->
                         <a class="trash" onclick="show('<?php echo $user->userName ?>')" <?php if ($_SESSION['username'] == $user->userName) {
@@ -104,6 +105,5 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 
             }     ?>
             </table>
-</body>
-
+    </body>
 </html>

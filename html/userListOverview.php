@@ -10,6 +10,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 ?>
 
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -19,7 +20,8 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
     <script type="text/javascript" src="../js/popup.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/userlist-styles.css">
+    <link rel="stylesheet" href="../css/styles-userlist.css">
+    <link rel="stylesheet" href="../css/styles-popup.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
@@ -79,18 +81,20 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
                         </a>
 
                         <!--                    The Modal -->
-                        <div id="myModal<?php echo $user->userName ?>" class="modal">
+                        <div id="myModal<?php echo $user->userName ?>" class="modal" onclick="hide('<?php echo $user->userName ?>')">
 
                             <!--                    Modal content -->
                             <div class="modal-content">
+                                
+                                <div id="popup">
                                 <span class="close" onclick="hide('<?php echo $user->userName ?>')">&times;</span>
-                                <div>
-                                    <h5 id="popupTitle">Gebruiker verwijderen</h5>
+                                    <p id="popupTitle">Gebruiker verwijderen</p>
                                     <p id="popupText">Weet u zeker dat u <?php echo $user->userName ?> wilt verwijderen?</p>
-                                    <button class="cancelbtn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
-                                    <button class="submitbtn" onclick="window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName ?>';"><?php echo $user->userName ?> verwijderen</button>
                                 </div>
+                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userListOverview.php'">Annuleren</button>
+                                <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
                             </div>
+                            
                         </div>
 
                     </td>

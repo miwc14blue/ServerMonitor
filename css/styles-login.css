@@ -30,3 +30,9 @@
     height: auto;
     width: auto;
 }
+
+h1 {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}

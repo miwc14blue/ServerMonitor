@@ -32,11 +32,6 @@ form p {
    width: auto;
 }
 
-.btn-verwijderen {
-    background-color: #f75151;
-    border: 1px solid #f90000;
-}
-
 .btn-opslaan {
     background-color: #a9ff89;
     border: 1px solid #00FF00;
@@ -48,10 +43,6 @@ form p {
 
 .btn-opslaan:hover {
     background-color: #00FF00;
-}
-
-.btn-verwijderen:hover {
-    background-color: #f90000;
 }
 
 .btn-reset {

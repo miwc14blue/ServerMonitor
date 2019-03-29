@@ -189,6 +189,15 @@ input, select {
   background-color: #73a2ef;
 }
 
+.btn-verwijderen {
+    background-color: #f75151;
+    border: 1px solid #f90000;
+}
+
+.btn-verwijderen:hover {
+    background-color: #f90000;
+}
+
 .error {
     width: 65%;
     height: auto;

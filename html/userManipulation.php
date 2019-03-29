@@ -251,7 +251,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                         </div>
                     </div>
                     <?php } ?>
-                    <input class="btn btn-opslaan" type="submit" value="<?php echo $userName;?> <?php echo $state ?>" />
+                    <input class="btn btn-opslaan" type="submit" value="<?php if($state=='bewerken'){echo $userName;} else {echo "Gebruiker";}?> <?php echo $state ?>" />
                 </div>
             </form>
         </div>

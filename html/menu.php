@@ -2,7 +2,7 @@
   <div class="menu">
     <div class="links">
       <div class="logo-container">
-        <img class="logo" src="../img/logo.png" alt="logo">
+        <img class="logo" src="../img/logo-servermonitor.png" alt="logo">
         <h1>Server Monitor</h1>
       </div>
       <?php if($_SESSION['role']=='admin'){ ?>

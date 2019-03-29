@@ -117,7 +117,6 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
             //Updates record without password.
             elseif ($userNameErr === "De gebruikersnaam is reeds geregistreerd." and empty($firstNameErr)
                     and empty($lastNameErr) and empty($emailErr) and empty($password) and !$saveWithHash){
-                echo '<script>popup()</script>';
                 $user = new User($userName, $firstName, $lastName, $email, "dummyHash", $role);
                 $userDAO->updateInDBWithoutHash($user);
                 header("Location: ../html/userListOverview");
@@ -201,7 +200,6 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                                 <span class="error"></span>
                                 <select name="role">
                                     <option value="user" selected>User</option>
-                                    <!--           TODO: pre-seleced value user does not show on screen-->
                                     <option value="admin">Administrator</option>
                                 </select>
                             </label>

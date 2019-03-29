@@ -12,7 +12,6 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 <!DOCTYPE html>
 
 <html>
-
 <head>
     <title>
         Gebruiker Overzicht
@@ -26,9 +25,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 </head>
 
 <body>
-    <?php
-    require_once('menu.php');
-    ?>
+    <?php require_once('menu.php'); ?>
     <div class="page">
         <div class="wrapper">
             <div class="header-container">
@@ -70,8 +67,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
                     </td>
 
                     <td>
-                        <a href="userManipulation.php"><i class="fa fa-pencil"></i></a>
-                        <!--                    HIER KOMT FRANK&ANDY'S LINK NAAR CREATE USER FORM MET MEEGEGEVEN USER VALUES, WAARDOOR HET EEN EDIT FORM WORDT -->
+                        <a href="../API/UserEdit.php?userName=<?php echo $user->userName ?>"><i class="fa fa-pencil"> </i></a>
 
                         <!--                    Trigger/Open The Modal -->
                         <a class="trash" onclick="show('<?php echo $user->userName ?>')" <?php if ($_SESSION['username'] == $user->userName) {
@@ -85,16 +81,18 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 
                             <!--                    Modal content -->
                             <div class="modal-content">
-                                
+
                                 <div id="popup">
                                 <span class="close" onclick="hide('<?php echo $user->userName ?>')">&times;</span>
                                     <p id="popupTitle">Gebruiker verwijderen</p>
                                     <p id="popupText">Weet u zeker dat u <?php echo $user->userName ?> wilt verwijderen?</p>
                                 </div>
-                                <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userListOverview.php'">Annuleren</button>
-                                <button id="submitbtn" class="popupFooter" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';"><?php echo $user->userName?> verwijderen</button>
+                                <div class="popupFooter">
+                                  <button class="btn" onclick="window.location.href='userListOverview.php'">Annuleren</button>
+                                  <button class="btn btn-verwijderen" onclick="alert('Gebruiker is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $user->userName?>';">Verwijderen</button>
+                                </div>
                             </div>
-                            
+
                         </div>
 
                     </td>
@@ -104,6 +102,7 @@ if (!isset($_SESSION['username']) || !($_SESSION['role'] == 'admin')) {
 
             }     ?>
             </table>
+          </div>
+        </div>
 </body>
-
 </html>

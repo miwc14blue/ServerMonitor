@@ -1,7 +1,8 @@
 <nav class="menu-container">
   <div class="menu">
     <div class="links">
-      <div class="logo">
+      <div class="logo-container">
+        <img class="logo" src="../img/logo.png" alt="logo">
         <h1>Server Monitor</h1>
       </div>
       <?php if($_SESSION['role']=='admin'){ ?>

@@ -21,7 +21,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
   if ($isFilledIn && !empty($user)) {
     $isDeleted = checkForDeletion($user);
-    if (!$isDeleted) $loggedIn = tryToLogin($user);
+    if (!$isDeleted) {
+        $loggedIn = tryToLogin($user);
+    }
   }
 
   if ($isFilledIn && !$loggedIn && $isDeleted == false) {

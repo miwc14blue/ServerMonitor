@@ -13,11 +13,52 @@ class UserDAO extends DAO {
         $deleted = $user->getDeleted();
         
         $query = "INSERT INTO servermonitor.user (`userName`, `firstName`, `lastName`, `email`, `password`, `role`, `deleted`) 
-            VALUES ('$userName', '$firstName', '$lastName', '$email', '$hash', '$role', '$deleted');";
+        VALUES ('$userName', '$firstName', '$lastName', '$email', '$hash', '$role', '$deleted');";
 
         parent::SendQueryToDB($query);
     }
     
+    public function updateInDBWithoutHash($user){
+        $userName = $user->getUserName();
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $role = $user->getRole();
+        $deleted = $user->getDeleted();
+        
+        $query = "UPDATE servermonitor.user SET 
+        userName = '$userName',
+        firstName = '$firstName',
+        lastName = '$lastName',
+        email = '$email',
+        role = '$role',
+        deleted = '$deleted' 
+        WHERE userName='$userName';";
+
+        parent::SendQueryToDB($query);
+    }
+    
+    public function updateInDBWithHash($user){
+        $userName = $user->getUserName();
+        $firstName = $user->getFirstName();
+        $lastName = $user->getLastName();
+        $email = $user->getEmail();
+        $hash = $user->getHash();
+        $role = $user->getRole();
+        $deleted = $user->getDeleted();
+        
+        $query = "UPDATE servermonitor.user SET 
+        userName = '$userName',
+        firstName = '$firstName',
+        lastName = '$lastName',
+        email = '$email',
+        password = '$hash', 
+        role = '$role',
+        deleted = '$deleted' 
+        WHERE userName='$userName';";
+
+        parent::SendQueryToDB($query);
+    }
     
     public function findUser($userName){ 
         $query = "SELECT * from user WHERE userName= '$userName';";
@@ -44,10 +85,10 @@ class UserDAO extends DAO {
     }
     
     public function editUser($userName){
-         $query = "SELECT userName, firstName, lastName, role 
+        $query = "SELECT userName, firstName, lastName, email, role 
         FROM servermonitor.user WHERE userName= '$userName';";
-        $user = parent::SendQueryToDB($query);
-       //TODO send to somwhere for coming into the form.
+        $user = json_decode(parent::SendQueryToDB($query));
+        header("location:../html/userManipulation.php?userName=".$user[0]->userName."&firstName=".$user[0]->firstName."&lastName=".$user[0]->lastName."&email=".$user[0]->email."&role=".$user[0]->role);
     }
 }
 ?>

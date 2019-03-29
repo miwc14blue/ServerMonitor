@@ -1,7 +1,7 @@
 /*CSS File For login webpage*/
 #login{
     width: 400px;
-    height: 320px;
+    height: 280px;
     border: 1px solid #bdc2c6;
     font-size: 1em;
     padding: 50px 90px;
@@ -29,4 +29,10 @@
     margin-top: 20px;
     height: auto;
     width: auto;
+}
+
+h1 {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
 }

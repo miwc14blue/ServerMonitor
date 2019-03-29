@@ -2,13 +2,13 @@
 include 'UserDAO.php';
 
 class AttributeValidator {
-        
+
 /*-----------------------------------user name validaton---------------------------------*/
-    public function validateUserName($userName) {  
+    public function validateUserName($userName) {
         $error = "";
         $userDAO = new UserDAO();
         $existingUser = $userDAO->findUser($userName);
-        
+
         if (empty($userName)){
             $error = "Gebruikersnaam is vereist.";
         }
@@ -19,18 +19,18 @@ class AttributeValidator {
             $error="Gebruikersnaam moet minstens uit 5 karakters bestaan.";
         }
         elseif($existingUser!=="[]"){
-            $error = "De gebruikersnaam is niet beschikbaar.";
-        } 
+            $error = "De gebruikersnaam is reeds geregistreerd.";
+        }
         $userNameAndError = array($userName, $error);
         return $userNameAndError;
     }
-    
-    
-/*-----------------------------------first name validaton---------------------------------*/ 
+
+
+/*-----------------------------------first name validaton---------------------------------*/
     public function validateFirstName($firstName) {
         $error = "";
         $firstNameTested = $this->test_input($firstName);
-        
+
         if (empty($firstName)){
             $error = "Voornaam is vereist.";
         }
@@ -47,7 +47,7 @@ class AttributeValidator {
 /*-----------------------------------last name validaton---------------------------------*/
     public function validateLastName($lastName) {
         $error = "";
-        
+
         if (empty($lastName)){
             $error = "Achternaam is vereist";
         }
@@ -56,13 +56,13 @@ class AttributeValidator {
         }
         $lastNameAndError = array($lastName, $error);
         return $lastNameAndError;
-       
+
     }
 
-/*-----------------------------------email address validaton---------------------------------*/      
+/*-----------------------------------email address validaton---------------------------------*/
     public function validateEmail($email) {
         $error = "";
-        
+
         if (empty($email)){
             $error = "Email adres is vereist";
         }
@@ -72,37 +72,26 @@ class AttributeValidator {
             $emailAndError = array($email, $error);
             return $emailAndError;
     }
-    
-/*-----------------------------------password validaton---------------------------------*/ 
+
+/*-----------------------------------password validaton---------------------------------*/
     public function validatePassword($password1, $password2) {
         $error = "";
-        
+
         if (empty($password1 or $password2)){
             $error = "Wachtwoord is vereist.";
-        } 
+        }
         elseif($password1!== $password2){
             $error="Wachtwoorden zijn niet gelijk";
         }
         elseif(!$this->checkPassword($password1)){ // checkPassword returns true if patern is fine if not it will return false
                                             // and !false will be true so will create error massage
-            $error="Het wachtwoord moet bestaan uit (minimaal) 8 tekens, waarvan (minimaal) 1 hoofdletter, 1 kleine letter en 1 nummer.";
+            $error="Uw wachtwoord moet minimaal 8 tekens bevatten, waarvan tenminste 1 hoofdletter, 1 kleine letter en 1 cijfer.";
         }
             $passwordAndError = array($password1, $error);
             return $passwordAndError;
     }
-    
-/*-----------------------------------role validaton---------------------------------*/ 
-    public function validateRole($role) {
-        $error = "";
-        
-        if (empty($role)){
-            $error = "Rol is vereist.";
-        }
-        $roleAndError = array($role, $error);
-        return $roleAndError;
-    }
 
-/*-----------------------------helper functions-----------------------------------*/    
+/*-----------------------------helper functions-----------------------------------*/
     //this function length of the input  for firstname,lastname or whereever required
     public function test_input($data) {
         $data = trim($data);
@@ -110,7 +99,7 @@ class AttributeValidator {
         $data = htmlspecialchars($data);
         return $data;
     }
-    
+
     //this function length of the input  for firstname,lastname or wherever required
     public function checkLength($str, $len){
         return strlen($str) >= $len;

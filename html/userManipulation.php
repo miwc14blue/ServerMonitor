@@ -159,6 +159,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
         function setPageState($userName) {
             $userDAO = new UserDAO();
             if (empty($userDAO->findUser($userName))){
+
                 $state = "aanmaken";
             }
             else {
@@ -180,7 +181,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                         <p>
                             <label>Gebruikersnaam
                                 <span class="error">* <?php echo $userNameErr;?></span>
-                                <input name='userName' type="text" value="<?php echo $userName;?>" class="input-field" />
+                                <input name='userName'<?php if ($state == "bewerken") echo ' disabled="disabled"';?> value="<?php echo $userName;?>" class="input-field"/>
+                
+                                <?php if ($state == "bewerken") echo '<input name="userName" type="hidden" value="'.$userName.'" class="input-field" />';?>
                             </label>
                         </p>
                         <p>
@@ -233,7 +236,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     <?php } ?>
                     <a class="btn" href="userListOverview.php">Annuleren</a>
                     <?php if($state=='bewerken'){ ?>
-                    <a class="btn btn-verwijderen" onclick="show('<?php echo $userName ?>')"><?php echo $userName?> verwijderen</a>
+                    <a class="btn btn-verwijderen" onclick="show('<?php echo $userName ?>')">Gebruiker verwijderen</a>
                     <!--                    The Modal -->
                     <div id="myModal<?php echo $userName ?>" class="modal" onclick="hide('<?php echo $userName ?>')">
                         <!--                    Modal content -->
@@ -251,7 +254,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                         </div>
                     </div>
                     <?php } ?>
-                    <input class="btn btn-opslaan" type="submit" value="<?php if($state=='bewerken'){echo $userName;} else {echo "Gebruiker";}?> <?php echo $state ?>" />
+                    <input class="btn btn-opslaan" type="submit" value="Gebruiker <?php echo $state ?>" />
                 </div>
             </form>
         </div>

@@ -200,9 +200,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                             <label>Rol
                                 <span class="error"></span>
                                 <select name="role">
-                                    <option value="User" selected>User</option>
+                                    <option value="user" selected>User</option>
                                     <!--           TODO: pre-seleced value user does not show on screen-->
-                                    <option value="Administrator">Administrator</option>
+                                    <option value="admin">Administrator</option>
                                 </select>
                             </label>
                         </p>

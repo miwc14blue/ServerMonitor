@@ -27,3 +27,7 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.wrapper .popupFooter a {
+    padding: 15px;
+}

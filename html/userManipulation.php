@@ -249,7 +249,7 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                             </div>
                             <div class="popupFooter">
                               <button class="btn" onclick="hide('<?php echo $userName ?>')">Annuleren</button>
-                              <button class="btn btn-verwijderen" onclick="alert('<?php echo $userName;?> is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
+                              <a class="btn btn-verwijderen" onclick="alert('<?php echo $userName;?> is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</a>
                             </div>
                         </div>
                     </div>

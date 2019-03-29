@@ -5,16 +5,17 @@
 
 #popupTitle {
     font-weight: bold;
-    margin-top:3px;
+    margin: 3px 0 10px;
     text-align:left;
     padding-bottom:20px;
     border-bottom: 2px solid #eef2f7;
 }
 
 #popupText {
-    margin: 20px 0 20px 10px;
     float:left;
     text-align: left;
+    height: 60px;
+    margin: 10px 0;
 }
 
 .popupFooter {
@@ -25,29 +26,4 @@
     margin: 20px 0 0 0;
     display: flex;
     justify-content: flex-end;
-}
-
-#cancelbtn {
-    background:white;
-    color: #999da1;
-    border: 3px solid #eef2f7;
-}
-
-#cancelbtn:hover, #cancelbtn:focus {
-    background:rgb(131, 131, 131);
-    color:white;
-    border:3px solid rgb(131, 131, 131);
-}
-
-#submitbtn {
-    background:rgb(255, 40, 40);
-    color:white;
-    border: 3px solid rgb(255, 40, 40);
-    margin-left:10px;
-}
-
-#submitbtn:hover, #submitbtn:focus {
-    background:red;
-    border:3px solid red;
-    font-weight: bold;
 }

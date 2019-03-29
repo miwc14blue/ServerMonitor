@@ -244,12 +244,14 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                                 <p id="popupTitle">Gebruiker verwijderen</p>
                                 <p id="popupText">Weet u zeker dat u <?php echo $userName ?> wilt verwijderen?</p>
                             </div>
-                            <button id="cancelbtn" class="popupFooter" onclick="window.location.href='userManipulation.php'">Annuleren</button>
-                            <button id="submitbtn" class="popupFooter" onclick="alert('<?php echo $userName;?> is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';">Gebruiker verwijderen</button>
+                            <div class="popupFooter">
+                              <button class="btn" onclick="hide('<?php echo $userName ?>')">Annuleren</button>
+                              <button class="btn btn-verwijderen" onclick="alert('<?php echo $userName;?> is verwijderd');window.location.href='../API/UserDelete.php? userName=<?php echo $userName?>';"><?php echo $userName?> verwijderen</button>
+                            </div>
                         </div>
                     </div>
                     <?php } ?>
-                    <input class="btn btn-opslaan" type="submit" value="Gebruiker <?php echo $state ?>" />
+                    <input class="btn btn-opslaan" type="submit" value="<?php if($state=='bewerken'){echo $userName;} else {echo "Gebruiker";}?> <?php echo $state ?>" />
                 </div>
             </form>
         </div>

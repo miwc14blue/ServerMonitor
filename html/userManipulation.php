@@ -230,6 +230,9 @@ if(!isset($_SESSION['username']) || !($_SESSION['role']=='admin')){
                     </div>
                 </div>
                 <div class="zend">
+                    <?php if($state=='aanmaken'){ ?>
+                     <button class="btn btn-reset" type="reset" value="Reset">Reset</button>
+                    <?php } ?>
                     <a class="btn" href="userListOverview.php">Annuleren</a>
                     <?php if($state=='bewerken'){ ?>
                     <a class="btn btn-verwijderen" onclick="show('<?php echo $userName;?>')"><?php echo $userName;?> verwijderen</a>
